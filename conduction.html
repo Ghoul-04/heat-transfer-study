@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>التوصيل أحادي البعد</title>
-<meta name="description" content="الزعانف: اشتقاق معادلة الزعنفة، الحالات الثلاث، الزعنفة الرقيقة والدبوسية والطول المصحح، مع أمثلة المحاضرة والواجب.">
+<title>Steady 1-D Conduction</title>
+<meta name="description" content="التوصيل المستقر أحادي البعد: جدار مستوي، جدار مركب، القياس الكهربائي، أسطوانة وكرة متعددة الطبقات، مع الواجبات محلولة.">
 <script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
@@ -17,6 +17,246 @@
 <script defer src="js/layout.js"></script>
 </head>
 <body data-page="conduction">
-<main id="content"><div class="wrap"><div class="page-hero"><h1>التوصيل أحادي البعد</h1><p>⏳ هذا القسم ينضاف خلال دقائق — ابدأ بالأقسام ذات الأولوية.</p></div></div></main>
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Lecture 2 · pages 5–10 · Steady state conduction — one dimension</div>
+  <h1>التوصيل المستقر أحادي البعد</h1>
+  <span class="badge p4">أولوية 4 — بس المقاومات هنا تنستخدم بكل الامتحان</span>
+  <p>هنا تتولد فكرة "<b>المقاومة الحرارية</b>": جدار، أسطوانة، كرة — كل وحدة إلها مقاومة، ونرصفهن مثل دائرة كهربائية.</p>
+  <div data-toc></div>
+</div>
+
+<section class="topic">
+<h2 id="plane" data-short="الجدار المستوي">🧱 1- الجدار المستوي (Plane wall)</h2>
+<div class="card">
+<div class="st"><div class="lab">From Fourier's equation</div><div class="eq">$$q=-kA\frac{dT}{dx}\ \Rightarrow\ q\,dx=-kA\,dT\ \Rightarrow\ q=-kA\frac{T_2-T_1}{x_2-x_1}$$</div><p class="why">بالحالة المستقرة q ثابتة، فنفصل المتغيرات ونكامل من الوجه 1 للوجه 2.</p></div>
+</div>
+<div class="f" data-name="Plane wall — Eq. 1" data-sym="\Delta T|T₂ − T₁|°C ; \Delta x|سمك الجدار|m ; k|الموصلية|W/m·°C ; A|المساحة|m²">
+<div class="eq">$$q=-kA\frac{\Delta T}{\Delta x}\qquad\Longleftrightarrow\qquad q=\frac{T_1-T_2}{\Delta x/kA}\quad(\text{Eq. 2})$$</div>
+<p class="what">الشكل الثاني (Eq. 2) هو "قانون أوم": الفرق ÷ المقاومة \(\Delta x/kA\).</p>
+<p class="when">طبقة وحدة بحرارتين معلومتين.</p>
+<p class="hint">مقاومة الجدار = "<b>السمك على k A</b>" — أسمك ⇒ أصعب، k أكبر ⇒ أسهل.</p>
+</div>
+
+<article class="ex" id="ex-hw-kvar">
+<header><h3>📝 واجب: إذا \(k=k_0(1+\beta T)\) — جد q</h3><span class="src">H.W. Lecture p.5</span></header>
+<div class="stmt en">H.W. If k = k°(1 + βT), find q.</div>
+<div class="sol">
+<div class="given" data-rows="k(T)|k_0(1+\beta T)|k₀ in W/m·°C, β in 1/°C ; T_1, T_2|face temperatures|°C ; \Delta x, A|thickness, area|m, m²"></div>
+<div class="find">Find: an expression for q<span class="ar">المطلوب: معادلة q لما k تتغير مع الحرارة.</span></div>
+<div class="strategy"><p>نفس فورييه، بس k ما تطلع برّا التكامل لأنها تعتمد على T. نفصل: x على جهة، و \((1+\beta T)dT\) على الجهة الثانية.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$q=-k_0(1+\beta T)\,A\,\frac{dT}{dx}\ \Rightarrow\ q\int_0^{\Delta x}dx=-k_0A\int_{T_1}^{T_2}(1+\beta T)\,dT$$</div><p class="why">q ثابتة (steady) فتطلع برّا التكامل.</p></div>
+<div class="st"><div class="eq">$$q\,\Delta x=-k_0A\left[(T_2-T_1)+\frac{\beta}{2}(T_2^2-T_1^2)\right]$$</div><p class="why">تكامل \(1+\beta T\) هو \(T+\beta T^2/2\).</p></div>
+<div class="st"><div class="eq">$$T_2^2-T_1^2=(T_2-T_1)(T_2+T_1)\ \Rightarrow\ q=\frac{k_0A}{\Delta x}(T_1-T_2)\left[1+\frac{\beta}{2}(T_1+T_2)\right]$$</div><p class="why">نحلل فرق المربعين ونطلّع \((T_1-T_2)\) عامل مشترك.</p></div>
+</div>
+<div class="ans">$$q=\frac{k_mA}{\Delta x}(T_1-T_2),\qquad k_m=k_0\left[1+\beta\,\frac{T_1+T_2}{2}\right]$$</div>
+<p class="check">إذا \(\beta=0\) ترجع لفورييه العادي ✔. يعني: <b>استخدم k محسوبة عند متوسط الحرارة</b> وكمّل عادي.</p>
+<p class="trap">توزيع الحرارة هنا <b>مو خط مستقيم</b> (منحني)، بس q تطلع بسيطة بـ \(k_m\). لا تحسب k عند T₁ أو T₂ لوحدها.</p>
+</div>
+</article>
+<div class="model" data-model="kvar" data-title="📈 k متغيرة مع الحرارة: المنحنى مقابل الخط المستقيم"></div>
+</section>
+
+<section class="topic">
+<h2 id="composite" data-short="الجدار المركب">🧱🧱 2- الجدار المركب (Composite wall)</h2>
+<p>طبقتين A و B ورا بعض: نفس q تعبرهن (ما أكو مكان تروح له الحرارة):</p>
+<div class="eq">$$q=\frac{T_1-T_2}{\dfrac{\Delta x_a}{k_aA}}=\frac{T_2-T_3}{\dfrac{\Delta x_b}{k_bA}}$$</div>
+<div class="f" data-name="Two-layer composite wall — Eq. 3" data-sym="R_1, R_2|مقاومة كل طبقة|°C/W ; T_{in}, T_{out}|حرارة الوجه الأول والأخير|°C">
+<div class="eq">$$q=\frac{T_{in}-T_{out}}{\dfrac{\Delta x_a}{k_aA}+\dfrac{\Delta x_b}{k_bA}}=\frac{T_{in}-T_{out}}{R_1+R_2}$$</div>
+<p class="what">\(\text{Heat flow}=\dfrac{\text{thermal potential difference}}{\text{thermal resistance}}\) — مثل قانون أوم بالضبط: المقاومات بالتوالي تنجمع.</p>
+<p class="when">طبقات <b>ورا بعض</b> (الحرارة لازم تعبرهن كلهن).</p>
+<p class="hint">مثل مقاومات الكهرباء بالتوالي: \(R_{total}=R_1+R_2+\dots\)</p>
+</div>
+<div class="circuit" data-nodes="T_1|T_2|T_3" data-res="R_1=\frac{\Delta x_a}{k_aA}|R_2=\frac{\Delta x_b}{k_bA}"></div>
+<div class="f" data-name="Three layers" data-sym="R_3|مقاومة الطبقة الثالثة|°C/W">
+<div class="eq">$$q=\frac{T_{in}-T_{out}}{\dfrac{\Delta x_a}{k_aA}+\dfrac{\Delta x_b}{k_bA}+\dfrac{\Delta x_c}{k_cA}}=\frac{T_{in}-T_{out}}{R_1+R_2+R_3}$$</div>
+<p class="what">أي عدد طبقات: نفس الفكرة، نضيف مقاومة لكل طبقة.</p>
+<p class="when">3 طبقات (نحاس + أسبستوس + فايبرگلاس…).</p>
+<p class="hint">"كل طبقة = خرزة بسلسلة" — اجمعهن.</p>
+</div>
+<div class="circuit" data-nodes="T_1|T_2|T_3|T_4" data-res="R_1|R_2|R_3"></div>
+
+<div class="model" data-model="wall" data-title="🧱 باني الجدار: أضف/احذف طبقات وغيّر Δx و k وشوف T(x)"></div>
+
+<article class="ex" id="ex-hw-ag" >
+<header><h3 id="hw-ag">📝 واجب: ارسم المكافئ الكهربائي للجدار A–G</h3><span class="src">H.W. Lecture p.6</span></header>
+<div class="stmt en">H.W. Draw the electric analog for the figure (A | B, C, D stacked | E | F, G stacked).</div>
+<div class="sol">
+<div class="given" data-rows="A|full height, 1st column|series ; B, C, D|stacked in the 2nd column|parallel ; E|full height, 3rd column|series ; F, G|stacked in the 4th column|parallel"></div>
+<div class="find">Find: the thermal circuit and R<sub>total</sub><span class="ar">المطلوب: الدائرة المكافئة ومعادلة المقاومة الكلية.</span></div>
+<div class="strategy"><p><b>القاعدة الذهبية:</b> اللي <b>فوق بعض</b> (بنفس العمود) ⇒ توازي؛ الأعمدة <b>ورا بعض</b> ⇒ توالي. فعندنا 4 "مراحل" بالتوالي: A، ثم (B∥C∥D)، ثم E، ثم (F∥G).</p>
+<div id="agCircuit"></div></div>
+<div class="steps">
+<div class="st"><div class="eq">$$R_i=\frac{\Delta x_i}{k_iA_i}\qquad(\text{each block with its own area})$$</div><p class="why">كل بلوك إله سمكه وموصليته ومساحته (B و C و D يتقاسمون الارتفاع).</p></div>
+<div class="st"><div class="eq">$$R_{BCD}=\frac{1}{\dfrac{1}{R_B}+\dfrac{1}{R_C}+\dfrac{1}{R_D}},\qquad R_{FG}=\frac{1}{\dfrac{1}{R_F}+\dfrac{1}{R_G}}$$</div><p class="why">التوازي: نجمع المقلوب.</p></div>
+</div>
+<div class="ans">$$q=\frac{T_1-T_2}{R_A+R_{BCD}+R_E+R_{FG}}$$</div>
+<p class="check">\(R_{BCD}\) دائماً أصغر من أصغر واحدة من \(R_B,R_C,R_D\) — لأن الحرارة عندها ثلاث طرق.</p>
+<p class="trap">تحط B، C، D بالتوالي لأنك تقراهن "من فوق لجوّا". الحرارة تمشي <b>أفقياً</b> (من اليسار لليمين) — اللي بنفس العمود جنب بعض بالنسبة إلها.</p>
+</div>
+</article>
+
+<article class="ex" id="ex-cond-copper">
+<header><h3>مثال 1: نحاس + فايبرگلاس — جد مساحة اللوح</h3><span class="src">Lecture p.6</span></header>
+<div class="stmt en">One side of copper block 5 cm thick (k = 386 W/m·°C) is maintained at 250 °C. The other side is covered with layer of Fiberglas 2.5 cm thick (k = 0.038 W/m·°C) at 35 °C. The total heat through the copper–fiberglass is 52 kW. What is the area of slab.</div>
+<div class="sol">
+<div class="given" data-rows="\Delta x_a|5 cm (copper)|0.05 m ; k_a|386 W/m·°C|386 ; \Delta x_b|2.5 cm (fiberglass)|0.025 m ; k_b|0.038 W/m·°C|0.038 ; T_{in}|250 °C|250 °C ; T_{out}|35 °C|35 °C ; q|52 kW|52000 W"></div>
+<div class="find">Find: A<span class="ar">المطلوب: مساحة اللوح.</span></div>
+<div class="strategy"><p>طبقتين توالي. نكتب \(q/A\) بمقاومات لوحدة مساحة (\(\Delta x/k\))، ونحل لـ A.</p>
+<div class="circuit" data-nodes="250|T_2|35" data-res="\frac{\Delta x_a}{k_a}|\frac{\Delta x_b}{k_b}"></div></div>
+<div class="steps">
+<div class="st"><div class="eq">$$\frac{q}{A}=\frac{T_{in}-T_{out}}{\dfrac{\Delta x_a}{k_a}+\dfrac{\Delta x_b}{k_b}}$$</div><p class="why">A مجهولة فنخليها على اليسار.</p></div>
+<div class="st"><div class="eq">$$R_1=\frac{\Delta x_a}{k_a}=\frac{0.05}{386}=1.295\times10^{-4},\qquad R_2=\frac{\Delta x_b}{k_b}=\frac{0.025}{0.038}=0.65789$$</div><p class="why">لاحظ النحاس تقريباً ما يقاوم (5000 مرة أقل من الفايبرگلاس).</p></div>
+<div class="st"><div class="eq">$$\frac{52000}{A}=\frac{250-35}{1.295\times10^{-4}+0.65789}=\frac{215}{0.6580}$$</div><p class="why">نعوض q الكلية = 52 kW.</p></div>
+</div>
+<div class="ans">$$A=159.14\ \text{m}^2$$</div>
+<p class="check">\(q/A=327\) W/m² بس، فحتى توصل 52 kW تحتاج مساحة ضخمة ~159 m² ✔ (الفايبرگلاس عازل قوي).</p>
+<p class="trap">تخلي q = 52 (kW) مع مقاومات بالـ W ⇒ A غلط 1000 مرة.</p>
+<p class="note">بالمحاضرة النص يقول الفايبرگلاس بـ <b>35 °C</b> بس الرسمة مكتوب عليها <b>30 °C</b>. الحل استخدم 35 °C (لو 30: A = 155.5 m²).</p>
+</div>
+</article>
+
+<article class="ex" id="ex-cond-3layer">
+<header><h3>مثال 2: جدار ثلاث طبقات</h3><span class="src">Lecture pp.6–7</span></header>
+<div class="stmt en">A composite wall is formed of 2.5 cm copper (k = 386 W/m·°C), 3.2 mm layer of asbestos (k = 0.16 W/m·°C) and 5 cm layer of fiberglass (k = 0.038 W/m·°C). The wall is subjected to an overall temperature difference of 560 °C. Calculate the heat flow per unit area through the composite structure.</div>
+<div class="sol">
+<div class="given" data-rows="\Delta x_a|2.5 cm copper|0.025 m, k = 386 ; \Delta x_b|3.2 mm asbestos|0.0032 m, k = 0.16 ; \Delta x_c|5 cm fiberglass|0.05 m, k = 0.038 ; \Delta T|560 °C|560 °C"></div>
+<div class="find">Find: q/A<span class="ar">المطلوب: الحرارة لكل وحدة مساحة.</span></div>
+<div class="strategy"><p>ثلاث طبقات توالي، per unit area ⇒ \(R=\Delta x/k\).</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$R_1=\frac{2.5\times10^{-2}}{386}=6.476\times10^{-5},\quad R_2=\frac{3.2\times10^{-3}}{0.16}=0.02,\quad R_3=\frac{5\times10^{-2}}{0.038}=1.3158$$</div><p class="why">انتبه: الأسبستوس بالـ mm (3.2 mm = 0.0032 m).</p></div>
+<div class="st"><div class="eq">$$\frac{q}{A}=\frac{560}{6.476\times10^{-5}+0.02+1.3158}=\frac{560}{1.3358}$$</div><p class="why">توالي ⇒ جمع.</p></div>
+</div>
+<div class="ans">$$\frac{q}{A}=419.21\ \text{W/m}^2$$</div>
+<p class="check">الفايبرگلاس 98.5% من المقاومة ⇒ تقريباً \(560/1.3158=425.6\)، وجوابنا أقل شوية ✔.</p>
+<p class="trap">تحول 3.2 mm لـ 0.032 m (غلط بمرتبة). وبالمحاضرة الوحدات تحت الرسمة مكتوبة "cm/mm" بعد ما تحولت — اعتمد الأرقام بالمتر.</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="cylinder" data-short="الأسطوانة">🛢️ الأنظمة القطرية: 1- الأسطوانة</h2>
+<p>أسطوانة طويلة: نصف قطر داخلي \(r_i\)، خارجي \(r_o\)، طول L. هنا المساحة تتغير مع r: \(A_r=2\pi rL\).</p>
+<div class="card">
+<div class="st"><div class="lab">Fourier with the proper area</div><div class="eq">$$q_r=-kA_r\frac{dT}{dr},\qquad A_r=2\pi rL\ \Rightarrow\ q_r=-2\pi krL\frac{dT}{dr}$$</div><p class="why">الحرارة تمشي قطرياً (للخارج)، والمساحة اللي تعبرها تكبر كل ما بعدنا.</p></div>
+<div class="st"><div class="lab">Separate and integrate</div><div class="eq">$$q_r\frac{dr}{r}=-2\pi kL\,dT\ \Rightarrow\ q_r\int_{r_i}^{r_o}\frac{dr}{r}=-2\pi kL\int_{T_i}^{T_o}dT\ \Rightarrow\ q_r\ln\frac{r_o}{r_i}=2\pi kL\,(T_i-T_o)$$</div><p class="why">تكامل \(1/r\) = ln — هذا مصدر الـ ln بكل معادلات الأنابيب.</p></div>
+</div>
+<div class="f" data-name="Cylinder conduction" data-sym="r_i, r_o|نصف القطر الداخلي والخارجي|m ; L|طول الأسطوانة|m ; T_i, T_o|حرارة السطح الداخلي والخارجي|°C">
+<div class="eq">$$q_r=\frac{2\pi kL\,(T_i-T_o)}{\ln(r_o/r_i)}=\frac{T_i-T_o}{R_1},\qquad R_1=\frac{\ln(r_o/r_i)}{2\pi kL}$$</div>
+<p class="what">نفس قانون أوم، بس مقاومة الأسطوانة فيها ln لأن المساحة مو ثابتة.</p>
+<p class="when">أنبوب، سلك معزول، أي طبقة أسطوانية.</p>
+<p class="hint">"<b>ln الكبير على الصغير ÷ 2πkL</b>". نسبة الأقطار = نسبة أنصاف الأقطار، فما يهم أي وحدة بالـ ln.</p>
+</div>
+<div class="f" data-name="Multilayer cylinder (3 layers)" data-sym="r_1..r_4|أنصاف أقطار الطبقات من الداخل للخارج|m ; k_1, k_2, k_3|موصلية كل طبقة|W/m·°C">
+<div class="eq">$$q_r=\frac{T_i-T_o}{\dfrac{\ln(r_2/r_1)}{2\pi k_1L}+\dfrac{\ln(r_3/r_2)}{2\pi k_2L}+\dfrac{\ln(r_4/r_3)}{2\pi k_3L}}=\frac{2\pi L\,(T_i-T_o)}{\dfrac{\ln(r_2/r_1)}{k_1}+\dfrac{\ln(r_3/r_2)}{k_2}+\dfrac{\ln(r_4/r_3)}{k_3}}$$</div>
+<p class="what">كل طبقة أسطوانية مقاومة بالتوالي.</p>
+<p class="when">أنبوب + عازل أو أكثر.</p>
+<p class="hint">"كل طبقة: ln خارجها على داخلها، ÷ k تبعها".</p>
+</div>
+<div class="circuit" data-nodes="T_1|T_2|T_3|T_4" data-res="R_1|R_2|R_3"></div>
+
+<article class="ex" id="ex-cond-pipe">
+<header><h3>مثال 3: أنبوب حار بطبقتين عازل</h3><span class="src">Lecture p.9</span></header>
+<div class="stmt en">A hot pipe k = 40 W/m·°C having an inside surface temperature of 300 °C has an inside diameter 10 cm, a wall thickness 6 mm is covered with 5 cm layer of insulation having k = 0.2 W/m·°C followed by 3 cm layer of insulation having k = 0.4 W/m·°C. The outside temperature of insulation is 40 °C. Calculate the heat lost per meter of length.</div>
+<div class="sol">
+<div class="given" data-rows="r_1|d = 10 cm|5 cm = 0.05 m ; r_2|+ 6 mm wall|5.6 cm = 0.056 m ; r_3|+ 5 cm insulation|10.6 cm = 0.106 m ; r_4|+ 3 cm insulation|13.6 cm = 0.136 m ; k_1, k_2, k_3|40, 0.2, 0.4 W/m·°C|same ; T_i, T_o|300 °C, 40 °C|same"></div>
+<div class="find">Find: q/L<span class="ar">المطلوب: الفقد لكل متر طول.</span></div>
+<div class="strategy"><p>3 طبقات أسطوانية بالتوالي (جدار الأنبوب + عازلين). نبني الأنصاف أقطار بالتراكم.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$r_1=5,\ r_2=5+0.6=5.6,\ r_3=5.6+5=10.6,\ r_4=10.6+3=13.6\ \text{cm}$$</div><p class="why">كل سمك يضاف على نصف القطر اللي قبله.</p></div>
+<div class="st"><div class="eq">$$R_1=\frac{\ln(5.6/5)}{2\pi\times40}=4.5\times10^{-4},\quad R_2=\frac{\ln(10.6/5.6)}{2\pi\times0.2}=0.508,\quad R_3=\frac{\ln(13.6/10.6)}{2\pi\times0.4}=0.0992$$</div><p class="why">مقاومات لكل متر (L = 1).</p></div>
+<div class="st"><div class="eq">$$\frac{q}{L}=\frac{300-40}{4.5\times10^{-4}+0.508+0.0992}$$</div><p class="why">توالي.</p></div>
+</div>
+<div class="ans">$$\frac{q}{L}=427.87\ \text{W/m}$$</div>
+<p class="check">العازل الأول (k = 0.2، سميك) هو المسيطر (84%) — منطقي. بالحساب الدقيق 428.1 W/m (الفرق من التقريب).</p>
+<p class="trap">تستخدم القطر 10 cm كـ \(r_1\)، أو تضيف السمك للقطر بدل نصف القطر.</p>
+</div>
+</article>
+
+<article class="ex" id="ex-cond-ins">
+<header><h3>مثال 4: شكد سمك العازل حتى يكون الفقد 146 W/m؟</h3><span class="src">Lecture p.10</span></header>
+<div class="stmt en">1.6 cm diameter of stainless steel pipe k = 15 W/m·°C of 0.2 cm thick is insulated with thick plastic cover k = 0.15 W/m·°C. What thickness of insulation must be added to ensure that 146 W/m. The difference temperature is 80 °C.</div>
+<div class="sol">
+<div class="given" data-rows="r_1|d = 1.6 cm|0.8 cm ; r_2|+ 0.2 cm|1.0 cm ; r_3|1 + x|unknown ; k_1|15 W/m·°C|15 ; k_2|0.15 W/m·°C|0.15 ; q/L|146 W/m|146 ; \Delta T|80 °C|80 °C"></div>
+<div class="find">Find: insulation thickness x<span class="ar">المطلوب: سمك العازل.</span></div>
+<div class="strategy"><p>"بالمقلوب": نعرف q و ΔT ⇒ نلقى \(R_{total}\) ⇒ نطرح مقاومة الأنبوب ⇒ نلقى مقاومة العازل ⇒ نطلّع \(r_3\) من الـ ln.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$\frac{q}{L}=\frac{T_i-T_o}{R_1+R_2}\ \Rightarrow\ 146=\frac{80}{R_{total}}\ \Rightarrow\ R_{total}=0.548$$</div><p class="why">قانون أوم بالمقلوب.</p></div>
+<div class="st"><div class="eq">$$R_1=\frac{\ln(1/0.8)}{2\pi\times15}=2.368\times10^{-3}\ \Rightarrow\ R_2=0.548-2.368\times10^{-3}=0.546$$</div><p class="why">مقاومة الأنبوب الفولاذي صغيرة جداً.</p></div>
+<div class="st"><div class="eq">$$0.546=\frac{\ln(r_3/1)}{2\pi\times0.15}\ \Rightarrow\ \ln r_3=0.514\ \Rightarrow\ r_3=e^{0.514}=1.672\ \text{cm}$$</div><p class="why">نعزل الـ ln ثم نأخذ الأس. لأن \(r_2=1\) cm، فـ \(r_3\) يطلع بالـ cm.</p></div>
+<div class="st"><div class="eq">$$r_3=0.8+0.2+\text{thickness}\ \Rightarrow\ 1.672=1+\text{thickness}$$</div><p class="why">نصف القطر الخارجي = الأنبوب + العازل.</p></div>
+</div>
+<div class="ans">$$\text{Thickness}=0.672\ \text{cm}$$</div>
+<p class="check">عازل رقيق (6.7 mm) — منطقي لأن الفقد المطلوب (146 W/m) مو قليل. وتحقق: \(r_c=k/h\) هنا ما يهم لأن ماكو h.</p>
+<p class="trap">تنسى تطرح \(R_1\)، أو تكتب \(\ln r_3\) وتنسى إن \(r_2=1\) (لو r₂ غير 1 لازم \(\ln(r_3/r_2)\)).</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="sphere" data-short="الكرة">⚽ 2- الكرة (Spheres)</h2>
+<div class="card">
+<div class="st"><div class="lab">Fourier with A = 4πr²</div><div class="eq">$$q_r=-k\,(4\pi r^2)\frac{dT}{dr}\ \Rightarrow\ q_r\frac{dr}{r^2}=-4\pi k\,dT$$</div><p class="why">مساحة الكرة \(4\pi r^2\).</p></div>
+<div class="st"><div class="lab">Integrate from r₁ to r₂</div><div class="eq">$$q_r\left[-\frac{1}{r}\right]_{r_1}^{r_2}=-4\pi k\,(T_o-T_i)\ \Rightarrow\ q_r\left(\frac{1}{r_1}-\frac{1}{r_2}\right)=4\pi k\,(T_i-T_o)$$</div><p class="why">تكامل \(1/r^2\) هو \(-1/r\).</p></div>
+</div>
+<div class="f" data-name="Hollow sphere" data-sym="r_1, r_2|نصف القطر الداخلي والخارجي|m">
+<div class="eq">$$q_r=\frac{4\pi k\,(T_i-T_o)}{\dfrac{1}{r_1}-\dfrac{1}{r_2}}=\frac{T_i-T_o}{R},\qquad R=\frac{\dfrac{1}{r_1}-\dfrac{1}{r_2}}{4\pi k}$$</div>
+<p class="what">مقاومة الكرة: فرق المقلوبات ÷ 4πk.</p>
+<p class="when">خزان كروي، كرة مجوفة.</p>
+<p class="hint">"<b>واحد على الصغير ناقص واحد على الكبير</b>" (موجب دائماً) ÷ 4πk.</p>
+</div>
+<div class="f" data-name="Two-layer sphere" data-sym="r_3|نصف القطر الخارجي للطبقة الثانية|m ; k_1, k_2|موصلية الطبقتين|W/m·°C">
+<div class="eq">$$q_r=\frac{4\pi\,(T_i-T_o)}{\dfrac{1}{k_1}\left(\dfrac{1}{r_1}-\dfrac{1}{r_2}\right)+\dfrac{1}{k_2}\left(\dfrac{1}{r_2}-\dfrac{1}{r_3}\right)}$$</div>
+<p class="what">مقاومتين كرويتين بالتوالي، طلّعنا \(4\pi\) عامل مشترك.</p>
+<p class="when">كرة + غلاف عازل.</p>
+<p class="hint">نفس شكل الأسطوانة المتعددة: كل طبقة (فرق مقلوبات)/k.</p>
+</div>
+
+<article class="ex" id="ex-cond-sphere">
+<header><h3>مثال 5: كرة فولاذ مجوفة</h3><span class="src">Lecture pp.9–10</span></header>
+<div class="stmt en">A hollow sphere is constructed of stainless steel k = 15 W/m·°C with an inner diameter of 4 cm and outer diameter of 8 cm. The inside and outer temperature is 100 and 50 °C respectively. Calculate the heat rate.</div>
+<div class="sol">
+<div class="given" data-rows="k|15 W/m·°C|15 ; d_i|4 cm|r_1 = 0.02 m ; d_o|8 cm|r_2 = 0.04 m ; T_i, T_o|100, 50 °C|ΔT = 50 °C"></div>
+<div class="find">Find: q<span class="ar">المطلوب: معدل الحرارة.</span></div>
+<div class="strategy"><p>كرة وحدة ⇒ معادلة الكرة مباشرة. الأقطار ← أنصاف أقطار.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$q_r=\frac{4\pi k\,(T_i-T_o)}{\dfrac{1}{r_1}-\dfrac{1}{r_2}}=\frac{4\pi\times15\,(100-50)}{\dfrac{1}{0.02}-\dfrac{1}{0.04}}$$</div><p class="why">\(1/0.02-1/0.04=50-25=25\) m⁻¹.</p></div>
+</div>
+<div class="ans">$$q_r=376.8\ \text{W}$$</div>
+<p class="check">بـ π الدقيقة: 377.0 W (المحاضرة استخدمت 3.14). الحجم منطقي لكرة صغيرة بفرق 50 درجة.</p>
+<p class="trap">هنا الأقطار (مو ln!) فالوحدة تفرق: لازم m. لو استخدمت cm بالمقلوبات لازم تنتبه للعامل 100.</p>
+</div>
+</article>
+</section>
+
+<script>
+window.HTPage = function () {
+  var host = document.getElementById('agCircuit'); if (!host) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  function zz(x1, x2, y) { var a = x1 + (x2 - x1) * 0.18, b = x2 - (x2 - x1) * 0.18, d = 'M' + x1 + ' ' + y + ' H' + a; for (var i = 0; i < 6; i++) d += ' L' + (a + (b - a) * (i + 0.5) / 6) + ' ' + (y + (i % 2 ? 7 : -7)); return d + ' L' + b + ' ' + y + ' H' + x2; }
+  var svg = document.createElementNS(NS, 'svg'); svg.setAttribute('viewBox', '0 0 640 200'); svg.setAttribute('class', 'viz'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', 'Electrical analog of the A–G wall');
+  var st = 'fill:none;stroke:var(--text);stroke-width:2';
+  var p = function (d, s) { var e = document.createElementNS(NS, 'path'); e.setAttribute('d', d); e.setAttribute('style', s || st); svg.appendChild(e); };
+  var t = function (x, y, s, c) { var e = document.createElementNS(NS, 'text'); e.setAttribute('x', x); e.setAttribute('y', y); e.setAttribute('text-anchor', 'middle'); e.setAttribute('style', 'font:700 13px Inter;fill:' + (c || 'var(--text)')); e.textContent = s; svg.appendChild(e); };
+  var cy = 100;
+  p(zz(30, 120, cy)); t(75, cy + 26, 'R_A');
+  p('M120 ' + cy + ' H140 V40 H160 M140 ' + cy + ' H160 M140 ' + cy + ' V160 H160');
+  p(zz(160, 260, 40)); p(zz(160, 260, cy)); p(zz(160, 260, 160));
+  t(210, 30, 'R_B'); t(210, cy - 12, 'R_C'); t(210, 184, 'R_D');
+  p('M260 40 H280 V160 H260 M260 ' + cy + ' H280 M280 ' + cy + ' H300');
+  p(zz(300, 390, cy)); t(345, cy + 26, 'R_E');
+  p('M390 ' + cy + ' H410 V60 H430 M410 ' + cy + ' V140 H430');
+  p(zz(430, 530, 60)); p(zz(430, 530, 140)); t(480, 48, 'R_F'); t(480, 168, 'R_G');
+  p('M530 60 H550 V140 H530 M550 ' + cy + ' H610');
+  [[30, 'T₁', 'var(--accent)'], [610, 'T₂', 'var(--cold)']].forEach(function (n) { var c = document.createElementNS(NS, 'circle'); c.setAttribute('cx', n[0]); c.setAttribute('cy', cy); c.setAttribute('r', 6); c.setAttribute('style', 'fill:' + n[2]); svg.appendChild(c); t(n[0], cy - 14, n[1], n[2]); });
+  var b1 = document.createElementNS(NS, 'rect'); b1.setAttribute('x', 146); b1.setAttribute('y', 14); b1.setAttribute('width', 128); b1.setAttribute('height', 178); b1.setAttribute('rx', 10); b1.setAttribute('style', 'fill:none;stroke:var(--violet);stroke-dasharray:5 4'); svg.appendChild(b1);
+  var b2 = document.createElementNS(NS, 'rect'); b2.setAttribute('x', 416); b2.setAttribute('y', 30); b2.setAttribute('width', 128); b2.setAttribute('height', 146); b2.setAttribute('rx', 10); b2.setAttribute('style', 'fill:none;stroke:var(--violet);stroke-dasharray:5 4'); svg.appendChild(b2);
+  host.appendChild(svg);
+};
+</script>
+
+</div></main>
 </body>
 </html>
