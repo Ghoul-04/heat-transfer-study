@@ -424,17 +424,17 @@
       if (rc > r1) {
         var x2 = cross || xmax * 100;
         S('rect', { x: p.sx(r1 * 100), y: p.m.t, width: p.sx(x2) - p.sx(r1 * 100), height: p.H - p.m.t - p.m.b, style: 'fill:var(--danger)', opacity: .08 }, p.g);
-        T(p.g, p.sx(r1 * 100) + 6, p.m.t + 14, 'insulation INCREASES loss', { class: 'tick', style: 'fill:var(--danger);font-weight:700' });
+        T(p.g, p.sx(r1 * 100) + 6, p.H - p.m.b - 8, 'insulation INCREASES loss', { class: 'tick', style: 'fill:var(--danger);font-weight:700' });
         S('line', { x1: p.sx(rc * 100), x2: p.sx(rc * 100), y1: p.m.t, y2: p.H - p.m.b, style: 'stroke:var(--violet);stroke-width:2;stroke-dasharray:6 4' }, p.g);
-        T(p.g, p.sx(rc * 100) + 5, p.sy(qL(rc)) - 10, 'r_c = k/h = ' + fmt(rc * 100, 3) + ' cm', { style: 'font-size:12px;font-weight:800;fill:var(--violet)' });
+        T(p.g, p.sx(rc * 100) + 6, p.m.t + 12, 'r_c = k/h = ' + fmt(rc * 100, 3) + ' cm', { style: 'font-size:12px;font-weight:800;fill:var(--violet)' });
       }
       p.line(pts, 'stroke:var(--accent);stroke-width:3');
       S('circle', { cx: p.sx(curRo * 100), cy: p.sy(qL(curRo)), r: 8, style: 'fill:var(--accent);stroke:var(--surface);stroke-width:3' }, p.g);
       var qc = qL(curRo);
       verdict.innerHTML = '<div class="callout ' + (qc > qbare ? 'danger' : 'tip') + '" style="margin:8px 0">' +
         (rc <= r1 ? '✅ هنا \\(r_c \\le r_i\\): أي سمك عازل راح يقلل الفقد من أول طبقة.' :
-          (qc > qbare ? '🔥 العازل بهذا السمك <b>يزيد</b> الفقد! (' + fmt(qc, 4) + ' > ' + fmt(qbare, 4) + ' W/m) — لأن \\(r_o\\) بعده ما عبر النقطة اللي يرجع بيها الفقد لقيمة الأنبوب العاري.' :
-            '✅ العازل هنا يقلل الفقد (' + fmt(qc, 4) + ' < ' + fmt(qbare, 4) + ' W/m).')) + '</div>';
+          (qc > qbare ? '🔥 العازل بهذا السمك <b>يزيد</b> الفقد! <span class="num">(' + fmt(qc, 4) + ' &gt; ' + fmt(qbare, 4) + ' W/m)</span> — لأن \\(r_o\\) بعده ما عبر النقطة اللي يرجع بيها الفقد لقيمة الأنبوب العاري.' :
+            '✅ العازل هنا يقلل الفقد <span class="num">(' + fmt(qc, 4) + ' &lt; ' + fmt(qbare, 4) + ' W/m)</span>.')) + '</div>';
       window.HTMath(verdict);
       ro([['r_c = k/h', fmt(rc * 100, 4) + ' cm', 1], ['q/L at r_c (max)', rc > r1 ? fmt(qL(rc), 4) + ' W/m' : '— (r_c < r_i)', 1], ['q/L bare pipe', fmt(qbare, 4) + ' W/m'], ['q/L at your r_o', fmt(qc, 4) + ' W/m', 1], ['insulation thickness', fmt((curRo - r1) * 100, 3) + ' cm']]);
       svg._p = p;

@@ -130,6 +130,7 @@ main#content {
   padding: 22px 16px 120px;
 }
 .wrap { max-width: 880px; margin: 0 auto; }
+@media (min-width: 1400px) { .wrap { max-width: 1060px; } }
 
 .scrim { display: none; }
 
@@ -223,6 +224,8 @@ section.topic > h2 {
 table { border-collapse: collapse; width: 100%; font-size: .93rem; }
 th, td { border: 1px solid var(--border); padding: 6px 9px; text-align: start; vertical-align: middle; }
 th { background: var(--surface-2); font-weight: 700; }
+td .katex { white-space: nowrap; }
+.tbl-wrap > table { min-width: 100%; }
 table.sym { margin: 8px 0; }
 table.sym td:first-child, table.sym td:last-child { direction: ltr; text-align: center; white-space: nowrap; font-family: var(--font-en); }
 table.sym td:first-child { width: 1%; }
@@ -343,6 +346,14 @@ input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 
 .readout .r.hl { background: var(--accent-soft); }
 .readout .r.hl .v { color: var(--accent); }
 .viz { width: 100%; display: block; direction: ltr; }
+.vscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+@media (max-width: 560px) {
+  .model svg.viz { min-width: 520px; }
+  .model .grid.two > :last-child, .model .rel, #agCircuit { overflow-x: auto; -webkit-overflow-scrolling: touch; direction: ltr; }
+  .model .grid.two > :last-child > :not(svg) { direction: rtl; position: sticky; left: 0; max-width: calc(100vw - 66px); }
+  #agCircuit svg.viz { min-width: 520px; }
+  .readout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 .viz text { font-family: var(--font-en); fill: var(--text); }
 .viz .axis { stroke: var(--muted); stroke-width: 1.2; }
 .viz .grid line { stroke: var(--border); stroke-width: 1; }
