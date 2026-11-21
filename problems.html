@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Professor's Problems Q1–Q5</title>
+<meta name="description" content="الأسئلة الخمسة اللي اختارها الأستاذ — حل مفصل خطوة بخطوة بالعربي مع النماذج التفاعلية وتنويعات الامتحان.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/physics.js"></script>
+<script defer src="js/models.js"></script>
+<script defer src="js/layout.js"></script>
+</head>
+<body data-page="problems">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Problems sheet · 5 problems hand-picked by the lecturer</div>
+  <h1>أسئلة الأستاذ Q1–Q5 ⭐</h1>
+  <span class="badge pstar">⭐ أقوى مؤشر لشكل الامتحان</span>
+  <p>هاي مو محاضرة — هاي الخمس أسئلة اللي الأستاذ نفسه اختارها. كل سؤال يغطي "نوع" كامل من أسئلة الامتحان. حلها كلها بالورقة أول، بعدين افتح الحل وقارن.</p>
+  <div data-toc></div>
+</div>
+
+<div class="card">
+<h3 style="margin-top:0">🗺️ خريطة الأسئلة: كل سؤال يختبر شنو؟</h3>
+<div class="tbl-wrap"><table>
+<thead><tr><th>السؤال</th><th>النوع</th><th>الفكرة الأساسية</th><th>المحاضرة</th></tr></thead>
+<tbody>
+<tr><td><a href="#q1">Q1</a></td><td>جدار مركب توالي + توازي</td><td>\(R_{tot}=R_A+(R_B\parallel R_D)+R_C\)</td><td>2</td></tr>
+<tr><td><a href="#q2">Q2</a></td><td>جدار بناية + حمل على الجهتين (Btu)</td><td>\(U=1/\sum R\)، تحويل الوحدات</td><td>2 + 3</td></tr>
+<tr><td><a href="#q3">Q3</a></td><td>كرة تولّد حرارة + حمل</td><td>\(T_0=\dot qR^2/6k+T_w\)</td><td>4</td></tr>
+<tr><td><a href="#q4">Q4</a></td><td>100 زعنفة دائرية على أنبوب</td><td>Figure 2 + مصفوفة</td><td>6</td></tr>
+<tr><td><a href="#q5">Q5</a></td><td>أنبوب بخار بزعانف — الزيادة</td><td>n = 1/(s+t)، ε</td><td>6</td></tr>
+</tbody></table></div>
+<p style="margin-bottom:0">🎯 <b>لاحظ:</b> Q1 و Q2 كلها "قانون أوم الحراري"، و Q4 و Q5 نفس الوصفة تقريباً. إذا تقنها، أنت ضامن أغلب الدرجة.</p>
+</div>
+
+<!-- ======================= Q1 ======================= -->
+<section class="topic">
+<h2 id="q1" data-short="Q1 توالي+توازي">Q1 · جدار مركب توالي + توازي <span class="badge p4">Lecture 2</span></h2>
+<article class="ex" id="ex-q1">
+<header><h3>Q1 — Heat transfer through the composite wall (Figure P2-4)</h3><span class="src">Problems p.1</span></header>
+<div class="stmt en">Find the heat transfer per unit area through the composite wall in Figure P2-4. Assume one-dimensional heat flow.<br><br>
+<b>Figure data:</b> k<sub>A</sub> = 150 W/m·°C, k<sub>B</sub> = 30, k<sub>C</sub> = 50, k<sub>D</sub> = 70; A<sub>B</sub> = A<sub>D</sub>; A<sub>C</sub> = 0.1 m²; T = 370 °C (left face of A), T = 66 °C (right face of C); thickness of A = 2.5 cm, B and D = 7.5 cm, C = 5.0 cm. (B is on top of D, between A and C.)</div>
+<div class="sol">
+<div class="given" data-rows="k_A,k_B,k_C,k_D|150, 30, 50, 70 W/m·°C|same ; A_A=A_C|0.1 m²|0.1 m² ; A_B=A_D|half of the height|0.05 m² each ; \Delta x_A|2.5 cm|0.025 m ; \Delta x_B=\Delta x_D|7.5 cm|0.075 m ; \Delta x_C|5.0 cm|0.05 m ; T_1, T_2|370 °C, 66 °C|370, 66 °C"></div>
+<div class="find">Find: q (and q/A)<span class="ar">المطلوب: الحرارة المارة بالجدار.</span></div>
+<div class="strategy">
+<p>الحرارة تعبر A كلها ← بعدين <b>تتفرع</b>: جزء يعبر B وجزء يعبر D (جنب بعض = <b>توازي</b>) ← بعدين تتجمع وتعبر C. يعني:</p>
+<div class="eq">$$T_1\ \text{—}\ R_A\ \text{—}\ \big(R_B\parallel R_D\big)\ \text{—}\ R_C\ \text{—}\ T_2$$</div>
+<p>🧠 <b>شلون تعرف توازي؟</b> إذا الطبقتين <b>فوق بعض</b> (نفس الـ Δx، والحرارة تختار وحدة منهن) ⇒ توازي. إذا <b>ورا بعض</b> (الحرارة لازم تعبر الثنتين) ⇒ توالي.</p>
+</div>
+<div class="steps">
+<div class="st"><div class="eq">$$q=\frac{\Delta T}{R_{total}},\qquad R_{total}=R_A+\frac{1}{\dfrac{1}{R_B}+\dfrac{1}{R_D}}+R_C,\qquad R=\frac{\Delta x}{kA}$$</div><p class="why">نرسم الدائرة: A و C توالي، B و D توازي بيناتهن.</p></div>
+<div class="st"><div class="eq">$$R_A=\frac{0.025}{150\times0.1}=0.00166\ {}^\circ\text{C/W}$$</div><p class="why">A تغطي كل الارتفاع ⇒ مساحتها 0.1 m².</p></div>
+<div class="st"><div class="eq">$$R_B=\frac{0.075}{30\times0.05}=0.05\ {}^\circ\text{C/W},\qquad R_D=\frac{0.075}{70\times0.05}=0.0214\ {}^\circ\text{C/W}$$</div><p class="why">B و D متساويات بالمساحة (\(A_B=A_D\)) فكل وحدة نص الـ 0.1 = 0.05 m².</p></div>
+<div class="st"><div class="eq">$$R_C=\frac{0.05}{50\times0.1}=0.01\ {}^\circ\text{C/W}$$</div><p class="why">C تغطي كل الارتفاع مثل A.</p></div>
+<div class="st"><div class="eq">$$R_{total}=0.00166+\frac{1}{\dfrac{1}{0.05}+\dfrac{1}{0.0214}}+0.01=0.00166+0.0150+0.01=0.0266\ {}^\circ\text{C/W}$$</div><p class="why">المكافئ للتوازي (0.015) أصغر من أصغر وحدة (0.0214) — هذا دائماً صحيح بالتوازي.</p></div>
+<div class="st"><div class="eq">$$q=\frac{370-66}{0.0266}$$</div><p class="why">قانون أوم الحراري.</p></div>
+</div>
+<div class="ans">$$q\approx11428\ \text{W}\quad\left(\frac{q}{A}=\frac{11428}{0.1}\approx1.14\times10^{5}\ \text{W/m}^2\right)$$</div>
+<p class="check">بدون تقريب \(R_{total}=0.026667\) ⇒ \(q=11400\) W (الفرق 0.25% من التقريب، طبيعي). درجات الواجهات: \(T_2=370-q R_A\approx351\,{}^\circ\)C، \(T_3=66+qR_C\approx180\,{}^\circ\)C. والتفرع: \(q_B=171/0.05\approx3420\) W و \(q_D=171/0.0214\approx7980\) W — D ياخذ أكثر لأن k تبعه أكبر ✔.</p>
+<p class="trap">① تجمع \(R_B+R_D\) (توالي) بدل التوازي. ② تستخدم 0.1 m² لـ B و D. ③ تنسى إن السؤال قال "per unit area": جواب المحاضرة 11428 W هو الكلي خلال 0.1 m²؛ لكل m² = \(1.14\times10^5\) W/m².</p>
+</div>
+</article>
+<div class="model" data-model="q1circuit" data-title="⚡ دائرة Q1 الحية — شوف شلون B ∥ D يتشاركون الحرارة"></div>
+<div class="callout tip"><span class="ttl">🎲 شلون ممكن يغيّرونه بالامتحان؟</span>
+<ul style="margin:0">
+<li>"احسب درجة الحرارة بين A و B" ⇒ \(T=T_1-qR_A\).</li>
+<li>"شكد حرارة تعبر D؟" ⇒ \(q_D=\Delta T_{BD}/R_D\) حيث \(\Delta T_{BD}=q\,R_{B\parallel D}\).</li>
+<li>يغيرون المساحات (مثلاً \(A_B=0.03,\ A_D=0.07\)) ⇒ نفس الطريقة، بس كل R بمساحته.</li>
+<li>شكل الواجب A–G (المحاضرة 2) ⇒ نفس المنطق: <a href="conduction.html#hw-ag">شوف الحل</a>.</li>
+</ul></div>
+</section>
+
+<!-- ======================= Q2 ======================= -->
+<section class="topic">
+<h2 id="q2" data-short="Q2 جدار بناية">Q2 · جدار بناية + حمل (Btu units) <span class="badge p1">Lecture 2 + 3</span></h2>
+<article class="ex" id="ex-q2">
+<header><h3>Q2 — Overall U, R value, and heat loss of a building wall</h3><span class="src">Problems pp.1–2</span></header>
+<div class="stmt en">A certain building wall consists of 6.0 in of concrete [k = 1.2 W/m·°C], 2.0 in of fiberglass insulation, and 3/8 in of gypsum board [k = 0.05 W/m·°C]. The inside and outside convection coefficients are 2.0 and 7.0 Btu/h·ft²·°F, respectively. The outside air temperature is 20 °F, and the inside temperature is 72 °F. Calculate the overall heat-transfer coefficient for the wall, the R value, and the heat loss per unit area. If the k of fiberglass is 0.038 W/m·°C.</div>
+<div class="sol">
+<div class="given" data-rows="\Delta x_1 (\text{concrete})|6.0 in|6/12 = 0.5 ft ; k_1|1.2 W/m·°C|1.2 × 0.5781 = 0.6937 Btu/h·ft·°F ; \Delta x_2 (\text{fiberglass})|2.0 in|2/12 = 0.1667 ft ; k_2|0.038 W/m·°C|0.038 × 0.5781 = 0.02197 ; \Delta x_3 (\text{gypsum})|3/8 in|0.375/12 = 0.03125 ft ; k_3|0.05 W/m·°C|0.05 × 0.5781 = 0.02891 ; h_i|2.0 Btu/h·ft²·°F|2.0 ; h_o|7.0 Btu/h·ft²·°F|7.0 ; T_i, T_o|72 °F, 20 °F|ΔT = 52 °F"></div>
+<div class="find">Find: U, R value, q/A<span class="ar">المطلوب: المعامل الكلي، قيمة R، والفقد لكل وحدة مساحة.</span></div>
+<div class="strategy">
+<p>جدار 3 طبقات + حمل على الجهتين = 5 مقاومات <b>توالي</b>. المشكلة الوحيدة: الوحدات مخلوطة (k بالـ SI، والباقي إنكليزي). الأستاذ اختار يحوّل كل شي لـ <b>إنكليزي</b>:</p>
+<div class="eq">$$k\,[\text{Btu/h·ft·°F}]=0.5781\times k\,[\text{W/m·°C}],\qquad \Delta x\,[\text{ft}]=\frac{\text{inches}}{12}$$</div>
+<div class="circuit" data-nodes="T_i=72|\ |\ |\ |T_o=20" data-res="\frac{1}{h_i}|\frac{\Delta x_1}{k_1}|\frac{\Delta x_2}{k_2}|\frac{\Delta x_3}{k_3}"></div>
+<p style="font-size:.9rem">(+ \(1/h_o\) بالنهاية — المجموع 5 مقاومات لوحدة مساحة)</p>
+</div>
+<div class="steps">
+<div class="st"><div class="eq">$$\frac{q}{A}=\frac{\Delta T}{R_{total}},\qquad R_{conduction}=\frac{\Delta x}{k},\qquad R_{convection}=\frac{1}{h}$$</div><p class="why">"per unit area" ⇒ نشيل A من كل المقاومات.</p></div>
+<div class="st"><div class="eq">$$R_1=\frac{6/12}{1.2\times0.5781}=0.7207,\quad R_2=\frac{2/12}{0.038\times0.5781}=7.5868,\quad R_3=\frac{(3/8)/12}{0.05\times0.5781}=1.0811$$</div><p class="why">كل Δx بالـ ft، وكل k محول لـ Btu/h·ft·°F. وحدة R: h·ft²·°F/Btu.</p></div>
+<div class="st"><div class="eq">$$R_{i,conv}=\frac{1}{2}=0.5,\qquad R_{o,conv}=\frac{1}{7}=0.1428$$</div><p class="why">الـ h أصلاً بالإنكليزي.</p></div>
+<div class="st"><div class="eq">$$R_{total}=0.5+0.7207+7.5868+1.0811+0.1428=10.0314\ \frac{\text{h·ft}^2\text{·°F}}{\text{Btu}}$$</div><p class="why">توالي ⇒ جمع. لاحظ الفايبرگلاس وحده 76% من المقاومة — هذا شغل العازل!</p></div>
+<div class="st"><div class="eq">$$U=\frac{1}{R_{total}}=\frac{1}{10.0314}=0.0996\ \text{Btu/h·ft}^2\text{·°F}$$</div><p class="why">تعريف U لجدار مستوي.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{A}=\frac{\Delta T}{R_{total}}=\frac{72-20}{10.0314}$$</div><p class="why">الـ ΔT بالـ °F (فرق، ما يحتاج تحويل لـ °R).</p></div>
+</div>
+<div class="ans">$$U=0.0996\ \text{Btu/h·ft}^2\text{·°F},\qquad R=10.03\ \text{h·ft}^2\text{·°F/Btu},\qquad \frac{q}{A}=5.183\ \text{Btu/h·ft}^2$$</div>
+<p class="check"><b>طريقة ثانية بالـ SI للتأكد:</b> \(h_i=11.36,\ h_o=39.75\) W/m²°C، Δx = 0.1524، 0.0508، 0.009525 m ⇒ \(\sum R=1.7675\) m²°C/W، \(\Delta T=52/1.8=28.9\,{}^\circ\)C ⇒ \(q/A=16.35\) W/m² = 5.18 Btu/h·ft² ✔. و U صغيرة جداً (أصغر من أصغر h بكثير) لأن العازل يسيطر.</p>
+<p class="trap">① تنسى تقسم الإنج على 12. ② تضرب بـ 0.5781 بالمكان الغلط (التحويل من SI لإنكليزي = <b>×0.5781</b>). ③ تحول الـ ΔT بإضافة 32 — الفرق ما يتأثر بالإزاحة؛ فرق °F = 1.8 × فرق °C.</p>
+<p class="note">التحويل الصحيح: \(k[\text{Btu/h·ft·°F}]=0.5781\times k[\text{W/m·°C}]\) (القيمة الأدق 0.5778، والفرق ما يأثر)، و \(\Delta x[\text{ft}]=\text{inches}/12\).</p>
+</div>
+</article>
+<div class="model" data-model="wall" data-preset="bw" data-title="🧱 Q2 بالموديل (محوّل للـ SI): شوف شلون العازل يسيطر"></div>
+<div class="callout tip"><span class="ttl">🎲 تنويعات الامتحان</span>
+<ul style="margin:0">
+<li>"شكد يزيد الفقد إذا شلنا العازل؟" ⇒ \(R=10.03-7.59=2.44\) ⇒ \(q/A=21.3\) Btu/h·ft² (4 أضعاف!).</li>
+<li>"احسب حرارة السطح الداخلي للجدار" ⇒ \(T_{s,i}=72-(q/A)(1/h_i)=72-5.18(0.5)=69.4\,{}^\circ\)F.</li>
+<li>يعطيك كل شي بالـ SI ⇒ نفس الخطوات بدون تحويل.</li>
+</ul></div>
+</section>
+
+<!-- ======================= Q3 ======================= -->
+<section class="topic">
+<h2 id="q3" data-short="Q3 كرة توليد">Q3 · كرة تولّد حرارة <span class="badge p3">Lecture 4</span></h2>
+<article class="ex" id="ex-q3">
+<header><h3>Q3 — Center temperature of a heat-generating stainless-steel sphere</h3><span class="src">Problems p.2</span></header>
+<div class="stmt en">A stainless-steel sphere [k = 16 W/m·°C] having a diameter of 4 cm is exposed to a convection environment at 20 °C, h = 15 W/m²·°C. Heat is generated uniformly in the sphere at the rate of 1.0 MW/m³. Calculate the steady-state temperature for the center of the sphere.</div>
+<div class="sol">
+<div class="given" data-rows="k|16 W/m·°C|16 ; d|4 cm|R = 0.02 m ; T_\infty|20 °C|20 °C ; h|15 W/m²·°C|15 ; \dot q|1.0 MW/m³|1×10⁶ W/m³"></div>
+<div class="find">Find: T₀ (center temperature)<span class="ar">المطلوب: حرارة مركز الكرة.</span></div>
+<div class="strategy">
+<p>خطوتين: <b>(1)</b> كل الحرارة المتولدة لازم تطلع من السطح بالحمل (steady) ⇒ نلقى \(T_w\). <b>(2)</b> من معادلة توليد الحرارة للكرة (قاعدة 2‑4‑<b>6</b>) نلقى \(T_0\).</p>
+<p>⚠️ معادلة الكرة \(T_0=\dot qR^2/6k+T_w\) <b>مو مشتقة بالمحاضرة</b> (كانت واجب) — <a href="heat-generation.html#sphere">شوف الاشتقاق الكامل هنا</a>.</p>
+</div>
+<div class="steps">
+<div class="st"><div class="eq">$$T_0=\frac{\dot q}{6k}R^2+T_w$$</div><p class="why">نكتب الهدف أول. نحتاج \(T_w\) لأنه مو معطى.</p></div>
+<div class="st"><div class="eq">$$\dot q=\frac{q}{V}\ \Rightarrow\ q=\dot q\,V=\dot q\times\frac{4}{3}\pi r^3=1\times10^6\times\frac{4}{3}\pi(0.02)^3=33.493\ \text{W}$$</div><p class="why">الحرارة الكلية المتولدة = التوليد لكل m³ × حجم الكرة.</p></div>
+<div class="st"><div class="eq">$$q=hA\,(T_w-T_\infty)=h\,4\pi r^2\,(T_w-T_\infty)\ \Rightarrow\ 33.493=15\times4\pi(0.02)^2(T_w-20)$$</div><p class="why">Steady state: اللي يتولد = اللي يطلع بالحمل من السطح \(4\pi r^2\).</p></div>
+<div class="st"><div class="eq">$$T_w=464.44\ {}^\circ\text{C}$$</div><p class="why">\(15\times4\pi(0.0004)=0.0754\) ⇒ \(T_w-20=444.4\). (اختصار: \(T_w-T_\infty=\dot qR/3h=10^6(0.02)/45=444.4\).)</p></div>
+<div class="st"><div class="eq">$$T_0=\frac{1\times10^6}{6\times16}(0.02)^2+464.44=4.17+464.44$$</div><p class="why">نعوض بقاعدة الكرة (6k).</p></div>
+</div>
+<div class="ans">$$T_w=464.4\ {}^\circ\text{C},\qquad T_0=468.6\ {}^\circ\text{C}$$</div>
+<p class="check">الفرق بين المركز والسطح 4°C بس، بينما بين السطح والهواء 444°C — لأن الفولاذ يوصّل زين (k = 16) والكرة صغيرة، بس الهواء (h = 15) ضعيف جداً. فـ "عنق الزجاجة" هو الحمل.</p>
+<p class="trap">① تستخدم 4k (أسطوانة) أو 2k (جدار) بدل 6k. ② تحط القطر (0.04) بدل نصف القطر. ③ تفكر \(T_w\) = 20 (هاي حرارة الهواء مو السطح).</p>
+</div>
+</article>
+<div class="model" data-model="hgen" data-geo="sph" data-mode="h" data-q="1000000" data-k="16" data-r="20" data-h="15" data-tinf="20" data-title="🔥 Q3 بالموديل: كرة تولّد حرارة — غيّر h أو q̇ وشوف T₀"></div>
+<div class="callout tip"><span class="ttl">🎲 تنويعات</span>
+<ul style="margin:0">
+<li>نفس السؤال بس <b>أسطوانة</b> (سلك): \(V=\pi R^2L\)، \(A=2\pi RL\)، و 4k ⇒ \(T_w-T_\infty=\dot qR/2h\).</li>
+<li>"احسب الحرارة عند r = 1 cm" ⇒ \(T=T_0-\dot qr^2/6k=468.6-1.04=467.6\,{}^\circ\)C.</li>
+<li>لو h تضاعفت لـ 30 ⇒ \(T_w=242.2\)، \(T_0=246.4\,{}^\circ\)C.</li>
+</ul></div>
+</section>
+
+<!-- ======================= Q4 ======================= -->
+<section class="topic">
+<h2 id="q4" data-short="Q4 100 زعنفة">Q4 · 100 زعنفة دائرية <span class="badge p2">Lecture 6</span></h2>
+<article class="ex" id="ex-q4">
+<header><h3>Q4 — Total heat from a finned tube (100 circumferential fins)</h3><span class="src">Problems pp.2–3</span></header>
+<div class="stmt en">One hundred circumferential aluminum fins of rectangular profile are mounted on a 1.0-m tube having a diameter of 2.5 cm. The fins are 1 cm long and 2.0 mm thick. The base temperature is 180 °C, and the convection environment is at 20 °C with h = 50 W/m²·°C. Calculate the total heat lost from the finned-tube arrangement over the 1.0-m length. If the k = 204 W/m·°C.</div>
+<div class="sol">
+<div class="given" data-rows="n|100 fins|100 ; L_{tube}|1.0 m|1 m ; d|2.5 cm|r_1 = 0.0125 m ; L|1 cm (fin length)|0.01 m ; t|2.0 mm|0.002 m ; T_0|180 °C|180 °C ; T_\infty|20 °C|θ₀ = 160 °C ; h|50 W/m²·°C|50 ; k|204 W/m·°C|204"></div>
+<div class="find">Find: total q from the finned tube<span class="ar">المطلوب: الحرارة الكلية من الأنبوب مع الزعانف.</span></div>
+<div class="strategy">
+<p>زعانف <b>دائرية</b> ⇒ Figure 2 ⇒ η ⇒ \(q_{fin}=\eta q_{max}\). وبعدين مصفوفة: \(q=n\,q_{fin}+q_{between}\).</p>
+<p>🍳 الوصفة: \(L_c\) → \(r_{2c}\) → النسبة → \(A_m\) → x → η من المنحنى → \(q_{max}\) → \(q_{fin}\) → \(q_{between}\) → المجموع.</p>
+</div>
+<div class="steps">
+<div class="st"><div class="eq">$$r_2=r_1+L=1.25+1=2.25\ \text{cm},\qquad L_c=L+\frac{t}{2}=1+\frac{0.2}{2}=1.1\ \text{cm}$$</div><p class="why">الطرف يفقد حرارة ⇒ نصحح الطول.</p></div>
+<div class="st"><div class="eq">$$r_{2c}=r_1+L_c=1.25+1.1=2.35\ \text{cm},\qquad\frac{r_{2c}}{r_1}=\frac{2.35}{1.25}=1.88$$</div><p class="why">النسبة ⇒ منحنى قريب من 2.</p></div>
+<div class="st"><div class="eq">$$A_m=t\,L_c=0.002\times0.011=0.000022\ \text{m}^2$$</div><p class="why">كله بالمتر.</p></div>
+<div class="st"><div class="eq">$$L_c^{3/2}\left(\frac{h}{kA_m}\right)^{1/2}=(0.011)^{3/2}\left(\frac{50}{204\times0.000022}\right)^{1/2}=0.121\ \xrightarrow{\text{by curve}}\ \eta=0.95$$</div><p class="why">x صغير جداً ⇒ بداية المنحنى ⇒ كفاءة عالية جداً (زعنفة قصيرة وألمنيوم).</p></div>
+<div class="st"><div class="eq">$$q_{max}=2\pi h\,(r_{2c}^2-r_1^2)\,\theta_0=2\pi(50)(0.0235^2-0.0125^2)(180-20)=19.895\ \text{W}$$</div><p class="why">أعلى حرارة لو الزعنفة كلها بـ 180°C.</p></div>
+<div class="st"><div class="eq">$$q_{actual}=\eta\times q_{max}=0.95\times19.895=18.9\ \text{W per fin}$$</div><p class="why">تعريف الكفاءة.</p></div>
+<div class="st"><div class="eq">$$A_{between}=\pi d\,(L-n\,t)=\pi\times0.025\,(1-100\times0.002)=0.0628\ \text{m}^2$$</div><p class="why">سطح الأنبوب المكشوف = محيط الأنبوب × (الطول − اللي غطته قواعد الزعانف).</p></div>
+<div class="st"><div class="eq">$$q_{between}=hA_{between}\theta_0=50\times0.0628\times(180-20)=502.4\ \text{W}$$</div><p class="why">حمل عادي من الفراغات.</p></div>
+<div class="st"><div class="eq">$$q_{with\ fins}=n\,q_{fin}+q_{between}=100\times18.9+502.4$$</div><p class="why">المجموع النهائي.</p></div>
+</div>
+<div class="ans">$$q_{total}=2392.4\ \text{W}$$</div>
+<p class="check">بدون زعانف: \(50\times\pi(0.025)(1)(160)=628\) W ⇒ الزعانف ضاعفت الحرارة تقريباً 3.8 مرة (\(\varepsilon\approx3.8\)) ✔. والزعانف تعطي 79% من الحرارة الكلية.</p>
+<p class="trap">① تنسى \(q_{between}\). ② تحسب المساحة بين الزعانف بـ \(\pi d L\) كاملة بدون طرح \(n\,t\). ③ تستخدم \(r_2\) بدل \(r_{2c}\) بـ \(q_{max}\).</p>
+<p class="note">عند x = 0.121 والنسبة 1.88، المنحنى الدقيق يعطي \(\eta\approx0.987\) (المحاضرة قرأت 0.95 بالعين) ⇒ لو استخدمتها \(q\approx2466\) W. بالامتحان أي قراءة معقولة مقبولة؛ اكتب x والنسبة بوضوح.</p>
+</div>
+</article>
+</section>
+
+<!-- ======================= Q5 ======================= -->
+<section class="topic">
+<h2 id="q5" data-short="Q5 أنبوب بخار">Q5 · أنبوب بخار بزعانف — شكد زادت الحرارة؟ <span class="badge p2">Lecture 6</span></h2>
+<article class="ex" id="ex-q5">
+<header><h3>Q5 — Increase in heat transfer from a steam tube by adding fins</h3><span class="src">Problems pp.3–4</span></header>
+<div class="stmt en">Steam in a heating system flows through tube (1 m in length) whose diameter is 3 cm, and whose wall is maintained at a temperature of 120 °C. Circular aluminum fins k = 180 W/m·°C of outer diameter is 6 cm and constant thickness is 2 mm are attached to the tube as shown in the figure. The space between the fins are 3 mm. Heat is transferred at surrounding air T∞ = 25 °C with h = 60 W/m²·°C. Determine the increase in heat transfer from the tube per meter of its length as a result of adding fins.<br><b>Note: don't neglect the thickness dimension in the calculation.</b></div>
+<div class="sol">
+<div class="given" data-rows="L_{tube}|1 m|1 m ; d|3 cm|r_1 = 0.015 m ; D_{fin}|6 cm|r_2 = 0.03 m ; t|2 mm|0.002 m ; s|3 mm|0.003 m ; T_0|120 °C|120 °C ; T_\infty|25 °C|θ₀ = 95 °C ; h|60 W/m²·°C|60 ; k|180 W/m·°C|180"></div>
+<div class="find">Find: q<sub>with fins</sub> − q<sub>without fins</sub> (and ε)<span class="ar">المطلوب: الزيادة بالحرارة بسبب الزعانف.</span></div>
+<div class="strategy">
+<p>نفس وصفة Q4 + خطوة زيادة بالبداية (عدد الزعانف) وبالنهاية (مقارنة بدون زعانف). "don't neglect the thickness" معناها: ① \(L_c=L+t/2\) ② عدد الزعانف يحسب بالسمك + المسافة.</p>
+</div>
+<div class="steps">
+<div class="st"><div class="eq">$$\text{no. of fins}=\frac{1}{0.003+0.002}=200$$</div><p class="why">كل زعنفة "تحجز" سمكها + الفراغ اللي بعدها = 5 mm. بمتر واحد يطلع 200.</p></div>
+<div class="st"><div class="eq">$$L=r_2-r_1=0.03-0.015=0.015\ \text{m},\qquad L_c=L+\frac{t}{2}=0.015+\frac{0.002}{2}=0.016\ \text{m}$$</div><p class="why">طول الزعنفة الدائرية = الفرق بين نصفي القطرين.</p></div>
+<div class="st"><div class="eq">$$r_{2c}=r_1+L_c=0.015+0.016=0.031\ \text{m},\qquad\frac{r_{2c}}{r_1}=\frac{0.031}{0.015}=2.07$$</div><p class="why">نختار منحنى 2 تقريباً.</p></div>
+<div class="st"><div class="eq">$$A_m=t\,L_c=0.002\times0.016=3.2\times10^{-5}\ \text{m}^2$$</div><p class="why">للمحور الأفقي.</p></div>
+<div class="st"><div class="eq">$$L_c^{3/2}\left(\frac{h}{kA_m}\right)^{1/2}=(0.016)^{3/2}\left(\frac{60}{180\times3.2\times10^{-5}}\right)^{1/2}=0.207\ \xrightarrow{\text{by curve}}\ \eta=0.96$$</div><p class="why">x صغير ⇒ كفاءة عالية.</p></div>
+<div class="st"><div class="eq">$$q_{max}=2\pi h\,(r_{2c}^2-r_1^2)\,\theta_0=2\pi(60)(0.031^2-0.015^2)(120-25)=26.34\ \text{W}$$</div><p class="why">الزعنفة المثالية.</p></div>
+<div class="st"><div class="eq">$$q_{actual}=\eta\,q_{max}=0.96\times26.34=25.3\ \text{W per fin}$$</div><p class="why">الحقيقية.</p></div>
+<div class="st"><div class="eq">$$A_{between}=\pi d\,s\,n=\pi\times0.03\times0.003\times200=0.05652\ \text{m}^2$$</div><p class="why">كل فراغ عرضه s = 3 mm وعندنا 200 فراغ.</p></div>
+<div class="st"><div class="eq">$$q_{between}=hA_{between}\theta_0=60\times0.05652\times(120-25)=322.164\ \text{W}$$</div><p class="why">حمل من السطح المكشوف.</p></div>
+<div class="st"><div class="eq">$$q_{with\ fins}=n\,q_{fin}+q_{between}=200\times25.3+322.164=5382.164\ \text{W}$$</div><p class="why">المجموع.</p></div>
+<div class="st"><div class="eq">$$q_{without\ fins}=hA\,\theta_0=60\times(\pi\times0.03\times1)\times(120-25)=537\ \text{W}$$</div><p class="why">بدون زعانف الأنبوب كله مكشوف: \(A=\pi dL=0.0942\) m².</p></div>
+<div class="st"><div class="eq">$$\varepsilon=\frac{q_{with\ fins}}{q_{without\ fins}}=\frac{5382}{537}=10.022$$</div><p class="why">الفعالية.</p></div>
+</div>
+<div class="ans">$$q_{with}=5382\ \text{W},\quad q_{without}=537\ \text{W},\quad\Delta q=4845\ \text{W per m},\quad\varepsilon\approx10$$</div>
+<p class="check">الحرارة زادت 10 مرات — منطقي لأن مساحة الزعانف (200 × 2 × π(0.031² − 0.015²) ≈ 0.92 m²) تقريباً 10 أضعاف سطح الأنبوب (0.094 m²) وكفاءتها 96%.</p>
+<p class="trap">① تحسب n = 1/0.003 = 333 (ناسي السمك). ② تستخدم القطر 6 cm كـ \(r_2\). ③ السؤال يطلب "<b>increase</b>": اكتب الفرق 4845 W (و/أو ε = 10) مو بس 5382.</p>
+</div>
+</article>
+<div class="model" data-model="finnedtube" data-title="🧪 الأنبوب بالزعانف — المثال الجاهز Q5 (وبدّل لـ Q4)"></div>
+</section>
+
+<section class="topic">
+<h2 id="pattern" data-short="النمط">🧠 النمط اللي لازم تطلع بيه</h2>
+<div class="card">
+<ol>
+<li><b>ارسم قبل ما تحسب:</b> دائرة مقاومات (Q1، Q2) أو مخطط الزعنفة بالأبعاد (Q4، Q5).</li>
+<li><b>حوّل الوحدات أول سطر:</b> نصف قطر، متر، ft = in/12، ×0.5781.</li>
+<li><b>اكتب المعادلة الرمزية قبل الأرقام</b> — الأستاذ ينطي درجات على الخطوات.</li>
+<li><b>الجواب بالوحدات</b> + جملة تحقق صغيرة.</li>
+</ol>
+</div>
+</section>
+
+</div></main>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heat Transfer Study</title>
+<meta name="description" content="موقع مراجعة انتقال الحرارة — المرحلة الثالثة، هندسة كيمياوية، جامعة البصرة. شرح بالعربي، قوانين بالإنكليزي، نماذج تفاعلية وكويز.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/physics.js"></script>
+<script defer src="js/models.js"></script>
+<script defer src="js/layout.js"></script>
+</head>
+<body data-page="home">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Heat Transfer · 3rd stage · Chemical Engineering · University of Basrah · Lecturer: Ahmed Al Rubaie</div>
+  <h1>🔥 مراجعة انتقال الحرارة — ليلة الامتحان</h1>
+  <p>كل المحاضرات السبعة بمكان واحد: <b>الشرح بالعربي</b>، <b>القوانين والأمثلة بالإنكليزي</b> مثل المحاضرة بالضبط، نماذج تفاعلية تشوف بيها الفيزياء، وكويز بالنهاية.</p>
+  <div style="margin-top:12px">
+    <div style="display:flex;justify-content:space-between;font-weight:700;font-size:.92rem"><span>تقدّمك بالمراجعة</span><span data-progress-text></span></div>
+    <div class="progress" style="margin-top:6px"><span data-progress-bar></span></div>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+    <a class="btn primary" href="problems.html">⭐ ابدأ بأسئلة الأستاذ</a>
+    <a class="btn" href="overall-u.html">🔥 أهم محاضرة: U</a>
+    <a class="btn" href="review.html">🧪 الكويز</a>
+  </div>
+</div>
+
+<section class="topic">
+<h2 id="map" data-short="خريطة الامتحان">🗺️ خريطة الامتحان (حسب الأولوية)</h2>
+<p>الترتيب حسب نصيحة أشطر طالب بالصف: <b>U والمقاومات (أسطوانة + جدار)</b> ← الزعانف والكفاءة ← توليد الحرارة ← الجدران المركبة ← المقدمة. وفوقهن كلهن: أسئلة الأستاذ.</p>
+<div class="map">
+  <a href="problems.html"><div class="mt"><span class="mn">Q</span><span class="badge pstar">⭐ أقوى مؤشر</span></div><h3>أسئلة الأستاذ Q1–Q5</h3><p>5 أسئلة اختارها بنفسه: توالي+توازي، جدار بناية، كرة توليد، زعانف دائرية ×2.</p></a>
+  <a href="overall-u.html"><div class="mt"><span class="mn">3</span><span class="badge p1">🔥 أولوية 1</span></div><h3>المعامل الكلي U + نصف القطر الحرج</h3><p>حمل ← توصيل ← حمل. Uᵢ و Uₒ للأنبوب. rc = k/h.</p></a>
+  <a href="fins.html"><div class="mt"><span class="mn">5</span><span class="badge p2">⚡ أولوية 2</span></div><h3>الزعانف</h3><p>m = √(hP/kA)، الحالات الثلاث، Lc.</p></a>
+  <a href="fin-efficiency.html"><div class="mt"><span class="mn">6</span><span class="badge p2">⚡ أولوية 2</span></div><h3>الكفاءة والفعالية</h3><p>η = q/qmax، Figure 1 و 2، مصفوفة زعانف، ε.</p></a>
+  <a href="heat-generation.html"><div class="mt"><span class="mn">4</span><span class="badge p3">أولوية 3</span></div><h3>توليد الحرارة</h3><p>قاعدة 2‑4‑6: جدار، أسطوانة، كرة.</p></a>
+  <a href="conduction.html"><div class="mt"><span class="mn">2</span><span class="badge p4">أولوية 4</span></div><h3>التوصيل أحادي البعد</h3><p>جدار مركب، أسطوانة وكرة متعددة الطبقات، القياس الكهربائي.</p></a>
+  <a href="intro.html"><div class="mt"><span class="mn">1</span><span class="badge p5">أولوية 5</span></div><h3>المقدمة</h3><p>فورييه، نيوتن، ستيفان‑بولتزمان، تحويل درجات الحرارة.</p></a>
+  <a href="review.html"><div class="mt"><span class="mn">8</span><span class="badge p4">قبل النوم</span></div><h3>الفخاخ + كويز 15 سؤال</h3><p>وورقة القوانين للطباعة.</p></a>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="flow" data-short="أي قانون أستخدم؟">🧭 أي قانون أستخدم؟ (مخطط القرار)</h2>
+<p>اقرا السؤال واسأل نفسك هالأسئلة بالترتيب. اضغط على أي فرع حتى ينفتح.</p>
+<div class="flow">
+<div class="q">❶ أكو حرارة <b>تتولد داخل</b> الجسم؟ (q̇، تيار كهربائي I²R، مفاعل، تفاعل)</div>
+<details><summary>✅ نعم ← توليد حرارة (المحاضرة 4)</summary>
+<div class="opts">
+<div class="opt"><b>جدار (سمك 2L)</b><div class="eq">\(T_0=\dfrac{\dot qL^2}{2k}+T_w\)</div></div>
+<div class="opt"><b>أسطوانة / سلك</b><div class="eq">\(T_0=\dfrac{\dot qR^2}{4k}+T_w\)</div></div>
+<div class="opt"><b>كرة</b><div class="eq">\(T_0=\dfrac{\dot qR^2}{6k}+T_w\)</div></div>
+<div class="opt"><b>Tw مو معطى؟</b> اللي يتولد يطلع بالحمل:<div class="eq">\(\dot q\,V=hA\,(T_w-T_\infty)\)</div></div>
+</div></details>
+
+<div class="q">❷ أكو <b>زعانف</b> / قضيب بارز / سطح ممتد؟</div>
+<details><summary>✅ نعم ← الزعانف (المحاضرات 5 و 6)</summary>
+<div class="opts">
+<div class="opt"><b>"very long"</b> ⇒ Case 1<div class="eq">\(q=\sqrt{hPkA}\,\theta_0\)</div></div>
+<div class="opt"><b>"insulated tip"</b> ⇒ Case 2<div class="eq">\(q=\sqrt{hPkA}\,\theta_0\tanh mL\)</div></div>
+<div class="opt"><b>الطرف يفقد حرارة</b> ⇒ Case 3<div class="eq">\(L\to L_c=L+t/2\)</div></div>
+<div class="opt"><b>زعنفة دائرية / "efficiency"</b><div class="eq">\(q=\eta\,q_{max}\) (Figure 2)</div></div>
+<div class="opt"><b>n زعنفة</b><div class="eq">\(q=n\,q_{fin}+hA_{between}\theta_0\)</div></div>
+<div class="opt"><b>"increase" / مقارنة</b><div class="eq">\(\varepsilon=q_{with}/q_{without}\)</div></div>
+</div></details>
+
+<div class="q">❸ حرارة تعبر <b>طبقات</b> (جدار/أنبوب/كرة) — مع أو بدون موائع؟</div>
+<details open><summary>✅ نعم ← قانون أوم الحراري: \(q=\Delta T/\sum R\)</summary>
+<div class="opts">
+<div class="opt"><b>جدار مستوي</b><div class="eq">\(R=\dfrac{\Delta x}{kA}\)</div></div>
+<div class="opt"><b>أسطوانة / أنبوب</b><div class="eq">\(R=\dfrac{\ln(r_o/r_i)}{2\pi kL}\)</div></div>
+<div class="opt"><b>كرة</b><div class="eq">\(R=\dfrac{1/r_1-1/r_2}{4\pi k}\)</div></div>
+<div class="opt"><b>مائع على سطح (h)</b><div class="eq">\(R=\dfrac{1}{hA}\)</div></div>
+<div class="opt"><b>طبقات فوق بعض</b> (توازي)<div class="eq">\(\dfrac{1}{R_{eq}}=\sum\dfrac{1}{R_i}\)</div></div>
+<div class="opt"><b>يطلب U</b><div class="eq">\(U=\dfrac{1}{A\sum R}\)</div></div>
+<div class="opt"><b>عازل على أنبوب صغير</b><div class="eq">\(r_c=k/h\)</div></div>
+<div class="opt"><b>k = k₀(1+βT)</b><div class="eq">\(k_m=k_0[1+\beta\bar T]\)</div></div>
+</div></details>
+
+<div class="q">❹ نمط واحد بسيط؟ (المقدمة)</div>
+<details><summary>✅ ← المحاضرة 1</summary>
+<div class="opts">
+<div class="opt"><b>توصيل</b><div class="eq">\(q=-kA\dfrac{dT}{dx}\)</div></div>
+<div class="opt"><b>حمل</b><div class="eq">\(q=hA(T_w-T_\infty)\)</div></div>
+<div class="opt"><b>إشعاع</b> (بالكلفن!)<div class="eq">\(q=\varepsilon\sigma A(T_1^4-T_2^4)\)</div></div>
+</div></details>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="plan" data-short="خطة الليلة">⏱️ خطة الليلة (اقتراح)</h2>
+<div class="card">
+<ol>
+<li><b>ساعة 1:</b> <a href="overall-u.html">المحاضرة 3</a> كاملة + <a href="problems.html#q2">Q2</a> و <a href="problems.html#q1">Q1</a> — حلها بالورقة.</li>
+<li><b>ساعة 2:</b> <a href="fins.html">الزعانف</a> + <a href="fin-efficiency.html">الكفاءة</a> + <a href="problems.html#q4">Q4</a> و <a href="problems.html#q5">Q5</a>.</li>
+<li><b>ساعة 3:</b> <a href="heat-generation.html">توليد الحرارة</a> + <a href="problems.html#q3">Q3</a>، بعدين <a href="conduction.html">التوصيل</a> بسرعة.</li>
+<li><b>آخر نص ساعة:</b> <a href="formulas.html">ورقة القوانين</a> + <a href="review.html">الفخاخ والكويز</a>. والمقدمة تقراها الصبح.</li>
+</ol>
+<p style="margin:0">💡 كل مثال فيه زر "اعرض الحل" — <b>لا تفتحه قبل ما تجرب</b>. وعلّم "فهمته" حتى تتابع نفسك.</p>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="how" data-short="شلون تستخدم الموقع">📱 شلون تستخدم الموقع</h2>
+<ul>
+<li>زر <b>📄 القوانين</b> (تحت يسار) يفتح ورقة القوانين بأي صفحة.</li>
+<li>🌙 / ☀️ فوق للوضع الليلي. تقدّمك ونتائج الكويز تنحفظ بجهازك.</li>
+<li>المعادلات الطويلة تنسحب يمين/يسار داخل صندوقها على الموبايل.</li>
+<li>أي ملاحظة بنفسجية 📝 = تصحيح لغلط مطبعي بالمحاضرة.</li>
+</ul>
+</section>
+
+</div></main>
+</body>
+</html>

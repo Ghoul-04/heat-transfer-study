@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fins — Extended Surfaces</title>
+<meta name="description" content="الزعانف: اشتقاق معادلة الزعنفة، الحالات الثلاث، الزعنفة الرقيقة والدبوسية والطول المصحح، مع أمثلة المحاضرة والواجب.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/physics.js"></script>
+<script defer src="js/models.js"></script>
+<script defer src="js/layout.js"></script>
+</head>
+<body data-page="fins">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Lecture 5 · pages 21–25 · Fins (extended surfaces)</div>
+  <h1>الزعانف (Fins)</h1>
+  <span class="badge p2">⚡ أولوية ثانية — تجي ويا الكفاءة بالامتحان</span>
+  <p>شفنا بالأنبوب إن مقاومة الهواء برّا (\(1/hA\)) هي المسيطرة. الحل؟ ما نقدر نكبّر h بسهولة، فنكبّر <b>A</b>: نلصق "أصابع" معدنية على السطح. هاي هي الزعانف.</p>
+  <div data-toc></div>
+</div>
+
+<section class="topic">
+<h2 id="what" data-short="شنو الزعنفة؟">🪭 شنو الزعنفة وليش نستخدمها؟</h2>
+<p>الزعانف (extended surfaces) تزيد انتقال الحرارة بزيادة <b>المساحة الفعالة للحمل</b>. تلقاها بالمبادلات الحرارية، تبريد قلب المفاعل، المحولات والمحركات الكهربائية، رادياتير السيارة، ومعالجات الكمبيوتر.</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>النوع (من شكل المحاضرة)</th><th>وين نشوفه</th></tr></thead>
+<tbody>
+<tr><td>(a) زعنفة مستقيمة مستطيلة على جدار مستوي</td><td>مشتت حرارة المعالج</td></tr>
+<tr><td>(b) زعانف مستقيمة مستطيلة على أنبوب</td><td>أنابيب المبادلات</td></tr>
+<tr><td>(c) زعنفة دائرية (circumferential / annular) على أنبوب</td><td>أنبوب البخار بـ Q5، المكيفات</td></tr>
+<tr><td>(d) زعنفة دبوسية / قضيب (pin / rod)</td><td>قضيب نحاس، دبابيس تبريد</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="topic">
+<h2 id="derive" data-short="الاشتقاق">📐 اشتقاق معادلة الزعنفة (موازنة الطاقة)</h2>
+<p>ناخذ شريحة صغيرة سمكها \(dx\) من زعنفة مستطيلة: قاعدتها بحرارة \(T_0\)، ومحاطة بمائع \(T_\infty\). الفرضيات: <b>steady state، بعد واحد، بدون توليد حرارة</b>.</p>
+<div class="callout info"><b>Energy in left face = energy out right face + energy lost by convection</b><br>الطاقة الداخلة من اليسار = الطالعة من اليمين + اللي ضاعت بالحمل من سطح الشريحة.</div>
+<div class="card">
+<div class="st"><div class="lab">Energy in (left face)</div><div class="eq">$$q_x=-kA\frac{dT}{dx}$$</div><p class="why">قانون فورييه عند الوجه الأيسر للشريحة.</p></div>
+<div class="st"><div class="lab">Energy out (right face)</div><div class="eq">$$q_{x+dx}=-kA\left.\frac{dT}{dx}\right]_{x+dx}=-kA\left(\frac{dT}{dx}+\frac{d^2T}{dx^2}\,dx\right)$$</div><p class="why">نفس فورييه بس عند \(x+dx\)؛ نستخدم أول حدين من تايلر.</p></div>
+<div class="st"><div class="lab">Energy lost by convection</div><div class="eq">$$dq_{conv}=h\,(P\,dx)\,(T-T_\infty)$$</div><p class="why">مساحة الحمل للشريحة = المحيط × السمك \(dx\). المحيط \(P=2(z+t)\) والمقطع \(A=z\,t\).</p></div>
+<div class="st"><div class="lab">Combine → Eq. 1</div><div class="eq">$$\frac{d^2T}{dx^2}-\frac{hP}{kA}\,(T-T_\infty)=0$$</div><p class="why">نعوض بالموازنة: الحد \(-kA\,dT/dx\) يختصر من الجهتين، ونقسم على \(kA\,dx\).</p></div>
+<div class="st"><div class="lab">Substitute θ = T − T∞ , m² = hP/kA → Eq. 2</div><div class="eq">$$\theta=T-T_\infty,\qquad m=\sqrt{\frac{hP}{kA}}\qquad\Longrightarrow\qquad\frac{d^2\theta}{dx^2}-m^2\theta=0$$</div><p class="why">لأن \(T_\infty\) ثابت فـ \(d^2\theta/dx^2=d^2T/dx^2\). المعادلة صارت أنظف.</p></div>
+<div class="st"><div class="lab">General solution → Eq. 3</div><div class="eq">$$\theta=C_1e^{-mx}+C_2e^{mx}$$</div><p class="why">معادلة تفاضلية خطية من الدرجة الثانية بمعاملات ثابتة؛ جذورها \(\pm m\).</p></div>
+<div class="st"><div class="lab">B.C. 1 : T = T₀ at x = 0 → Eq. 4</div><div class="eq">$$\theta_0=T_0-T_\infty=C_1+C_2$$</div><p class="why">عند القاعدة \(e^{0}=1\). الشرط الحدّي الثاني يعتمد على شنو يصير بنهاية الزعنفة ⇒ ثلاث حالات.</p></div>
+</div>
+<div class="f" data-name="Fin parameter m" data-sym="m|معامل الزعنفة|1/m ; h|معامل الحمل|W/m²·°C ; P|محيط مقطع الزعنفة|m ; k|موصلية مادة الزعنفة|W/m·°C ; A|مساحة المقطع العرضي (اللي تعبره الحرارة طولياً)|m² ; \theta|فرق الحرارة عن المائع T − T∞|°C">
+<div class="eq">$$m=\sqrt{\frac{hP}{kA}}\qquad\theta=T-T_\infty\qquad\theta_0=T_0-T_\infty$$</div>
+<p class="what">m يقيس "شكد بسرعة تبرد الزعنفة على طولها". h كبيرة أو زعنفة رقيقة (A صغيرة) ⇒ m كبيرة ⇒ الحرارة تنزل بسرعة. k كبيرة (نحاس/ألمنيوم) ⇒ m صغيرة ⇒ الحرارة توصل للنهاية.</p>
+<p class="when">بأي سؤال زعنفة — هو أول شي تحسبه.</p>
+<p class="hint">"<b>h P</b> فوق (اللي يطلّع الحرارة)، <b>k A</b> جوّا (اللي يوصّلها)". المستطيلة: \(A=zt,\ P=2(z+t)\). الأسطوانة: \(A=\frac{\pi}{4}d^2,\ P=\pi d\).</p>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="cases" data-short="الحالات الثلاث">🧮 الحالات الثلاث (Case 1, 2, 3)</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>Case</th><th>الوصف</th><th>Second B.C.</th><th>\(\theta/\theta_0\)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>زعنفة طويلة جداً — نهايتها بحرارة المائع</td><td>\(\theta=0\ \text{at}\ x=\infty\)</td><td>\(e^{-mx}\)</td></tr>
+<tr><td class="num">2</td><td>نهاية معزولة (نهمل الحرارة من الطرف)</td><td>\(\dfrac{d\theta}{dx}=0\ \text{at}\ x=L\)</td><td>\(\dfrac{\cosh m(L-x)}{\cosh mL}\)</td></tr>
+<tr><td class="num">3</td><td>طول محدود والطرف يفقد حرارة بالحمل</td><td>\(-kA\dfrac{d\theta}{dx}=hA\,\theta\ \text{at}\ x=L\)</td><td>\(\dfrac{\cosh m(L-x)+(h/mk)\sinh m(L-x)}{\cosh mL+(h/mk)\sinh mL}\)</td></tr>
+</tbody></table></div>
+<p class="num" style="font-size:.85rem;color:var(--muted)">(The lecture table writes the case-3 B.C. as "−kA dθ/dx = h p dx θ"; physically it is convection from the tip area A: −kA dθ/dx = hAθ at x = L.)</p>
+
+<p>الحرارة الكلية اللي تطلع من الزعنفة = الحرارة الداخلة من القاعدة: \(q=-kA\,\dfrac{d\theta}{dx}\Big|_{x=0}\). مثلاً Case 1: \(\theta=\theta_0e^{-mx}\Rightarrow d\theta/dx|_0=-m\theta_0\Rightarrow q=kAm\theta_0\).</p>
+
+<div class="f" data-name="Case 1 — very long fin" data-sym="q|الحرارة المفقودة من الزعنفة|W ; \sqrt{hPkA}|= kAm|W/°C ; \theta_0|T₀ − T∞|°C">
+<div class="eq">$$q=kAm\,\theta_0=\sqrt{hPkA}\,(T_0-T_\infty)$$</div>
+<p class="what">إذا الزعنفة طويلة لدرجة إن نهايتها توصل لحرارة المائع، كل الطول يشتغل وما يهم شكد تطولها بعد.</p>
+<p class="when">السؤال يقول "very long rod/fin" أو "infinitely long"، أو \(mL>3\) تقريباً.</p>
+<p class="hint">Case 1 = <b>جذر hPkA × θ₀</b> — "جذر حبك" (hPkA) 😄.</p>
+</div>
+<div class="f" data-name="Case 2 — insulated tip" data-sym="L|طول الزعنفة|m ; \tanh(mL)|دالة الظل الزائدية (أقل من 1)|—">
+<div class="eq">$$q=kAm\,\theta_0\tanh(mL)=\sqrt{hPkA}\,\theta_0\tanh(mL)$$</div>
+<p class="what">نفس Case 1 مضروب بـ \(\tanh(mL)\) اللي دائماً أقل من 1 — لأن الزعنفة قصيرة وما تشتغل بكامل طاقتها.</p>
+<p class="when">"insulated end"، "neglecting the heat transfer at the end"، أو تستخدمها ويا \(L_c\) لحالة 3.</p>
+<p class="hint">Case 2 = <b>Case 1 × tanh(mL)</b>. ولما \(mL\) كبيرة ⇒ \(\tanh\to1\) ⇒ ترجع Case 1.</p>
+</div>
+<div class="f" data-name="Case 3 — convection from the tip" data-sym="h/mk|نسبة بلا أبعاد تمثل حمل الطرف|—">
+<div class="eq">$$q=kAm\,\theta_0\;\frac{\sinh mL+(h/mk)\cosh mL}{\cosh mL+(h/mk)\sinh mL}$$</div>
+<p class="what">الحل الكامل لما الطرف يفقد حرارة. معقد شوية، فبالعملي نستبدله بخدعة الطول المصحح.</p>
+<p class="when">"accounting the heat transfer at the end" أو "loses heat by convection from its end".</p>
+<p class="hint">ما تحتاج تحفظها إذا حفظت الخدعة: <b>Case 3 = Case 2 بس L ← L<sub>c</sub></b>.</p>
+</div>
+
+<h3>📏 حالات خاصة مهمة</h3>
+<div class="f" data-name="Thin rectangular fin (z ≫ t)" data-sym="z|عرض الزعنفة|m ; t|سمك الزعنفة|m">
+<div class="eq">$$z\gg t\ \Rightarrow\ P\approx2z,\ A=zt\qquad m=\sqrt{\frac{hP}{kA}}=\sqrt{\frac{2h}{kt}}$$</div>
+<p class="what">للزعنفة الرقيقة المحيط تقريباً ضعف العرض، فالـ z تختصر ويبقى m يعتمد على السمك بس.</p>
+<p class="when">زعنفة مستطيلة "thin" أو العرض أكبر بكثير من السمك (أغلب الأسئلة).</p>
+<p class="hint">رقيقة ⇒ "<b>2h على kt</b>" — t = thickness.</p>
+</div>
+<div class="f" data-name="Pin / cylindrical rod fin" data-sym="d|قطر الدبوس|m ; r|نصف قطر الدبوس = d/2|m">
+<div class="eq">$$P=\pi d,\ A=\frac{\pi}{4}d^2\ \Rightarrow\ m=\sqrt{\frac{4h}{kd}}=\sqrt{\frac{2h}{kr}}$$</div>
+<p class="what">للقضيب الدائري \(P/A=4/d=2/r\).</p>
+<p class="when">"rod", "pin fin", "cylindrical spine".</p>
+<p class="hint">نفس شكل الرقيقة بس t صارت <b>r</b>: "2h على k r" (نصف القطر مو القطر!).</p>
+</div>
+<div class="f" data-name="Corrected length (turns Case 3 into Case 2)" data-sym="L_c|الطول المصحح|m ; t|سمك الزعنفة المستطيلة|m ; d|قطر الدبوس|m">
+<div class="eq">$$\text{Rectangular: } L_c=L+\frac{t}{2}\qquad\text{Pin: } L_c=L+\frac{\pi d^2/4}{\pi d}=L+\frac{d}{4}=L+\frac{r}{2}$$</div>
+<p class="what">نطوّل الزعنفة شوية حتى مساحة الجوانب الإضافية تساوي مساحة الطرف. بعدها نعامل الطرف كأنه معزول ونستخدم معادلة Case 2 بـ \(L_c\).</p>
+<p class="when">كل ما يكون Case 3 (الطرف يفقد حرارة)، ودائماً ويا منحنيات الكفاءة.</p>
+<p class="hint">مستطيلة: "<b>نص السمك</b>" (t/2). دبوس: "<b>ربع القطر</b>" (d/4) = نص نصف القطر (r/2).</p>
+</div>
+<div class="callout tip"><span class="ttl">🧠 خلاصة الحالات بسطر</span>
+\(\text{Case 1}=\sqrt{hPkA}\,\theta_0\) &nbsp;·&nbsp; \(\text{Case 2}=\text{Case 1}\times\tanh(mL)\) &nbsp;·&nbsp; \(\text{Case 3}=\text{Case 2 with }L\to L_c\)</div>
+
+<div class="model" data-model="fin" data-title="🌡️ زعنفة حيّة: تدرج الحرارة + منحنى θ/θ₀ للحالات الثلاث"></div>
+</section>
+
+<section class="topic">
+<h2 id="examples" data-short="الأمثلة">✍️ أمثلة المحاضرة (+ الواجب)</h2>
+
+<article class="ex" id="ex-fin-copper">
+<header><h3>مثال 1: قضيب نحاس طويل جداً (Case 1)</h3><span class="src">Lecture p.24</span></header>
+<div class="stmt en">A very long copper rod (k = 372 W/m·°C) 2.5 cm in diameter has one end at 90 °C. The rod is exposed to a fluid whose temperature is 40 °C. The heat transfer coefficient is 3.5 W/m²·°C. Calculate the heat loss from the rod.</div>
+<div class="sol">
+<div class="given" data-rows="k|372 W/m·°C|372 ; d|2.5 cm|0.025 m ; T_0|90 °C|90 °C ; T_\infty|40 °C|40 °C ; h|3.5 W/m²·°C|3.5"></div>
+<div class="find">Find: q (heat loss from the rod)<span class="ar">المطلوب: الحرارة المفقودة من القضيب.</span></div>
+<div class="strategy"><p>كلمة "<b>very long</b>" ⇒ Case 1 مباشرة. قضيب دائري ⇒ \(A=\frac{\pi}{4}d^2\) و \(P=\pi d\). ما نحتاج L أصلاً!</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$A=\frac{\pi}{4}d^2=\frac{\pi}{4}(0.025)^2=4.91\times10^{-4}\ \text{m}^2$$</div><p class="why">مساحة المقطع اللي تمشي بيه الحرارة على طول القضيب.</p></div>
+<div class="st"><div class="eq">$$P=\pi d=3.14\times0.025=0.0785\ \text{m}$$</div><p class="why">المحيط هو اللي "يشوف" الهواء ويفقد بالحمل.</p></div>
+<div class="st"><div class="eq">$$q=\sqrt{hPkA}\,(T_0-T_\infty)=\sqrt{3.5\times0.0785\times372\times4.91\times10^{-4}}\times(90-40)$$</div><p class="why">Case 1: الزعنفة طويلة فنهايتها = حرارة المائع.</p></div>
+</div>
+<div class="ans">$$q=11.2\ \text{W}$$</div>
+<p class="check">\(m=\sqrt{hP/kA}=1.23\ \text{m}^{-1}\)، فحتى يكون "طويل" (\(mL>3\)) نحتاج \(L>2.4\) m — قضيب النحاس فعلاً طويل. و 11 W منطقي لقضيب رفيع بهواء ساكن.</p>
+<p class="trap">تحسب P بنصف القطر، أو تخلط A (مقطع) ويا مساحة السطح الجانبي \(\pi dL\).</p>
+<p class="note">بالمحاضرة مكتوب "P = 3.41 × 0.025" — هذا خطأ مطبعي، المقصود \(\pi=3.14\): \(3.14\times0.025=0.0785\). القيمة النهائية صحيحة.</p>
+</div>
+</article>
+
+<article class="ex" id="ex-fin-al-thin">
+<header><h3>مثال 2: زعنفة ألمنيوم رقيقة مستطيلة (Case 3 ← Lc ← Case 2)</h3><span class="src">Lecture p.24</span></header>
+<div class="stmt en">An aluminum rectangular thin fin [k = 200 W/m·°C] [A = 3×10⁻³ m²] 3.0 mm thick and 7.5 cm long. The base is maintained at 300 °C, and the ambient temperature is 50 °C with h = 10 W/m²·°C. Calculate the heat loss from the fin.</div>
+<div class="sol">
+<div class="given" data-rows="k|200 W/m·°C|200 ; A|3×10⁻³ m²|= z t with z = 1 m, t = 0.003 m ; t|3.0 mm|0.003 m ; L|7.5 cm|0.075 m ; T_0|300 °C|300 °C ; T_\infty|50 °C|50 °C ; h|10 W/m²·°C|10"></div>
+<div class="find">Find: q from the fin<span class="ar">المطلوب: الحرارة المفقودة من الزعنفة (لكل 1 m عرض).</span></div>
+<div class="strategy"><p>ما مذكور إن الطرف معزول ⇒ الطرف يفقد حرارة ⇒ <b>Case 3</b>. نستخدم الخدعة: \(L_c=L+t/2\) ثم معادلة Case 2. "thin" ⇒ \(m=\sqrt{2h/kt}\). \(A=3\times10^{-3}\) يعني الحساب لعرض 1 m.</p>
+<p class="num" style="direction:ltr;text-align:center;font-weight:700">Case 3 ⟶ L<sub>c</sub> ⟶ Case 2</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$L_c=L+\frac{t}{2}=7.5+0.15=7.65\ \text{cm}$$</div><p class="why">نضيف نص السمك (0.3/2 = 0.15 cm) حتى نعوض عن حرارة الطرف.</p></div>
+<div class="st"><div class="eq">$$m=\sqrt{\frac{2h}{kt}}=\sqrt{\frac{2\times10}{200\times0.003}}=5.774\ \text{m}^{-1}$$</div><p class="why">زعنفة رقيقة: \(P\approx2z\) فـ \(hP/kA=2h/kt\).</p></div>
+<div class="st"><div class="eq">$$q=kAm\,\theta_0\tanh(mL_c)=(5.774)(200)(3\times10^{-3})(300-50)\tanh[(5.774)(0.0765)]$$</div><p class="why">معادلة Case 2 بس بـ \(L_c\) بدل L.</p></div>
+</div>
+<div class="ans">$$q\approx359\ \text{W}\quad(\text{per 1 m of fin width})$$</div>
+<p class="check">\(mL_c=0.44\) صغيرة ⇒ الزعنفة قصيرة وحارة كلها تقريباً. الكفاءة \(\tanh(0.44)/0.44=94\%\)؛ والحد الأعلى لو كلها بـ 300°C: \(h(2zL_c)\theta_0=382\) W ⇒ 359 أقل منه ✔.</p>
+<p class="trap">تنسى \(L_c\) وتستخدم L (يطلع 353 W)، أو تحط t بالـ cm داخل الجذر.</p>
+</div>
+</article>
+
+<article class="ex" id="ex-fin-al-pin">
+<header><h3>مثال 3: دبوس ألمنيوم بالوحدات الإنكليزية — (a) و (b) الواجب</h3><span class="src">Lecture pp.24–25</span></header>
+<div class="stmt en">An aluminum cylindrical rod fin (k = 132 Btu/h·ft·°F) having a diameter of 0.375 in and a length of 4 in is attached to a surface having T = 200 °F. The rod is exposed to ambient air 70 °F and heat transfer coefficient is 1.5 Btu/h·ft²·°F. Determine temperature distribution and heat flux if<br>a- Neglecting the heat transfer at the end.<br>b- Accounting the heat transfer at the end.</div>
+<div class="sol">
+<div class="given" data-rows="k|132 Btu/h·ft·°F|132 ; d|0.375 in|0.375/12 = 0.03125 ft (r = 0.015625 ft) ; L|4 in|4/12 = 0.3333 ft ; T_0|200 °F|200 °F ; T_\infty|70 °F|70 °F ; h|1.5 Btu/h·ft²·°F|1.5"></div>
+<div class="find">Find: T(x) and q for (a) insulated tip, (b) convecting tip<span class="ar">المطلوب: توزيع الحرارة والحرارة المفقودة بالحالتين.</span></div>
+<div class="strategy"><p>كل الوحدات إنكليزية (ft, Btu/h, °F) — نخليها مثل ما هي بس نحول الإنج لقدم (÷12). (a) "neglecting the end" ⇒ <b>Case 2</b>. (b) "accounting the end" ⇒ <b>Case 3</b> = Case 2 بـ \(L_c=L+d/4\). دبوس ⇒ \(m=\sqrt{2h/kr}\).</p></div>
+<div class="steps">
+<div class="st"><div class="lab">(a) Case 2</div><div class="eq">$$m=\sqrt{\frac{2h}{kr}}=\sqrt{\frac{2\times1.5}{132\times(0.1875/12)}}=1.206\ \text{ft}^{-1}$$</div><p class="why">نصف القطر \(0.375/2=0.1875\) in، ونقسم على 12 حتى يصير ft.</p></div>
+<div class="st"><div class="eq">$$\frac{\theta}{\theta_0}=\frac{T-T_\infty}{T_0-T_\infty}=\frac{\cosh[m(L-x)]}{\cosh mL}\ \Rightarrow\ \frac{T-70}{200-70}=\frac{\cosh[1.206(\frac{4}{12}-x)]}{\cosh(1.206\times\frac{4}{12})}$$</div><p class="why">توزيع Case 2 من الجدول.</p></div>
+<div class="st"><div class="eq">$$T=70+130\,\frac{\cosh[1.206(\frac{4}{12}-x)]}{1.0819}\qquad(x\ \text{in ft})$$</div><p class="why">\(\cosh(0.402)=1.0819\). عند الطرف \(x=L\): \(T=70+130/1.0819=190.2\,{}^\circ F\).</p></div>
+<div class="st"><div class="eq">$$q=kAm\,\theta_0\tanh(mL)=132\times\frac{\pi}{4}\left(\frac{0.375}{12}\right)^2\times1.206\times(200-70)\tanh\!\left(1.206\times\frac{4}{12}\right)$$</div><p class="why">Case 2 للحرارة.</p></div>
+</div>
+<div class="ans">$$\text{(a)}\quad q=6.055\ \text{Btu/h}\ (\approx1.77\ \text{W})$$</div>
+<div class="steps">
+<div class="st"><div class="lab">(b) H.W. — Case 3 via corrected length</div><div class="eq">$$L_c=L+\frac{d}{4}=\frac{4}{12}+\frac{0.375/12}{4}=0.3333+0.0078=0.3411\ \text{ft}$$</div><p class="why">للدبوس نضيف ربع القطر حتى مساحة الطرف \(\pi d^2/4\) تنفرش على المحيط \(\pi d\).</p></div>
+<div class="st"><div class="eq">$$q=kAm\,\theta_0\tanh(mL_c)=15.87\times\tanh(1.206\times0.3411)=15.87\times0.3896$$</div><p class="why">\(kAm\theta_0=132\times7.67\times10^{-4}\times1.206\times130=15.87\) Btu/h (نفسه من (a)).</p></div>
+<div class="st"><div class="lab">(b) check with the exact Case-3 formula</div><div class="eq">$$\frac{h}{mk}=\frac{1.5}{1.206\times132}=0.00942\qquad q=15.87\,\frac{\sinh0.402+0.00942\cosh0.402}{\cosh0.402+0.00942\sinh0.402}=15.87\times0.3897$$</div><p class="why">نتأكد إن خدعة \(L_c\) تعطي نفس الجواب تقريباً.</p></div>
+<div class="st"><div class="lab">(b) temperature distribution</div><div class="eq">$$T=70+130\,\frac{\cosh[1.206(\frac{4}{12}-x)]+0.00942\sinh[1.206(\frac{4}{12}-x)]}{1.0858}$$</div><p class="why">من جدول Case 3؛ المقام \(\cosh mL+(h/mk)\sinh mL=1.0819+0.00942(0.4129)=1.0858\). الطرف: \(T=70+130/1.0858=189.7\,{}^\circ F\).</p></div>
+</div>
+<div class="ans">$$\text{(b)}\quad q\approx6.19\ \text{Btu/h}\ (\approx1.81\ \text{W}),\qquad T_{tip}\approx189.7\,{}^\circ\text{F}$$</div>
+<p class="check">(b) أكبر من (a) بـ 2% بس، لأن مساحة الطرف صغيرة جداً مقارنة بالجوانب. والطرف بـ (b) أبرد شوية (189.7 مقابل 190.2) لأنه يفقد حرارة. منطقي ✔.</p>
+<p class="trap">تخلط الوحدات: k بالـ Btu/h·ft·°F لازم d و L بالـ ft (÷12). وتنتبه: \(m=\sqrt{2h/kr}\) بنصف القطر.</p>
+<p class="note">بالمحاضرة الجواب مكتوب "6.055 W" — بس كل الوحدات إنكليزية، فالوحدة الصحيحة <b>Btu/h</b> (يعادل ~1.77 W).</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="choose" data-short="أي حالة أختار؟">🧭 أي حالة أختار؟ (من كلمات السؤال)</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>إذا السؤال يقول…</th><th>الحالة</th><th>المعادلة</th></tr></thead>
+<tbody>
+<tr><td class="en">very long / infinitely long</td><td>Case 1</td><td>\(\sqrt{hPkA}\,\theta_0\)</td></tr>
+<tr><td class="en">insulated tip / neglect heat loss from the end</td><td>Case 2</td><td>\(\sqrt{hPkA}\,\theta_0\tanh mL\)</td></tr>
+<tr><td class="en">accounting for the end / convection from the tip / nothing said</td><td>Case 3 ⇒ \(L_c\)</td><td>\(\sqrt{hPkA}\,\theta_0\tanh mL_c\)</td></tr>
+<tr><td class="en">efficiency / circumferential fin / chart</td><td>المحاضرة 6</td><td>\(q=\eta\,q_{max}\)</td></tr>
+</tbody></table></div>
+<div class="callout warn"><span class="ttl">⚠️ فخاخ الزعانف</span>
+<ul style="margin:0">
+<li>A هي <b>مساحة المقطع</b> (zt أو πd²/4)، مو مساحة السطح الجانبي.</li>
+<li>θ₀ = T₀ − T∞ (فرق)، مو T₀ لوحدها.</li>
+<li>الدبوس: \(m=\sqrt{2h/kr}\) بـ <b>r</b>، والمستطيلة الرقيقة بـ <b>t</b>.</li>
+<li>الآلة الحاسبة: tanh و cosh بالـ hyp، والزاوية ما إلها علاقة (rad/deg ما يأثر على hyp).</li>
+</ul></div>
+</section>
+
+</div></main>
+</body>
+</html>

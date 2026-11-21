@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fin Efficiency & Effectiveness</title>
+<meta name="description" content="كفاءة الزعنفة وفعاليتها، قراءة منحنيات الكفاءة (Figure 1 و Figure 2) خطوة بخطوة، ومصفوفات الزعانف.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/physics.js"></script>
+<script defer src="js/models.js"></script>
+<script defer src="js/layout.js"></script>
+</head>
+<body data-page="efficiency">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Lecture 6 · pages 26–29 · Fin efficiency & fin performance</div>
+  <h1>كفاءة وفعالية الزعانف</h1>
+  <span class="badge p2">⚡ أولوية ثانية — Q4 و Q5 كلها من هنا</span>
+  <p>بالمحاضرة الفاتت حسبنا q من المعادلات. هنا طريقة ثانية أسرع (وضرورية للزعانف الدائرية): نحسب <b>أعلى حرارة ممكنة</b> ونضربها بـ <b>الكفاءة</b> اللي نقراها من منحنى.</p>
+  <div data-toc></div>
+</div>
+
+<section class="topic">
+<h2 id="eta" data-short="الكفاءة η">🎯 كفاءة الزعنفة η</h2>
+<div class="f" data-name="Fin efficiency" data-sym="\eta|كفاءة الزعنفة (0 إلى 1)|— ; q_{actual}|الحرارة الحقيقية من الزعنفة|W ; q_{max}|الحرارة لو كل الزعنفة بحرارة القاعدة T₀|W">
+<div class="eq">$$\eta=\frac{q_{actual}}{q_{max}}$$</div>
+<p class="what">الزعنفة المثالية (k = ∞) تكون كلها بحرارة القاعدة فتعطي \(q_{max}\). الحقيقية تبرد على طولها فتعطي أقل. الكفاءة = شكد قريبة من المثالية.</p>
+<p class="when">لما تريد q لزعنفة دائرية، أو السؤال يطلب "efficiency"، أو يعطيك منحنى.</p>
+<p class="hint">مثل كفاءة العامل: <b>اللي سواه فعلاً ÷ اللي كان ممكن يسويه</b>. فـ \(q_{actual}=\eta\,q_{max}\).</p>
+</div>
+<div class="f" data-name="q_max for a straight (rectangular) fin" data-sym="P|المحيط|m ; L|الطول (أو L_c)|m ; \theta_0|T₀ − T∞|°C">
+<div class="eq">$$q_{max}=h\,P\,L\,\theta_0$$</div>
+<p class="what">مساحة سطح الزعنفة كلها (\(PL\)) × h × أكبر فرق حرارة ممكن (\(\theta_0\)).</p>
+<p class="when">زعنفة مستقيمة أو دبوس.</p>
+<p class="hint">\(q_{max}=hA\Delta T\) عادي — بس A هي "كل سطح الزعنفة" والـ ΔT هو θ₀ بكل مكان.</p>
+</div>
+<div class="f" data-name="q_max for a circumferential (annular) fin" data-sym="r_1|نصف قطر الأنبوب (قاعدة الزعنفة)|m ; r_{2c}|نصف القطر الخارجي المصحح = r₁ + L_c|m">
+<div class="eq">$$q_{max}=2\pi h\,(r_{2c}^2-r_1^2)\,(T_0-T_\infty)$$</div>
+<p class="what">الزعنفة الدائرية عبارة عن "قرص بفتحة": مساحة الوجه الواحد \(\pi(r_{2c}^2-r_1^2)\)، وعندها وجهين ⇒ \(2\pi(r_{2c}^2-r_1^2)\).</p>
+<p class="when">أي زعنفة حلقية على أنبوب (Q4، Q5، مثال المحاضرة).</p>
+<p class="hint">"<b>2 وجوه × مساحة الحلقة</b>". ولا تنسى \(r_{2c}\) (المصحح) مو \(r_2\).</p>
+</div>
+
+<h3>η للحالة 1 والحالة 2 (اشتقاق سريع)</h3>
+<div class="card">
+<div class="st"><div class="lab">Case 1</div><div class="eq">$$\eta=\frac{(hPkA)^{0.5}(T_0-T_\infty)}{hPL\,(T_0-T_\infty)}=\frac{1}{mL}$$</div><p class="why">نقسم q للحالة 1 على \(q_{max}=hPL\theta_0\). \(\sqrt{hPkA}/(hP)=\sqrt{kA/hP}=1/m\).</p></div>
+<div class="st"><div class="lab">Case 2</div><div class="eq">$$\eta=\frac{(hPkA)^{0.5}(T_0-T_\infty)\tanh(mL)}{hPL\,(T_0-T_\infty)}=\frac{\tanh(mL)}{mL}$$</div><p class="why">نفس الشي بس الحالة 2 فيها tanh. ومع \(L_c\) تصير \(\eta=\tanh(mL_c)/(mL_c)\) — وهذا بالضبط منحنى Figure 1 للمستطيلة!</p></div>
+</div>
+<div class="f" data-name="Efficiency — Case 1 and Case 2" data-sym="mL|معامل بلا أبعاد|—">
+<div class="eq">$$\eta_{case\,1}=\frac{1}{mL}\qquad\qquad\eta_{case\,2}=\frac{\tanh(mL)}{mL}\ \ \left(\text{use }L_c\text{ for a convecting tip}\right)$$</div>
+<p class="what">كل ما \(mL\) كبرت (زعنفة طويلة أو رقيقة أو h عالية) كل ما الكفاءة نزلت — لأن آخر الزعنفة يصير بارد وما يشتغل.</p>
+<p class="when">زعانف مستقيمة/دبوسية — بدل المنحنى تقدر تحسبها مباشرة.</p>
+<p class="hint">"tanh على نفسه": \(\eta=\tanh(x)/x\) حيث \(x=mL_c\).</p>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="charts" data-short="قراءة المنحنيات">📈 شلون أقرا Figure 1 و Figure 2 (خطوة بخطوة)</h2>
+<div class="callout tip"><span class="ttl">🍳 وصفة قراءة المنحنى</span>
+<ol style="margin:0">
+<li><b>طول الزعنفة:</b> \(L=r_2-r_1\) (للدائرية) أو L مباشرة.</li>
+<li><b>الطول المصحح:</b> \(L_c=L+t/2\).</li>
+<li><b>(Figure 2 بس)</b> \(r_{2c}=r_1+L_c\) ثم النسبة \(r_{2c}/r_1\) ⇒ هاي تحدد <b>أي منحنى</b> (1، 2، 3، 4، 5 — وإذا بينهن نقدّر بالعين).</li>
+<li><b>مساحة المقطع الجانبي:</b> \(A_m=t\,L_c\).</li>
+<li><b>المحور الأفقي:</b> \(x=L_c^{3/2}\left(\dfrac{h}{kA_m}\right)^{1/2}\).</li>
+<li>اطلع عمودياً من x لحد المنحنى، ثم روح أفقياً لليسار واقرا \(\eta_f\).</li>
+<li>\(q_{max}\) (الدائرية: \(2\pi h(r_{2c}^2-r_1^2)\theta_0\)) ثم \(q_{actual}=\eta\,q_{max}\).</li>
+</ol></div>
+<div class="f" data-name="Chart abscissa (x-axis parameter)" data-sym="L_c|الطول المصحح|m ; A_m=tL_c|مساحة البروفايل|m² ; t|السمك|m">
+<div class="eq">$$x=L_c^{3/2}\left(\frac{h}{kA_m}\right)^{1/2},\qquad A_m=t\,L_c\qquad\Longrightarrow\qquad x=L_c\sqrt{\frac{h}{kt}}=\frac{mL_c}{\sqrt2}$$</div>
+<p class="what">الصيغة الطويلة هي المكتوبة على المحور. بس لو تعوض \(A_m=tL_c\) تختصر لـ \(L_c\sqrt{h/kt}\) — أسرع بالحاسبة وأقل غلط.</p>
+<p class="when">قبل ما تقرا أي منحنى كفاءة.</p>
+<p class="hint">"<b>Lc جذر h على k t</b>" — نفس شكل m الرقيقة بس بدون الـ 2.</p>
+</div>
+<div class="model" data-model="fig1" data-title="📊 Figure 1 — كفاءة الزعانف المستقيمة (مرّر الماوس/اللمس لقراءة η)"></div>
+<div class="model" data-model="fig2" data-x="0.395" data-r="2.24" data-title="📊 Figure 2 — كفاءة الزعانف الدائرية (مستطيلة البروفايل)"></div>
+<div class="callout info"><span class="ttl">ℹ️ عن دقة المنحنيات</span>رسمنا المنحنيات من الحل الدقيق (دوال Bessel للدائرية، و tanh للمستطيلة)، فتطابق أشكال المحاضرة. بالامتحان القراءة بالعين مقبولة ±0.03 تقريباً — المهم تكتب خطواتك (Lc، النسبة، x) صح.</div>
+</section>
+
+<section class="topic">
+<h2 id="arrays" data-short="مصفوفة الزعانف">🧱🧱 مصفوفة زعانف (Fin array)</h2>
+<div class="f" data-name="Total heat with fins" data-sym="n|عدد الزعانف|— ; q_{fin}|حرارة الزعنفة الوحدة|W ; A_{between}|المساحة المكشوفة بين الزعانف|m²">
+<div class="eq">$$q_{with\ fins}=n\,q_{fin}+q_{between\ fins},\qquad q_{between\ fins}=h\,A_{between}\,\theta_0$$</div>
+<p class="what">الحرارة الكلية = اللي تطلع من كل الزعانف + اللي تطلع من الفراغات بين الزعانف (السطح الأصلي اللي ما تغطى).</p>
+<p class="when">"n fins on a surface/tube" — Q4، Q5، مثال الـ 250 زعنفة.</p>
+<p class="hint">لا تنسى "<b>الشقوق</b>" بين الزعانف! المساحة = الكلية − اللي غطتها قواعد الزعانف.</p>
+</div>
+<div class="tbl-wrap"><table>
+<thead><tr><th>الحالة</th><th>\(A_{between}\)</th></tr></thead>
+<tbody>
+<tr><td>سطح مستوي \(W\times H\)، زعانف بعرض H وسمك t</td><td>\(H\,(W-n\,t)\)</td></tr>
+<tr><td>أنبوب قطره d وطوله L (طريقة Q4)</td><td>\(\pi d\,(L-n\,t)\)</td></tr>
+<tr><td>أنبوب، مسافة s بين الزعانف (طريقة Q5)</td><td>\(\pi d\,s\,n\)</td></tr>
+</tbody></table></div>
+<p>الطريقتين الأخيرات نفس الشي لما \(n(s+t)=L\). وعدد الزعانف من المسافات: \(n=\dfrac{L}{s+t}\).</p>
+</section>
+
+<section class="topic">
+<h2 id="effectiveness" data-short="الفعالية ε">📈 فعالية الزعنفة ε (Fin performance)</h2>
+<div class="f" data-name="Fin effectiveness" data-sym="A_f|مساحة سطح الزعنفة|m² ; A_b|مساحة القاعدة اللي تغطيها الزعنفة|m² ; \eta_f|كفاءة الزعنفة|—">
+<div class="eq">$$\varepsilon=\frac{q_{with\ fin}}{q_{without\ fin}}=\frac{\eta_f\,A_f\,h\,\theta_0}{h\,A_b\,\theta_0}$$</div>
+<p class="what">شكد الزعنفة ضاعفت الحرارة مقارنة بنفس المكان بدون زعنفة. لازم تكون أكبر بكثير من 1 حتى تستاهل.</p>
+<p class="when">"Determine the increase in heat transfer…" أو "compare with and without fins".</p>
+<p class="hint">الكفاءة η "<b>مقارنة بالمثالية</b>" (أقل من 1)، الفعالية ε "<b>مقارنة بالبدون</b>" (أكبر من 1). ε ≠ emissivity!</p>
+</div>
+<div class="f" data-name="Effectiveness — Case 2" data-sym="A|مساحة مقطع الزعنفة|m² ; P|المحيط|m">
+<div class="eq">$$\frac{q_{with\ fin}}{q_{without\ fin}}=\frac{\sqrt{hPkA}\,\theta_0\tanh mL}{hA\,\theta_0}=\frac{\tanh mL}{\left(\dfrac{hA}{kP}\right)^{0.5}}$$</div>
+<p class="what">بدون زعنفة، مكانها كان يفقد \(hA\theta_0\) بس (A = مساحة القاعدة = المقطع). القسمة تعطي الصيغة.</p>
+<p class="when">زعنفة وحدة Case 2 ويطلب الفعالية.</p>
+<p class="hint">الزعنفة تفيد أكثر لما \(hA/kP\) صغيرة: <b>k عالية، h واطية</b> (غازات) — لهذا الزعانف دائماً على جهة الهواء.</p>
+</div>
+<div class="model" data-model="finnedtube" data-title="🧪 أنبوب بزعانف دائرية (3D) — غيّر العدد والسمك وشوف q و ε و η على Figure 2"></div>
+</section>
+
+<section class="topic">
+<h2 id="examples" data-short="الأمثلة">✍️ أمثلة المحاضرة</h2>
+
+<article class="ex" id="ex-eff-circ">
+<header><h3>مثال 1: زعانف ألمنيوم دائرية على أنبوب — الحرارة لكل زعنفة</h3><span class="src">Lecture pp.27–28</span></header>
+<div class="stmt en">Aluminum fins 1.5 cm wide and 1.0 mm thick are placed on a 2.5 cm diameter tube to dissipate the heat. The tube surface temperature is 170 °C, and the ambient-fluid temperature is 25 °C. Calculate the heat loss per fin for h = 130 W/m²·°C. Assume k = 200 W/m·°C for aluminum.</div>
+<div class="sol">
+<div class="given" data-rows="L|1.5 cm (fin width = r₂ − r₁)|0.015 m ; t|1.0 mm|0.001 m ; d|2.5 cm|r_1 = 0.0125 m ; T_0|170 °C|170 °C ; T_\infty|25 °C|25 °C ; h|130 W/m²·°C|130 ; k|200 W/m·°C|200"></div>
+<div class="find">Find: q per fin<span class="ar">المطلوب: الحرارة المفقودة من زعنفة وحدة.</span></div>
+<div class="strategy"><p>زعنفة <b>دائرية</b> ⇒ ما عندنا معادلة بسيطة ⇒ نستخدم <b>Figure 2</b>: نحسب \(L_c\)، \(r_{2c}/r_1\)، والمحور x، نقرا η، ثم \(q=\eta\,q_{max}\).</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$L_c=L+\frac{t}{2}=1.5+0.05=1.55\ \text{cm}$$</div><p class="why">الطرف يفقد حرارة ⇒ نطوّل بنص السمك.</p></div>
+<div class="st"><div class="eq">$$r_1=\frac{2.5}{2}=1.25\ \text{cm},\qquad r_{2c}=r_1+L_c=1.25+1.55=2.80\ \text{cm},\qquad \frac{r_{2c}}{r_1}=\frac{2.80}{1.25}=2.24$$</div><p class="why">النسبة تحدد أي منحنى نستخدم — 2.24 بين منحنى 2 و 3 (أقرب لـ 2).</p></div>
+<div class="st"><div class="eq">$$A_m=t\,L_c=(0.001)(1.55\times10^{-2})=1.55\times10^{-5}\ \text{m}^2$$</div><p class="why">مساحة البروفايل اللي يحتاجها المحور.</p></div>
+<div class="st"><div class="eq">$$L_c^{3/2}\left(\frac{h}{kA_m}\right)^{1/2}=(0.0155)^{3/2}\left(\frac{130}{200\times1.55\times10^{-5}}\right)^{1/2}=0.369\ \ (\text{exact: }0.395)$$</div><p class="why">قيمة المحور الأفقي. بالحاسبة: \(0.00193\times204.8=0.395\).</p></div>
+<div class="st"><div class="eq">$$\text{From Figure 2:}\quad\eta_f=82\%$$</div><p class="why">نطلع من x للمنحنى (2.24) ونقرا η على المحور العمودي.</p></div>
+<div class="st"><div class="eq">$$q_{max}=2\pi(r_{2c}^2-r_1^2)\,h\,(T_0-T_\infty)=2\pi(2.8^2-1.25^2)(10^{-4})(130)(170-25)=74.35\ \text{W}$$</div><p class="why">الـ \(10^{-4}\) يحوّل cm² لـ m². وجهين للقرص ⇒ \(2\pi\).</p></div>
+<div class="st"><div class="eq">$$q_{actual}=\eta\,q_{max}=(0.82)(74.35)$$</div><p class="why">من تعريف الكفاءة.</p></div>
+</div>
+<div class="ans">$$q_{actual}=60.97\ \text{W per fin}$$</div>
+<p class="check">زعنفة ألمنيوم قصيرة (1.5 cm) ⇒ كفاءة عالية (80%+) منطقية. لو قرأنا المنحنى بدقة عند 0.395 تطلع \(\eta\approx0.87\) ⇒ \(q\approx64\) W — نفس الحجم.</p>
+<p class="trap">تستخدم \(r_2\) بدل \(r_{2c}\) بـ \(q_{max}\)، أو تحسب النسبة بالقطر بدل نصف القطر، أو تنسى إن \(A_m\) بالـ m².</p>
+<p class="note">بالمحاضرة قيمة المحور مكتوبة 0.369، بس الحساب الصحيح \((0.0155)^{1.5}(130/3.1\times10^{-3})^{0.5}=0.395\). وعند 0.395 والنسبة 2.24، المنحنى الدقيق يعطي \(\eta\approx0.87\) (مو 0.82). الفرق من القراءة بالعين؛ بالامتحان اتبع طريقة الأستاذ واكتب خطواتك — أي قراءة معقولة (0.82–0.87) مقبولة.</p>
+</div>
+</article>
+
+<article class="ex" id="ex-eff-250">
+<header><h3>مثال 2: 250 زعنفة رقيقة على سطح 1×1 m</h3><span class="src">Lecture pp.28–29</span></header>
+<div class="stmt en">Calculate the heat loss from 250 rectangular thin fins of uniform cross section of thickness 0.5 mm and height 50 mm on (1×1) m surface, separated by a distance of 4 mm. The heat transfer coefficient is 30 W/m²·°C and the thermal conductivity is 200 W/m·°C.<br>*Calculate the percentage of increase of heat transfer rate due to addition of number of rectangular fins, if the heat transfer coefficient is 40 W/m²·°C before addition the fins.</div>
+<div class="sol">
+<div class="given" data-rows="n|250|250 ; t|0.5 mm|0.0005 m ; L|50 mm (fin height)|0.05 m ; z|1 m (fin length along the surface)|1 m ; \text{surface}|1×1 m|1 m² ; h|30 W/m²·°C (with fins)|30 ; h_{no\,fins}|40 W/m²·°C (sub-question)|40 ; k|200 W/m·°C|200"></div>
+<div class="find">Find: q with fins (as a multiple of θ₀), and q<sub>with</sub>/q<sub>without</sub><span class="ar">المطلوب: الحرارة الكلية (ما معطى θ₀ فتطلع بدلالته)، ونسبة الزيادة.</span></div>
+<div class="strategy"><p>مصفوفة زعانف ⇒ \(q=n\,q_{fin}+q_{between}\). الزعنفة مستطيلة رقيقة و طرفها يفقد ⇒ Case 2 بـ \(L_c\) و \(m=\sqrt{2h/kt}\). ما معطى درجات حرارة ⇒ نخلي الجواب بدلالة \(\theta_0\).</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$q_{fin}=kAm\,\theta_0\tanh(mL_c),\qquad L_c=L+\frac{t}{2}=5+0.025=5.025\ \text{cm}$$</div><p class="why">Case 3 ⇒ نحوّله لـ Case 2 بالطول المصحح.</p></div>
+<div class="st"><div class="eq">$$m=\sqrt{\frac{2h}{kt}}=\sqrt{\frac{2\times30}{200\times0.5\times10^{-3}}}=24.5\ \text{m}^{-1},\qquad mL_c=24.5\times5.025\times10^{-2}=1.23$$</div><p class="why">زعنفة رقيقة (العرض 1 m ≫ 0.5 mm).</p></div>
+<div class="st"><div class="eq">$$q_{fin}=200\times24.5\times(1\times0.5\times10^{-3})\times\theta_0\times\tanh(1.23)=2.06\,\theta_0$$</div><p class="why">\(A=z\,t=1\times0.0005\) m² مقطع الزعنفة.</p></div>
+<div class="st"><div class="eq">$$A_{between}=1\,(1-0.5\times10^{-3}\times250)=0.875\ \text{m}^2,\qquad q_{between}=30\times0.875\,\theta_0=26.25\,\theta_0$$</div><p class="why">من 1 m² نطرح المساحة اللي غطتها قواعد الزعانف (250 × 0.5 mm × 1 m).</p></div>
+<div class="st"><div class="eq">$$q_{with\ fins}=250\times2.06\,\theta_0+26.25\,\theta_0=541.25\,\theta_0$$</div><p class="why">نجمع الزعانف + الفراغات.</p></div>
+<div class="st"><div class="lab">Sub-question (h = 40 before the fins)</div><div class="eq">$$q_{without}=h\,A_b\,\theta_0=40\times(1\times1)\,\theta_0=40\,\theta_0,\qquad\frac{q_{with}}{q_{without}}=\frac{541.25\,\theta_0}{40\,\theta_0}=13.53$$</div><p class="why">بدون زعانف كل الـ 1 m² يفقد بالحمل بـ h = 40 (معطى بالسؤال الفرعي). θ₀ تختصر.</p></div>
+</div>
+<div class="ans">$$q_{with\ fins}=541.25\,\theta_0\ \text{W},\qquad\frac{q_{with}}{q_{without}}=13.53\ \ (\text{increase}\approx1253\%)$$</div>
+<p class="check">\(\eta=\tanh(1.23)/1.23=0.69\) — زعنفة طويلة نسبياً ورقيقة فكفاءتها متوسطة. والزعانف كبّرت المساحة من 1 m² لـ ~26 m² ⇒ نسبة 13 منطقية.</p>
+<p class="trap">تنسى \(q_{between}\)، أو تستخدم h = 30 للحالة بدون زعانف (السؤال الفرعي يعطي 40). "Percentage of increase" بالضبط = (13.53 − 1)×100%.</p>
+<p class="note">لاحظ: h بدون زعانف (40) غير h مع الزعانف (30) — هذا معطى بالسؤال الفرعي، مو خطأ. وكلمة "separated by 4 mm" تعني خطوة الزعانف (pitch): \(250\times4\ \text{mm}=1\ \text{m}\).</p>
+</div>
+</article>
+</section>
+
+</div></main>
+</body>
+</html>

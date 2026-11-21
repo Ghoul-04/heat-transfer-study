@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Overall U & Critical Radius</title>
+<meta name="description" content="المعامل الكلي لانتقال الحرارة U للجدار والأنبوب، ونصف القطر الحرج للعازل — شرح بالعربي مع أمثلة المحاضرة.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/physics.js"></script>
+<script defer src="js/models.js"></script>
+<script defer src="js/layout.js"></script>
+</head>
+<body data-page="overall">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Lecture 3 · pages 11–15 · Overall heat transfer coefficient & Critical thickness</div>
+  <h1>المعامل الكلي U ونصف القطر الحرج</h1>
+  <span class="badge p1">🔥 أولوية قصوى بالامتحان</span>
+  <p>هاي أهم محاضرة بالمادة. هنا نربط <b>الحمل الحراري (convection)</b> مع <b>التوصيل (conduction)</b> بسلسلة وحدة: مائع حار ← جدار ← مائع بارد. إذا فهمت "قانون أوم الحراري" راح تحل نص أسئلة الامتحان.</p>
+  <div data-toc></div>
+</div>
+
+<!-- ========================================================== -->
+<section class="topic">
+<h2 id="big-idea" data-short="الفكرة الكبيرة">🧩 الفكرة الكبيرة: قانون أوم الحراري</h2>
+<p>تخيّل الحرارة مثل التيار الكهربائي، وفرق الحرارة مثل الفولتية، وكل طبقة أو سطح يقاوم مرور الحرارة مثل المقاومة. أي مسار تمشي بيه الحرارة نرسمه كدائرة كهربائية:</p>
+<div class="eq">$$\text{Heat flow}=\frac{\text{thermal potential difference}}{\text{thermal resistance}}\qquad\Longrightarrow\qquad q=\frac{\Delta T_{overall}}{\sum R}$$</div>
+<p>مثال الأنبوب اللي يحبه الأستاذ: ماء حار <b>داخل</b> الأنبوب (حمل داخلي) ← الحرارة <b>تتوصل</b> خلال جدار الأنبوب ← وخلال العازل إذا موجود ← وتطلع <b>بالحمل</b> للهواء برّا. كلها <b>على التوالي (series)</b>:</p>
+<div class="circuit" data-nodes="T_A|T_{s,i}|T_{s,o}|T_B" data-res="\frac{1}{h_iA_i}|\frac{\ln(r_o/r_i)}{2\pi kL}|\frac{1}{h_oA_o}" data-q="same q through every resistance"></div>
+
+<div class="card">
+<h3 style="margin-top:0">🎮 الـ R cheat-codes (احفظهن مثل اسمك)</h3>
+<div class="tbl-wrap"><table>
+<thead><tr><th>الحالة</th><th>المقاومة R</th><th>الوحدة</th></tr></thead>
+<tbody>
+<tr><td>جدار مستوي (توصيل)</td><td>\(R=\dfrac{\Delta x}{kA}\)</td><td class="num">°C/W</td></tr>
+<tr><td>أسطوانة / أنبوب (توصيل)</td><td>\(R=\dfrac{\ln(r_o/r_i)}{2\pi kL}\)</td><td class="num">°C/W</td></tr>
+<tr><td>كرة (توصيل)</td><td>\(R=\dfrac{1/r_1-1/r_2}{4\pi k}\)</td><td class="num">°C/W</td></tr>
+<tr><td>أي سطح عليه مائع (حمل)</td><td>\(R=\dfrac{1}{hA}\)</td><td class="num">°C/W</td></tr>
+</tbody></table></div>
+<p style="margin-bottom:0">🧠 <b>توالي</b> = نجمع: \(R_{tot}=R_1+R_2+\dots\) · <b>توازي</b> = نجمع المقلوب: \(\frac{1}{R_{eq}}=\frac{1}{R_B}+\frac{1}{R_D}\)</p>
+</div>
+
+<div class="callout tip">
+<span class="ttl">🍳 وصفة "قانون أوم الحراري" لأي سؤال</span>
+<ol style="margin:0">
+<li>ارسم الدائرة: من المائع الحار إلى المائع البارد، وكل طبقة/سطح = مقاومة.</li>
+<li>احسب كل R بالـ cheat-code المناسب (انتبه: نصف قطر مو قطر، و cm ← m).</li>
+<li>اجمع: \(\sum R\).</li>
+<li>\(q=\Delta T_{overall}/\sum R\) — الـ ΔT هو بين أول نقطة وآخر نقطة بالدائرة.</li>
+<li>تريد درجة حرارة سطح بالنص؟ ارجع خطوة خطوة: \(T_{1}=T_A-qR_1\)، \(T_2=T_1-qR_2\) … (نفس q يعبر كل المقاومات).</li>
+</ol>
+</div>
+</section>
+
+<!-- ========================================================== -->
+<section class="topic">
+<h2 id="conv-res" data-short="مقاومة الحمل">💨 مقاومة الحمل الحراري (Convection resistance)</h2>
+<p>من قانون نيوتن للتبريد، إذا رتبناه بشكل "فرق ÷ مقاومة" يطلع عندنا مقاومة للحمل:</p>
+<div class="f" data-name="Convection resistance" data-sym="q|معدل انتقال الحرارة|W ; h|معامل انتقال الحرارة بالحمل|W/m²·°C ; A|مساحة السطح الملامس للمائع|m² ; T_w|درجة حرارة السطح (الجدار)|°C ; T_\infty|درجة حرارة المائع البعيد|°C">
+<div class="eq">$$q_{convection}=hA\,(T_w-T_\infty)=\frac{T_w-T_\infty}{\dfrac{1}{hA}}\qquad R_{conv}=\frac{1}{hA}$$</div>
+<p class="what">الحمل الحراري هم مقاومة، بس بدل \(\Delta x/k\) صارت \(1/h\). كل ما كان h أكبر (مروحة قوية، ماء يغلي) كل ما صارت المقاومة أصغر والحرارة تعبر أسهل.</p>
+<p class="when">كل ما يكون عندك <b>مائع</b> (هواء، ماء، بخار) ملامس لسطح، وعندك h معطى.</p>
+<p class="hint">"h بالمقام" — كلمة <b>h</b>eat بالـ <b>h</b>awa (هواء) تحت الخط: \(1/hA\).</p>
+</div>
+</section>
+
+<!-- ========================================================== -->
+<section class="topic">
+<h2 id="wall-u" data-short="U للجدار">🧱 المعامل الكلي U لجدار مستوي</h2>
+<p>جدار سمكه \(\Delta x\)، على يمينه مائع حار A وعلى يساره مائع بارد B. الحرارة نفسها (q) تعبر ثلاث مراحل بالتوالي:</p>
+<div class="eq">$$q=h_1A\,(T_A-T_1)\qquad q=\frac{T_1-T_2}{\Delta x/kA}\qquad q=h_2A\,(T_2-T_B)$$</div>
+<p>نرتب كل وحدة على شكل فرق = q × مقاومة ونجمعهن، فالـ \(T_1\) و \(T_2\) (المجهولات بالنص) يختفن:</p>
+<div class="circuit" data-nodes="T_A|T_1|T_2|T_B" data-res="R_1=\frac{1}{h_1A}|R_2=\frac{\Delta x}{kA}|R_3=\frac{1}{h_2A}"></div>
+
+<div class="f" data-name="Overall heat transfer — plane wall" data-sym="T_A, T_B|درجتا حرارة المائعين (الحار والبارد)|°C ; h_1, h_2|معاملا الحمل على الجهتين|W/m²·°C ; \Delta x|سمك الجدار|m ; k|الموصلية الحرارية للجدار|W/m·°C ; A|مساحة الجدار|m²">
+<div class="eq">$$q=\frac{T_A-T_B}{\dfrac{1}{h_1A}+\dfrac{\Delta x}{kA}+\dfrac{1}{h_2A}}$$</div>
+<p class="what">الحرارة الكلية = فرق الحرارة بين المائعين ÷ مجموع المقاومات الثلاث (حمل + توصيل + حمل).</p>
+<p class="when">جدار (أو عدة طبقات) وعلى جهتيه موائع بـ h معلومة، ويطلب q أو درجات الأسطح.</p>
+<p class="hint">"حمل – توصيل – حمل" = <b>ساندويچ</b>: خبزة \(1/h_1\)، لحمة \(\Delta x/k\)، خبزة \(1/h_2\).</p>
+</div>
+
+<div class="f" data-name="Definition of U (overall heat transfer coefficient)" data-sym="U|المعامل الكلي لانتقال الحرارة|W/m²·°C ; A|المساحة|m² ; \Delta T_{overall}|الفرق الكلي = T_A − T_B|°C ; R_{total}|مجموع المقاومات (لوحدة مساحة)|m²·°C/W">
+<div class="eq">$$q=UA\,\Delta T_{overall}=UA\,(T_A-T_B)\qquad U=\frac{1}{\dfrac{1}{h_1}+\dfrac{\Delta x}{k}+\dfrac{1}{h_2}}=\frac{1}{R_{total}}$$</div>
+<p class="what">U يجمع تأثير كل الطبقات والحمل برقم واحد. بدل ما تتعامل مع 3 مقاومات، تقول: "هذا الجدار كله يتصرف وكأنه سطح واحد معامله U". لاحظ: هنا الـ R لوحدة مساحة (A اختصرت).</p>
+<p class="when">لما السؤال يقول "calculate the overall heat-transfer coefficient" أو تريد \(q/A\) بسرعة.</p>
+<p class="hint">U = <b>U</b>nited (موحّد) = مقلوب مجموع المقاومات. وقاعدة ذهبية: <b>U دائماً أصغر من أصغر h</b>.</p>
+</div>
+
+<div class="model" data-model="wall" data-title="🧱 باني الجدار متعدد الطبقات — شغّل الحمل الحراري وشوف شلون ينزل T"></div>
+</section>
+
+<!-- ========================================================== -->
+<section class="topic">
+<h2 id="tube-u" data-short="Uᵢ و Uₒ للأنبوب">🛢️ الأنبوب: \(U_i\) و \(U_o\)</h2>
+<p>أنبوب مجوف: مائع A جوّا (\(h_i\))، ومائع B برّا (\(h_o\)). نفس الفكرة، بس المقاومة الوسطى صارت مقاومة أسطوانة، و<b>المساحتين مو متساويات</b>: الداخلية أصغر من الخارجية.</p>
+<div class="f" data-name="Hollow cylinder with convection inside and outside" data-sym="A_i=2\pi r_iL|المساحة الداخلية للأنبوب|m² ; A_o=2\pi r_oL|المساحة الخارجية للأنبوب|m² ; r_i, r_o|نصف القطر الداخلي والخارجي|m ; h_i, h_o|معامل الحمل جوّا وبرّا|W/m²·°C ; L|طول الأنبوب|m">
+<div class="eq">$$q=\frac{T_A-T_B}{\dfrac{1}{h_iA_i}+\dfrac{\ln(r_o/r_i)}{2\pi kL}+\dfrac{1}{h_oA_o}}$$</div>
+<p class="what">ثلاث مقاومات بالتوالي: حمل داخلي على مساحة \(A_i\)، توصيل بالجدار الأسطواني، حمل خارجي على مساحة \(A_o\).</p>
+<p class="when">أي سؤال أنبوب فيه مائع جوّا ومائع/هواء برّا. إذا أكو عازل، أضف مقاومة \(\ln(r_3/r_2)/2\pi k_{ins}L\) واستخدم المساحة الخارجية للعازل بالحمل الخارجي.</p>
+<p class="hint">كل مقاومة "تشوف" مساحتها: الحمل الداخلي يشوف \(A_i\)، الخارجي يشوف \(A_o\). والـ ln دائماً <b>الكبير على الصغير</b>.</p>
+</div>
+
+<p>لأن المساحة مو ثابتة، لازم نحدد U على أساس أي مساحة. عندنا اثنين:</p>
+<div class="f" data-name="Inside overall heat transfer coefficient" data-sym="U_i|المعامل الكلي منسوب للمساحة الداخلية|W/m²·°C ; A_i/A_o|نسبة المساحات = r_i/r_o|— ">
+<div class="eq">$$U_i=\frac{1}{\dfrac{1}{h_i}+\dfrac{A_i\ln(r_o/r_i)}{2\pi kL}+\dfrac{A_i}{A_o}\dfrac{1}{h_o}}\qquad q=U_iA_i\,(T_A-T_B)$$</div>
+<p class="what">هذا U إذا قررت تحسب q باستخدام المساحة الداخلية \(A_i\). كل حد بالمقام انضرب بـ \(A_i\).</p>
+<p class="when">إذا السؤال طلب "based on the inside area" أو \(U_i\).</p>
+<p class="hint">"\(U_i\) يحب \(A_i\)": اضرب كل مقاومة بـ \(A_i\)، فالحد الأول يصير \(1/h_i\) بالضبط.</p>
+</div>
+<div class="f" data-name="Outside overall heat transfer coefficient" data-sym="U_o|المعامل الكلي منسوب للمساحة الخارجية|W/m²·°C ; A_o/A_i|نسبة المساحات = r_o/r_i|— ">
+<div class="eq">$$U_o=\frac{1}{\dfrac{A_o}{A_i}\dfrac{1}{h_i}+\dfrac{A_o\ln(r_o/r_i)}{2\pi kL}+\dfrac{1}{h_o}}\qquad q=U_oA_o\,(T_A-T_B)$$</div>
+<p class="what">نفس الشي بس على المساحة الخارجية. أسهل طريقة عملية (اللي استخدمها الأستاذ بالمثال): \(U_o=\dfrac{1}{A_o\sum R}\).</p>
+<p class="when">"overall heat-transfer coefficient in the outside tube" أو \(U_o\) — وهو الأشهر لأن السطح الخارجي سهل القياس.</p>
+<p class="hint">السر كله بسطر واحد: \(\boxed{U_iA_i=U_oA_o=\dfrac{1}{\sum R}}\) — الـ q نفسه، بس توزع على مساحة مختلفة.</p>
+</div>
+
+<div class="model" data-model="pipe" data-title="🛢️ مقطع الأنبوب الحي: hᵢ ← جدار ← عازل ← hₒ"></div>
+<div class="callout info"><span class="ttl">💡 شنو تتعلم من الموديل؟</span>بمثال أنبوب الماء، المقاومة الخارجية \(1/h_oA_o\) تاخذ ~99.7% من المجموع! يعني \(U_o\approx h_o\). لو تريد تزيد انتقال الحرارة، حسّن الجهة الأضعف (برّا) — وهذا بالضبط سبب وجود <b>الزعانف</b> (المحاضرة 5).</div>
+</section>
+
+<!-- ========================================================== -->
+<section class="topic">
+<h2 id="examples" data-short="الأمثلة">✍️ أمثلة المحاضرة</h2>
+
+<article class="ex" id="ex-u-concrete">
+<header><h3>مثال 1: جدار كونكريت بين هواءين (وحدات إنكليزية)</h3><span class="src">Lecture p.12</span></header>
+<div class="stmt en">A 0.5 ft thick of concrete wall having k = 0.5 Btu/h·ft·°F is exposed to air at 70 °F (h<sub>i</sub> = 2 Btu/h·ft²·°F) and air at 20 °F (h<sub>o</sub> = 10 Btu/h·ft²·°F) on the opposite side. Determine the heat transfer rate per unit area.</div>
+<div class="sol">
+<div class="given" data-rows="\Delta x|0.5 ft|0.5 ft (keep English units — all consistent) ; k|0.5 Btu/h·ft·°F|0.5 ; T_A|70 °F|70 °F ; T_B|20 °F|20 °F ; h_i|2 Btu/h·ft²·°F|2 ; h_o|10 Btu/h·ft²·°F|10"></div>
+<div class="find">Find: q/A (Btu/h·ft²)<span class="ar">المطلوب: الحرارة لكل وحدة مساحة.</span></div>
+<div class="strategy"><p>هواء ← جدار ← هواء = حمل + توصيل + حمل بالتوالي. "per unit area" يعني نشتغل بـ U مباشرة (المساحة تختصر). كل الوحدات إنكليزية ومتناسقة، فما نحتاج تحويل.</p>
+<div class="circuit" data-nodes="T_A=70|T_1|T_2|T_B=20" data-res="1/h_i|\Delta x/k|1/h_o"></div></div>
+<div class="steps">
+<div class="st"><div class="eq">$$\frac{q}{A}=U\,(T_A-T_B),\qquad U=\frac{1}{\dfrac{1}{h_i}+\dfrac{\Delta x}{k}+\dfrac{1}{h_o}}$$</div><p class="why">لأن الجدار مستوي والمساحة نفسها بالجهتين، فنقسم على A ونشتغل بمقاومات لوحدة مساحة.</p></div>
+<div class="st"><div class="eq">$$\frac{1}{h_i}=\frac{1}{2}=0.5,\quad \frac{\Delta x}{k}=\frac{0.5}{0.5}=1,\quad \frac{1}{h_o}=\frac{1}{10}=0.1\ \ \left[\frac{\text{h·ft}^2\text{·°F}}{\text{Btu}}\right]$$</div><p class="why">نحسب كل مقاومة لوحدها حتى نشوف مين المسيطر — هنا الجدار (1.0) أكبر وحدة.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{A}=\frac{1}{0.5+1+0.1}\,(70-20)=\frac{50}{1.6}$$</div><p class="why">ΔT الكلي من الهواء الحار للهواء البارد، مو بين سطحي الجدار.</p></div>
+</div>
+<div class="ans">$$\frac{q}{A}=31.25\ \text{Btu/h·ft}^2\qquad (U=0.625\ \text{Btu/h·ft}^2\text{·°F})$$</div>
+<p class="check">U = 0.625 أصغر من أصغر h (اللي هو 2) ✔. وبونص: \(T_1=70-31.25(0.5)=54.4\,{}^\circ F\) و \(T_2=20+31.25(0.1)=23.1\,{}^\circ F\) — منطقي، أكبر هبوط بالجدار لأن مقاومته الأكبر.</p>
+<p class="trap">تنسى مقاومتي الحمل وتحسب \(q/A=k\Delta T/\Delta x=50\) — غلط! الـ ΔT المعطى هو للهواء، مو لسطوح الجدار.</p>
+</div>
+</article>
+
+<article class="ex" id="ex-u-tube">
+<header><h3>مثال 2: ماء داخل أنبوب يفقد حرارة للهواء — احسب U₀ و q</h3><span class="src">Lecture p.13</span></header>
+<div class="stmt en">Water flows at 50 °C inside a 2.5-cm-inside-diameter tube such that h<sub>i</sub> = 3500 W/m²·°C. The tube has a wall thickness of 0.8 mm with a thermal conductivity of 16 W/m·°C. The outside of the tube loses heat by free convection with h<sub>o</sub> = 7.6 W/m²·°C. Calculate the overall heat-transfer coefficient in the outside tube and heat loss to surrounding air at 20 °C. Take the length is 1 m.</div>
+<div class="sol">
+<div class="given" data-rows="d_i|2.5 cm|r_i = 0.0125 m ; \Delta r|0.8 mm|r_o = 0.0125 + 0.0008 = 0.0133 m ; h_i|3500 W/m²·°C|3500 ; h_o|7.6 W/m²·°C|7.6 ; k|16 W/m·°C|16 ; T_A|50 °C|50 °C ; T_B|20 °C|20 °C ; L|1 m|1 m"></div>
+<div class="find">Find: U<sub>o</sub> and q<span class="ar">المطلوب: المعامل الكلي على المساحة الخارجية، والحرارة المفقودة.</span></div>
+<div class="strategy"><p>ماء (حمل داخلي) ← جدار الأنبوب (توصيل أسطواني) ← هواء (حمل حر). نحسب الثلاث مقاومات، نجمعها، وبعدين \(U_o=1/(A_o\sum R)\). القطر 2.5 يعني نصف القطر 1.25 cm!</p>
+<div class="circuit" data-nodes="T_A=50|T_{s,i}|T_{s,o}|T_B=20" data-res="R_1=\frac{1}{h_iA_i}|R_2=\frac{\ln(r_o/r_i)}{2\pi kL}|R_3=\frac{1}{h_oA_o}"></div></div>
+<div class="steps">
+<div class="st"><div class="eq">$$r_i=1.25\ \text{cm}=0.0125\ \text{m},\qquad r_o=r_i+0.8\times10^{-3}=0.0133\ \text{m}$$</div><p class="why">سمك الجدار يضاف على نصف القطر (مو على القطر).</p></div>
+<div class="st"><div class="eq">$$R_1=\frac{1}{h_iA_i}=\frac{1}{3500\times2\pi\times0.0125\times1}=0.00364\ {}^\circ\text{C/W}$$</div><p class="why">الحمل الداخلي يشوف المساحة الداخلية \(A_i=2\pi r_iL\).</p></div>
+<div class="st"><div class="eq">$$R_2=\frac{\ln(r_o/r_i)}{2\pi kL}=\frac{\ln(0.0133/0.0125)}{2\pi\times16\times1}=0.00062\ {}^\circ\text{C/W}$$</div><p class="why">مقاومة توصيل أسطوانية — الـ ln للنسبة، فما يهم cm لو m بس لازم نفس الوحدة.</p></div>
+<div class="st"><div class="eq">$$R_3=\frac{1}{h_oA_o}=\frac{1}{7.6\times2\pi\times0.0133\times1}=1.575\ {}^\circ\text{C/W}$$</div><p class="why">الحمل الخارجي يشوف المساحة الخارجية. لاحظ شكد كبيرة مقارنة بالباقي!</p></div>
+<div class="st"><div class="eq">$$U_o=\frac{1}{A_o\sum R}=\frac{1}{(2\pi\times0.0133\times1)(0.00364+0.00062+1.575)}=7.577\ \text{W/m}^2\,{}^\circ\text{C}$$</div><p class="why">من التعريف \(q=U_oA_o\Delta T=\Delta T/\sum R\) ⇒ \(U_oA_o=1/\sum R\).</p></div>
+<div class="st"><div class="eq">$$q=U_oA_o\,(T_A-T_B)=7.577\times2\pi\times0.0133\times1\times(50-20)$$</div><p class="why">نستخدم \(A_o\) ويا \(U_o\) — زوج متطابق.</p></div>
+</div>
+<div class="ans">$$U_o\approx7.58\ \text{W/m}^2\,{}^\circ\text{C},\qquad q\approx19\ \text{W}$$</div>
+<p class="check">\(U_o\) (7.58) قريب جداً من \(h_o\) (7.6) لأن \(R_3\) هي 99.7% من المجموع — الهواء الساكن هو "عنق الزجاجة". وتأكد: \(q=\Delta T/\sum R=30/1.579=19.0\) W ✔. وللمقارنة \(U_i=1/(A_i\sum R)\approx8.06\).</p>
+<p class="trap">تخلط الأزواج: \(U_o\) لازم ويا \(A_o\)، و \(U_i\) ويا \(A_i\). وفخ ثاني: تستخدم القطر 2.5 cm بدل نصف القطر 1.25 cm بالمساحة.</p>
+</div>
+</article>
+</section>
+
+<!-- ========================================================== -->
+<section class="topic">
+<h2 id="critical" data-short="نصف القطر الحرج">🎯 السمك (نصف القطر) الحرج للعازل</h2>
+<p>نلف عازل حول أنبوب: السطح الداخلي للعازل حرارته \(T_i\)، والسطح الخارجي (نصف قطره \(r_o\)) ملامس لهواء \(T_\infty\) بمعامل h. الدائرة: توصيل بالعازل + حمل خارجي.</p>
+<div class="circuit" data-nodes="T_i|T_o|T_\infty" data-res="R_1=\frac{\ln(r_o/r_i)}{2\pi kL}|R_2=\frac{1}{2\pi r_oLh}"></div>
+<div class="f" data-name="Insulated pipe — heat loss" data-sym="r_i|نصف القطر الداخلي للعازل (= الخارجي للأنبوب)|m ; r_o|نصف القطر الخارجي للعازل|m ; k|موصلية العازل|W/m·°C ; h|معامل الحمل الخارجي|W/m²·°C ; T_i|حرارة السطح الداخلي للعازل|°C ; T_\infty|حرارة الهواء|°C">
+<div class="eq">$$q=\frac{T_i-T_\infty}{\dfrac{\ln(r_o/r_i)}{2\pi kL}+\dfrac{1}{2\pi r_oLh}}=\frac{2\pi L\,(T_i-T_\infty)}{\dfrac{\ln(r_o/r_i)}{k}+\dfrac{1}{r_oh}}$$</div>
+<p class="what">الشكل الثاني نفس الأول بس طلّعنا \(2\pi L\) عامل مشترك. لاحظ \(r_o\) موجود بمكانين: بالـ ln (يزيد المقاومة) وبالحمل (يقلل المقاومة).</p>
+<p class="when">أنبوب/سلك عليه عازل ويطلب الفقد الحراري، أو يسأل "هل العازل يقلل الفقد؟".</p>
+<p class="hint">بالشكل الثاني: "<b>ln على k</b> + <b>1 على r h</b>" تحت \(2\pi L\Delta T\).</p>
+</div>
+
+<h3>📐 الاشتقاق الكامل: \(\dfrac{dq}{dr_o}=0\)</h3>
+<div class="card">
+<div class="st"><div class="lab">Step 1 — write q as C / D(r_o)</div><div class="eq">$$q=\frac{C}{D(r_o)},\qquad C=2\pi L\,(T_i-T_\infty),\qquad D(r_o)=\frac{\ln(r_o/r_i)}{k}+\frac{1}{r_oh}$$</div><p class="why">نفصل الثابت C عن الجزء اللي يتغير مع \(r_o\) حتى يصير الاشتقاق سهل.</p></div>
+<div class="st"><div class="lab">Step 2 — differentiate (quotient / chain rule)</div><div class="eq">$$\frac{dq}{dr_o}=-\frac{C\,D'(r_o)}{D^2}=\frac{-2\pi L\,(T_i-T_\infty)\left(\dfrac{1}{kr_o}-\dfrac{1}{hr_o^{2}}\right)}{\left\{\dfrac{\ln(r_o/r_i)}{k}+\dfrac{1}{r_oh}\right\}^{2}}$$</div><p class="why">مشتقة \(\ln(r_o/r_i)/k\) هي \(1/(kr_o)\)، ومشتقة \(1/(r_oh)\) هي \(-1/(hr_o^2)\) (لاحظ السالب!).</p></div>
+<div class="st"><div class="lab">Step 3 — set equal to zero</div><div class="eq">$$\frac{1}{kr_o}-\frac{1}{hr_o^{2}}=0\quad\Longrightarrow\quad\frac{1}{kr_o}=\frac{1}{hr_o^{2}}\quad\Longrightarrow\quad r_o=\frac{k}{h}$$</div><p class="why">الكسر يصير صفر بس لما البسط صفر. نضرب الطرفين بـ \(khr_o^2\) فيطلع \(hr_o=k\).</p></div>
+<div class="st"><div class="lab">Step 4 — maximum or minimum?</div><div class="eq">$$r_o<\frac{k}{h}:\ D'<0\Rightarrow q\uparrow\qquad\qquad r_o>\frac{k}{h}:\ D'>0\Rightarrow q\downarrow$$</div><p class="why">قبل \(r_c\) الفقد يزيد، وبعده ينقص ⇒ النقطة هي <b>أعظم فقد (maximum)</b> مو أقل فقد. هذا اللي يخلي الاسم "حرج".</p></div>
+</div>
+<div class="f" data-name="Critical radius of insulation (cylinder)" data-sym="r_c|نصف القطر الحرج للعازل|m ; k|موصلية <b>العازل</b> (مو الأنبوب)|W/m·°C ; h|معامل الحمل الخارجي|W/m²·°C">
+<div class="eq">$$r_o=r_c=\frac{k}{h}$$</div>
+<p class="what">عند نصف القطر هذا، الفقد الحراري يكون <b>بأعلى قيمة</b>. إذا نصف قطر الأنبوب \(r_i\) أصغر من \(r_c\)، أول طبقات العازل راح <b>تزيد</b> الفقد بدل ما تقلله!</p>
+<p class="when">يسأل عن "critical radius/thickness of insulation"، أو يقارن الفقد "with and without insulation".</p>
+<p class="hint">"<b>كاي على هاء</b>" — \(r_c=k/h\). (ولو تحب التوسع: للكرة \(r_c=2k/h\) — مو بالمحاضرة.)</p>
+</div>
+
+<div class="callout warn"><span class="ttl">🤔 ليش عازل رقيق ممكن يزيد الفقد؟ (الحدس)</span>
+لما تضيف عازل يصير شيئين بنفس الوقت:<br>
+① <b>مقاومة التوصيل تزيد</b> (لأن \(\ln(r_o/r_i)\) يكبر) ⇒ يقلل الفقد.<br>
+② <b>المساحة الخارجية تكبر</b> (\(2\pi r_oL\)) ⇒ مقاومة الحمل \(1/(2\pi r_oLh)\) تصغر ⇒ يزيد الفقد.<br>
+للأنبوب الرفيع، الـ ln يكبر ببطء بينما المساحة تكبر بسرعة نسبياً، فالتأثير ② يغلب ⇒ الفقد يزيد لحد \(r_c\). بعد \(r_c\)، التأثير ① يغلب. 🔌 <b>تطبيق حقيقي:</b> هذا سبب إن عازل الأسلاك الكهربائية الرفيعة يساعد على <b>تبريدها</b>!</div>
+
+<div class="model" data-model="critical" data-title="🎯 منحنى الفقد مع نصف القطر — اسحب النقطة وشوف الذروة عند rc = k/h"></div>
+
+<article class="ex" id="ex-u-critical">
+<header><h3>مثال 3: نصف القطر الحرج لعازل أسبستوس</h3><span class="src">Lecture pp.14–15</span></header>
+<div class="stmt en">Calculate the critical radius of insulation for asbestos [k = 0.17 W/m·°C] surrounding a pipe and exposed to room air at 20 °C with h = 3 W/m²·°C. Calculate the heat loss per unit length from a 200 °C, 5.0-cm-diameter pipe when covered with the critical radius of insulation and without insulation.</div>
+<div class="sol">
+<div class="given" data-rows="k|0.17 W/m·°C|0.17 ; h|3 W/m²·°C|3 ; T_\infty|20 °C|20 °C ; T_i|200 °C|200 °C ; d|5.0 cm|r_i = 0.025 m"></div>
+<div class="find">Find: r<sub>c</sub>; q/L with r<sub>o</sub> = r<sub>c</sub>; q/L without insulation<span class="ar">المطلوب: نصف القطر الحرج، والفقد لكل متر مع وبدون العازل.</span></div>
+<div class="strategy"><p>أولاً \(r_c=k/h\). بعدين نعوض \(r_o=r_c\) بمعادلة الأنبوب المعزول. بدون عازل = حمل فقط من سطح الأنبوب: \(q/L=h(2\pi r_i)(T_w-T_\infty)\).</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$r_o=r_c=\frac{k}{h}=\frac{0.17}{3}=0.0567\ \text{m}=5.67\ \text{cm}$$</div><p class="why">من الاشتقاق: هذا نصف القطر اللي يعطي أعظم فقد.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{L}=\frac{2\pi(T_i-T_\infty)}{\dfrac{\ln(r_o/r_i)}{k}+\dfrac{1}{r_oh}}=\frac{2\pi(200-20)}{\dfrac{\ln(0.0567/0.025)}{0.17}+\dfrac{1}{3\times0.0567}}$$</div><p class="why">نقسم على L لأن المطلوب لكل متر. \(r_i=0.025\) لأن القطر 5 cm.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{L}=\frac{1131}{4.814+5.879}=105.7\ \text{W/m}$$</div><p class="why">لاحظ المقاومتين متقاربات — هذا بالضبط اللي يصير عند \(r_c\).</p></div>
+<div class="st"><div class="eq">$$\text{Without insulation:}\quad\frac{q}{L}=h\,(2\pi r_i)\,(T_w-T_\infty)=3\times2\pi\times0.025\times(200-20)=84.8\ \text{W/m}$$</div><p class="why">بدون عازل ماكو توصيل، بس حمل من سطح الأنبوب نفسه.</p></div>
+</div>
+<div class="ans">$$r_c=5.67\ \text{cm},\qquad \left.\frac{q}{L}\right|_{r_c}=105.7\ \text{W/m}\quad>\quad\left.\frac{q}{L}\right|_{bare}=84.8\ \text{W/m}$$</div>
+<p class="check">\(r_i=2.5\) cm أصغر من \(r_c=5.67\) cm ⇒ العازل لازم يزيد الفقد، وفعلاً زاد ~25% ✔. حتى يبدأ يفيد لازم سمكه يتجاوز نقطة أبعد من \(r_c\) (جرب بالموديل).</p>
+<p class="trap">تستخدم \(k\) الأنبوب بدل \(k\) العازل في \(r_c=k/h\)، أو تحط القطر بدل نصف القطر. وبالشكل المختصر لا تكتب \(1/(2\pi r_oh)\) — الـ \(2\pi\) طلع برّا.</p>
+<p class="note">بالمحاضرة (ص14) الـ dq/dr<sub>o</sub> مكتوب بالبسط "\(\frac{1}{Kr_o}+\frac{1}{hr_o^2}\)" بإشارة <b>+</b>. الصحيح <b>−</b> (مشتقة \(1/r_o\) سالبة). لو كانت +، المجموع ما يصير صفر أبداً وما يطلع \(r_c\). النتيجة النهائية \(r_c=k/h\) صحيحة.</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="recipe" data-short="وصفة الأنبوب">🍳 وصفة سؤال "أنبوب + عازل"</h2>
+<div class="card">
+<ol>
+<li>حوّل كل الأقطار لأنصاف أقطار، وكل cm/mm لـ m. اكتب: \(r_1\) (داخلي)، \(r_2=r_1+\)سمك الجدار، \(r_3=r_2+\)سمك العازل.</li>
+<li>ارسم: \(T_A \to \frac{1}{h_i2\pi r_1L}\to\frac{\ln(r_2/r_1)}{2\pi k_{pipe}L}\to\frac{\ln(r_3/r_2)}{2\pi k_{ins}L}\to\frac{1}{h_o2\pi r_3L}\to T_B\).</li>
+<li>إذا ما معطى \(h_i\) (معطى حرارة السطح الداخلي)، احذف أول مقاومة وابدأ من \(T_{s,i}\).</li>
+<li>\(q=\Delta T/\sum R\)؛ وإذا طلب U: \(U_o=1/(A_o\sum R)\) حيث \(A_o\) = المساحة الخارجية <b>الأخيرة</b>.</li>
+<li>تحقق من \(r_c=k_{ins}/h_o\): إذا \(r_2<r_c\)، نبّه إن العازل الرقيق ممكن يزيد الفقد.</li>
+</ol>
+</div>
+</section>
+
+</div></main>
+</body>
+</html>

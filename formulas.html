@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formula Sheet</title>
+<meta name="description" content="ورقة قوانين انتقال الحرارة كاملة — قابلة للطباعة.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/physics.js"></script>
+<script defer src="js/models.js"></script>
+<script defer src="js/layout.js"></script>
+</head>
+<body data-page="formulas">
+<main id="content"><div class="wrap" style="max-width:1100px">
+
+<div class="page-hero">
+  <div class="kicker">Formula sheet · Heat Transfer · 3rd stage</div>
+  <h1>📄 ورقة القوانين</h1>
+  <p>كل القوانين بصفحة وحدة. <button class="btn small no-print" type="button" onclick="window.print()">🖨️ اطبع</button></p>
+</div>
+
+<div class="sheet-grid">
+
+<div class="sc"><h3>1 · Basic modes</h3>
+<div class="eq">\(q=-kA\dfrac{dT}{dx}\qquad q=-\dfrac{kA}{\Delta x}(T_2-T_1)\)</div>
+<div class="eq">\(q=hA\,(T_w-T_\infty)\)</div>
+<div class="eq">\(q=\sigma AT^4,\quad q=\varepsilon\sigma A\,(T_1^4-T_2^4)\)</div>
+<p>σ = 5.669×10⁻⁸ W/m²·K⁴ · ε = 1 black body · T بالكلفن للإشعاع</p>
+<div class="eq">\(\text{°F}=1.8\,\text{°C}+32\quad \text{°R}=\text{°F}+459.69\quad \text{K}=\text{°C}+273.16\quad \text{°R}=1.8\,\text{K}\)</div>
+</div>
+
+<div class="sc"><h3>2 · Thermal resistances (Ohm's law)</h3>
+<div class="eq">\(q=\dfrac{\Delta T_{overall}}{\sum R}\)</div>
+<div class="eq">\(R_{wall}=\dfrac{\Delta x}{kA}\qquad R_{conv}=\dfrac{1}{hA}\)</div>
+<div class="eq">\(R_{cyl}=\dfrac{\ln(r_o/r_i)}{2\pi kL}\qquad R_{sph}=\dfrac{1/r_1-1/r_2}{4\pi k}\)</div>
+<div class="eq">\(\text{series: }R=\sum R_i\qquad\text{parallel: }\dfrac{1}{R}=\sum\dfrac{1}{R_i}\)</div>
+<p>Interface: \(T_{n+1}=T_n-qR_n\)</p>
+</div>
+
+<div class="sc"><h3>2 · Composite / multilayer</h3>
+<div class="eq">\(q=\dfrac{T_{in}-T_{out}}{\frac{\Delta x_a}{k_aA}+\frac{\Delta x_b}{k_bA}+\frac{\Delta x_c}{k_cA}}\)</div>
+<div class="eq">\(q_r=\dfrac{2\pi L(T_i-T_o)}{\frac{\ln(r_2/r_1)}{k_1}+\frac{\ln(r_3/r_2)}{k_2}+\frac{\ln(r_4/r_3)}{k_3}}\)</div>
+<div class="eq">\(q_r=\dfrac{4\pi(T_i-T_o)}{\frac{1}{k_1}\left(\frac{1}{r_1}-\frac{1}{r_2}\right)+\frac{1}{k_2}\left(\frac{1}{r_2}-\frac{1}{r_3}\right)}\)</div>
+<div class="eq">\(k=k_0(1+\beta T):\ q=\dfrac{k_0A}{\Delta x}\left[1+\tfrac{\beta}{2}(T_1+T_2)\right](T_1-T_2)\)</div>
+</div>
+
+<div class="sc"><h3>3 · Overall U</h3>
+<div class="eq">\(q=UA\,\Delta T_{overall}\qquad U=\dfrac{1}{\frac{1}{h_1}+\frac{\Delta x}{k}+\frac{1}{h_2}}=\dfrac{1}{R_{total}}\)</div>
+<div class="eq">\(q=\dfrac{T_A-T_B}{\frac{1}{h_iA_i}+\frac{\ln(r_o/r_i)}{2\pi kL}+\frac{1}{h_oA_o}}\)</div>
+<div class="eq">\(U_i=\dfrac{1}{\frac{1}{h_i}+\frac{A_i\ln(r_o/r_i)}{2\pi kL}+\frac{A_i}{A_o}\frac{1}{h_o}}\)</div>
+<div class="eq">\(U_o=\dfrac{1}{\frac{A_o}{A_i}\frac{1}{h_i}+\frac{A_o\ln(r_o/r_i)}{2\pi kL}+\frac{1}{h_o}}\)</div>
+<div class="eq">\(U_iA_i=U_oA_o=1/\sum R,\quad A_i=2\pi r_iL,\ A_o=2\pi r_oL\)</div>
+</div>
+
+<div class="sc"><h3>3 · Critical radius</h3>
+<div class="eq">\(q=\dfrac{2\pi L(T_i-T_\infty)}{\frac{\ln(r_o/r_i)}{k}+\frac{1}{r_oh}}\)</div>
+<div class="eq">\(\dfrac{dq}{dr_o}=0\ \Rightarrow\ r_c=\dfrac{k}{h}\ \ (\text{max loss})\)</div>
+<p>إذا \(r_i<r_c\): العازل الرقيق يزيد الفقد. (كرة: \(2k/h\) — إضافي)</p>
+</div>
+
+<div class="sc"><h3>4 · Heat generation (2‑4‑6)</h3>
+<div class="eq">\(\text{wall: }T_0=\dfrac{\dot qL^2}{2k}+T_w,\quad\dfrac{T-T_w}{T_0-T_w}=1-\dfrac{x^2}{L^2}\)</div>
+<div class="eq">\(\text{cyl: }T_0=\dfrac{\dot qR^2}{4k}+T_w,\quad\dfrac{T-T_w}{T_0-T_w}=1-\dfrac{r^2}{R^2}\)</div>
+<div class="eq">\(\text{sphere: }T_0=\dfrac{\dot qR^2}{6k}+T_w\)</div>
+<div class="eq">\(\dot q=\dfrac{q}{V};\ V_{cyl}=\pi r^2L,\ V_{sph}=\tfrac43\pi r^3;\ \ \dot qV=hA(T_w-T_\infty)\)</div>
+<div class="eq">\(P=I^2R_e,\quad R_e=\dfrac{\rho L}{A_c}\)</div>
+</div>
+
+<div class="sc"><h3>5 · Fins</h3>
+<div class="eq">\(\theta=T-T_\infty,\ m=\sqrt{\dfrac{hP}{kA}},\ \dfrac{d^2\theta}{dx^2}-m^2\theta=0\)</div>
+<div class="eq">\(\text{Case 1: }q=\sqrt{hPkA}\,\theta_0,\quad\theta/\theta_0=e^{-mx}\)</div>
+<div class="eq">\(\text{Case 2: }q=\sqrt{hPkA}\,\theta_0\tanh mL,\ \ \dfrac{\theta}{\theta_0}=\dfrac{\cosh m(L-x)}{\cosh mL}\)</div>
+<div class="eq">\(\text{Case 3: }q=\sqrt{hPkA}\,\theta_0\dfrac{\sinh mL+\frac{h}{mk}\cosh mL}{\cosh mL+\frac{h}{mk}\sinh mL}\)</div>
+<div class="eq">\(\text{thin: }m=\sqrt{\tfrac{2h}{kt}}\quad\text{pin: }m=\sqrt{\tfrac{2h}{kr}},\ A=\tfrac{\pi}{4}d^2,\ P=\pi d\)</div>
+<div class="eq">\(L_c=L+\tfrac{t}{2}\ (\text{rect}),\quad L_c=L+\tfrac{d}{4}\ (\text{pin})\)</div>
+</div>
+
+<div class="sc"><h3>6 · Efficiency & effectiveness</h3>
+<div class="eq">\(\eta=\dfrac{q_{actual}}{q_{max}},\quad\eta_1=\dfrac{1}{mL},\quad\eta_2=\dfrac{\tanh mL}{mL}\)</div>
+<div class="eq">\(q_{max,rect}=hPL\theta_0,\quad q_{max,circ}=2\pi h(r_{2c}^2-r_1^2)\theta_0\)</div>
+<div class="eq">\(L_c=L+\tfrac t2,\ r_{2c}=r_1+L_c,\ A_m=tL_c,\ x=L_c^{3/2}\big(\tfrac{h}{kA_m}\big)^{1/2}\)</div>
+<div class="eq">\(q_{with}=n\,q_{fin}+hA_{between}\theta_0,\quad n=\dfrac{L}{s+t}\)</div>
+<div class="eq">\(\varepsilon=\dfrac{q_{with}}{q_{without}}=\dfrac{\eta_fA_fh\theta_0}{hA_b\theta_0},\ \ \varepsilon_2=\dfrac{\tanh mL}{(hA/kP)^{0.5}}\)</div>
+</div>
+
+<div class="sc"><h3>🔁 Unit conversions</h3>
+<div class="eq">\(k[\text{Btu/h·ft·°F}]=0.5781\,k[\text{W/m·°C}]\)</div>
+<div class="eq">\(h[\text{W/m}^2\text{°C}]=5.678\,h[\text{Btu/h·ft}^2\text{°F}]\)</div>
+<div class="eq">\(1\ \text{ft}=12\ \text{in}=0.3048\ \text{m},\quad 1\ \text{Btu/h}=0.2931\ \text{W}\)</div>
+<div class="eq">\(\Delta T[^\circ F]=1.8\,\Delta T[^\circ C]\)</div>
+</div>
+
+</div>
+</div></main>
+</body>
+</html>

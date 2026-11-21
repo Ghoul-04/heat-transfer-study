@@ -1,0 +1,16 @@
+# Private lecture PDFs — never publish
+materials/
+*.pdf
+
+# Local tooling / editor
+.claude/settings.local.json
+.vscode/
+.idea/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local preview config
+.claude/
