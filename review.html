@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>الفخاخ الشائعة + كويز</title>
-<meta name="description" content="الزعانف: اشتقاق معادلة الزعنفة، الحالات الثلاث، الزعنفة الرقيقة والدبوسية والطول المصحح، مع أمثلة المحاضرة والواجب.">
+<title>Final Review & Quiz</title>
+<meta name="description" content="المراجعة النهائية: الفخاخ الشائعة، تصحيحات المحاضرات، وصفات الحل، وكويز 15 سؤال بتصحيح فوري.">
 <script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
@@ -17,6 +17,137 @@
 <script defer src="js/layout.js"></script>
 </head>
 <body data-page="review">
-<main id="content"><div class="wrap"><div class="page-hero"><h1>الفخاخ الشائعة + كويز</h1><p>⏳ هذا القسم ينضاف خلال دقائق — ابدأ بالأقسام ذات الأولوية.</p></div></div></main>
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Final review · traps · lecture errata · recipes · quiz</div>
+  <h1>🧪 المراجعة النهائية + الكويز</h1>
+  <p>آخر محطة قبل النوم: الفخاخ اللي يوگع بيها الكل، الوصفات الأربع، وكويز 15 سؤال. <a href="formulas.html">📄 ورقة القوانين للطباعة هنا</a>.</p>
+  <div data-toc></div>
+</div>
+
+<section class="topic">
+<h2 id="traps" data-short="الفخاخ">⚠️ الفخاخ الشائعة (اقراها مرتين)</h2>
+<div class="card">
+<ol>
+<li><b>قطر ≠ نصف قطر.</b> كل معادلات الأسطوانة والكرة بنصف القطر. "2.5 cm diameter" ⇒ r = 1.25 cm.</li>
+<li><b>الوحدات قبل كلشي:</b> cm ← m (÷100)، mm ← m (÷1000)، in ← ft (÷12)، kW ← W.</li>
+<li><b>الإشعاع بالكلفن دائماً</b>، و \(T_1^4-T_2^4\) مو \((T_1-T_2)^4\).</li>
+<li><b>ΔT الكلي</b> هو بين المائعين (\(T_A-T_B\)) لما أكو h — مو بين سطحي الجدار.</li>
+<li><b>توازي ولا توالي؟</b> فوق بعض (بنفس العمود) = توازي؛ ورا بعض = توالي.</li>
+<li><b>\(U_o\) ويا \(A_o\)، و \(U_i\) ويا \(A_i\)</b> — لا تخلطهم. \(U_iA_i=U_oA_o\).</li>
+<li><b>\(r_c=k/h\)</b> بـ k <b>العازل</b>. والعازل الرقيق ممكن <b>يزيد</b> الفقد إذا \(r_i&lt;r_c\).</li>
+<li><b>توليد الحرارة:</b> 2k جدار (L = نصف السمك)، 4k أسطوانة، 6k كرة. و \(T_w\) مو \(T_\infty\)!</li>
+<li><b>الزعانف:</b> A = مساحة <b>المقطع</b>، P = <b>المحيط</b>. الدبوس \(m=\sqrt{2h/kr}\) (r مو d).</li>
+<li><b>Case 3 ⇒ \(L_c\)</b>: مستطيلة \(+t/2\)، دبوس \(+d/4\). ولا تنسى \(r_{2c}=r_1+L_c\).</li>
+<li><b>\(q_{max}\) الدائرية</b> = \(2\pi h(r_{2c}^2-r_1^2)\theta_0\) — فيها 2 (وجهين) و \(r_{2c}\) مو \(r_2\).</li>
+<li><b>مصفوفة الزعانف:</b> لا تنسى \(q_{between}\) والمساحة = الكلية − \(n\,t\) × العرض.</li>
+<li><b>عدد الزعانف</b> \(n=L/(s+t)\) — السمك داخل (Q5: 200 مو 333).</li>
+<li><b>ε (الفعالية) ≠ ε (الانبعاثية)</b> ≠ η (الكفاءة). الفعالية > 1، الكفاءة < 1.</li>
+<li><b>فرق الحرارة بالفهرنهايت</b> = 1.8 × فرق السيليزي (بدون +32).</li>
+<li><b>"Increase"</b> يعني \(q_{with}-q_{without}\) (أو النسبة) — اقرا شنو مطلوب بالضبط.</li>
+</ol>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="recipes" data-short="الوصفات">🍳 الوصفات الأربع</h2>
+<div class="map">
+<div class="card" style="margin:0"><h3 style="margin-top:0">🧱 جدار مركب</h3><ol style="margin:0;font-size:.95rem"><li>ارسم الدائرة (توالي/توازي).</li><li>\(R=\Delta x/kA\) لكل طبقة (+ \(1/hA\) للموائع).</li><li>\(q=\Delta T/\sum R\).</li><li>درجات الواجهات: \(T_{n+1}=T_n-qR_n\).</li></ol></div>
+<div class="card" style="margin:0"><h3 style="margin-top:0">🛢️ أنبوب + عازل</h3><ol style="margin:0;font-size:.95rem"><li>\(r_1, r_2, r_3\) بالمتر.</li><li>\(\frac{1}{h_iA_i}+\frac{\ln(r_2/r_1)}{2\pi k_1L}+\frac{\ln(r_3/r_2)}{2\pi k_2L}+\frac{1}{h_oA_o}\).</li><li>\(q=\Delta T/\sum R\)، \(U_o=1/(A_o\sum R)\).</li><li>تحقق \(r_c=k/h\).</li></ol></div>
+<div class="card" style="margin:0"><h3 style="margin-top:0">🔌 سلك يولد حرارة</h3><ol style="margin:0;font-size:.95rem"><li>\(q=I^2R_e\) أو معطى.</li><li>\(q=h(2\pi RL)(T_w-T_\infty)\) ⇒ \(T_w\).</li><li>\(\dot q=q/\pi R^2L\).</li><li>\(T_0=\dot qR^2/4k+T_w\).</li></ol></div>
+<div class="card" style="margin:0"><h3 style="margin-top:0">🪭 مصفوفة زعانف</h3><ol style="margin:0;font-size:.95rem"><li>\(n\)، \(L_c\)، \(r_{2c}/r_1\)، \(A_m\)، x.</li><li>η من المنحنى.</li><li>\(q_{fin}=\eta\,q_{max}\).</li><li>\(+q_{between}\)؛ و ε = with/without.</li></ol></div>
+</div>
+</section>
+
+<section class="topic">
+<h2 id="errata" data-short="تصحيحات المحاضرات">📝 تصحيحات المحاضرات (بلطف)</h2>
+<p>هاي أغلاط مطبعية صغيرة بالملازم — الأجوبة النهائية بأغلبها صحيحة، بس حتى لا تتلخبط:</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>المكان</th><th>المكتوب</th><th>الصحيح</th></tr></thead>
+<tbody>
+<tr><td>L1 مثال الإشعاع</td><td>T₂ = 250 + 273 = 525 K</td><td>523 K (والحساب استخدم 523)</td></tr>
+<tr><td>L2 النحاس + فايبرگلاس</td><td>النص 35 °C، الرسمة 30 °C</td><td>الحل استخدم 35 °C ⇒ A = 159.1 m²</td></tr>
+<tr><td>L3 اشتقاق \(r_c\)</td><td>البسط \(\frac{1}{kr_o}+\frac{1}{hr_o^2}\)</td><td>\(\frac{1}{kr_o}-\frac{1}{hr_o^2}\) (والنتيجة \(r_c=k/h\) صحيحة)</td></tr>
+<tr><td>L4 القضيب 2.122 kW</td><td>T₀ = 410.159 °C</td><td>بـ π = 3.14؛ بالدقيقة 410.0 °C</td></tr>
+<tr><td>L5 قضيب النحاس</td><td>P = 3.41 × 0.025</td><td>π d = 3.14 × 0.025 = 0.0785 m</td></tr>
+<tr><td>L5 دبوس الألمنيوم</td><td>q = 6.055 W</td><td>6.055 <b>Btu/h</b> (≈ 1.77 W)</td></tr>
+<tr><td>L5 جدول Case 3</td><td>−kA dθ/dx = h p dx θ</td><td>−kA dθ/dx = hAθ عند x = L</td></tr>
+<tr><td>L6 الزعنفة الدائرية</td><td>المحور = 0.369</td><td>≈ 0.395؛ η من المنحنى الدقيق ≈ 0.87 (المحاضرة 0.82)</td></tr>
+<tr><td>L6 الـ 250 زعنفة</td><td>h = 30 ثم h = 40</td><td>صحيح — h = 40 للحالة بدون زعانف (معطى بالسؤال الفرعي)</td></tr>
+<tr><td>Q1</td><td>"per unit area" والجواب 11428 W</td><td>11428 W خلال 0.1 m² ⇒ 1.14×10⁵ W/m²</td></tr>
+<tr><td>Q2</td><td>التحويل</td><td>k[Btu/h·ft·°F] = 0.5781 × k[W/m·°C]، Δx[ft] = in/12</td></tr>
+<tr><td>Q4</td><td>η = 0.95 من المنحنى</td><td>المنحنى الدقيق ≈ 0.99 عند x = 0.121 (قراءة بالعين)</td></tr>
+</tbody></table></div>
+<p style="font-size:.9rem;color:var(--muted)">كل الأرقام انحسبت من جديد بسكربت (<code>verify/verify.js</code>) — الفروقات الباقية كلها أقل من 0.3% (تقريب π والقيم الوسطية).</p>
+</section>
+
+<section class="topic">
+<h2 id="quiz" data-short="الكويز">🧠 كويز 15 سؤال (تصحيح فوري)</h2>
+<div class="scorebox"><b>النتيجة:</b> <span class="num" id="qsScore">0 / 0</span> <span id="qsBest" style="color:var(--muted);font-size:.9rem"></span> <button class="btn small" type="button" id="qsReset">🔄 أعد الكويز</button></div>
+<div class="quiz" id="quiz"></div>
+</section>
+
+<script>
+window.HTPage = function () {
+  var Q = [
+    ['مقاومة التوصيل لطبقة أسطوانية (أنبوب) هي:', ['\\(\\dfrac{\\Delta x}{kA}\\)', '\\(\\dfrac{\\ln(r_o/r_i)}{2\\pi kL}\\)', '\\(\\dfrac{1/r_1-1/r_2}{4\\pi k}\\)', '\\(\\dfrac{1}{hA}\\)'], 1, 'الـ ln يجي من تكامل \\(dr/r\\) لأن مساحة الأسطوانة \\(2\\pi rL\\) تتغير مع r.'],
+    ['نصف القطر الحرج للعازل على أنبوب:', ['\\(r_c=h/k\\)', '\\(r_c=2k/h\\)', '\\(r_c=k/h\\)', '\\(r_c=k/2h\\)'], 2, 'من \\(dq/dr_o=0\\) ⇒ \\(1/kr_o=1/hr_o^2\\) ⇒ \\(r_o=k/h\\). (2k/h للكرة.)'],
+    ['أنبوب \\(r_i=1\\) cm، عازل \\(k=0.1\\)، \\(h=5\\) W/m²°C. إضافة طبقة رقيقة من العازل راح:', ['تقلل الفقد', 'تزيد الفقد', 'ما تأثر', 'تصفّر الفقد'], 1, '\\(r_c=0.1/5=0.02\\) m = 2 cm أكبر من 1 cm ⇒ العازل الرقيق يزيد الفقد لحد ما نعبر \\(r_c\\).'],
+    ['جدار: \\(1/h_1=0.5\\)، \\(\\Delta x/k=1\\)، \\(1/h_2=0.1\\). المعامل الكلي U يساوي:', ['0.625', '1.6', '0.5', '10'], 0, '\\(U=1/\\sum R=1/1.6=0.625\\) (مثال الكونكريت).'],
+    ['أي عبارة صحيحة دائماً للأنبوب؟', ['\\(U_i=U_o\\)', '\\(U_iA_i=U_oA_o\\)', '\\(U_iA_o=U_oA_i\\)', 'U ما يعتمد على المساحة'], 1, 'لأن \\(q=U_iA_i\\Delta T=U_oA_o\\Delta T=\\Delta T/\\sum R\\).'],
+    ['كرة تولد حرارة: الفرق بين المركز والسطح \\(T_0-T_w\\) =', ['\\(\\dot qR^2/2k\\)', '\\(\\dot qR^2/4k\\)', '\\(\\dot qR^2/6k\\)', '\\(\\dot qR^2/3k\\)'], 2, 'قاعدة 2‑4‑6: جدار 2، أسطوانة 4، كرة 6.'],
+    ['سلك يولد حرارة ويبرد بالحمل. حرارة سطحه:', ['\\(T_\\infty+\\dot qR/h\\)', '\\(T_\\infty+\\dot qR/2h\\)', '\\(T_\\infty+\\dot qR/3h\\)', '\\(T_\\infty+\\dot qR^2/4k\\)'], 1, '\\(\\dot q\\pi R^2L=h2\\pi RL(T_w-T_\\infty)\\) ⇒ \\(\\dot qR/2h\\). (قاعدة 1‑2‑3.)'],
+    ['حرارة زعنفة طرفها معزول (Case 2):', ['\\(\\sqrt{hPkA}\\,\\theta_0\\)', '\\(\\sqrt{hPkA}\\,\\theta_0\\tanh mL\\)', '\\(hPL\\,\\theta_0\\)', '\\(\\sqrt{hPkA}\\,\\theta_0/\\tanh mL\\)'], 1, 'Case 2 = Case 1 × tanh(mL).'],
+    ['الطول المصحح لزعنفة دبوسية (pin):', ['\\(L+t/2\\)', '\\(L+d/2\\)', '\\(L+d/4\\)', '\\(L+r\\)'], 2, 'مساحة الطرف \\(\\pi d^2/4\\) ÷ المحيط \\(\\pi d\\) = \\(d/4\\) (= r/2).'],
+    ['m لزعنفة مستطيلة رقيقة (z ≫ t):', ['\\(\\sqrt{2h/kt}\\)', '\\(\\sqrt{h/kt}\\)', '\\(\\sqrt{2h/kr}\\)', '\\(\\sqrt{hk/2t}\\)'], 0, '\\(P\\approx2z\\)، \\(A=zt\\) ⇒ \\(hP/kA=2h/kt\\).'],
+    ['كفاءة زعنفة (Case 2 بالطول المصحح):', ['\\(1/mL_c\\)', '\\(\\tanh(mL_c)/mL_c\\)', '\\(mL_c\\tanh(mL_c)\\)', '\\(\\tanh(mL_c)\\)'], 1, '\\(\\eta=q/q_{max}=\\sqrt{hPkA}\\theta_0\\tanh(mL_c)/(hPL_c\\theta_0)\\).'],
+    ['\\(L_c=0.01\\) m، \\(h=50\\)، \\(k=200\\)، \\(t=0.002\\) m. قيمة المحور \\(L_c^{3/2}(h/kA_m)^{1/2}\\):', ['0.0112', '0.112', '0.354', '1.12'], 1, '\\(A_m=tL_c\\) ⇒ \\(x=L_c\\sqrt{h/kt}=0.01\\sqrt{50/0.4}=0.112\\).'],
+    ['\\(R_B=0.05\\) و \\(R_D=0.0214\\) (فوق بعض). المكافئ:', ['0.0714', '0.035', '0.015', '0.0214'], 2, 'توازي: \\(1/(1/0.05+1/0.0214)=0.015\\) — أصغر من أصغر وحدة.'],
+    ['إشعاع بين سطحين أسودين 527 °C و 27 °C. \\(q/A\\) تقريباً:', ['4.37 kW/m²', '22.8 kW/m²', '28.3 kW/m²', '0.35 kW/m²'], 1, 'لازم كلفن: 800 K و 300 K ⇒ \\(5.669\\times10^{-8}(800^4-300^4)=22.8\\) kW/m². (4.37 = غلط السيليزي!)'],
+    ['أنبوب 1 m، سمك الزعنفة 2 mm والمسافة بينها 8 mm. عدد الزعانف:', ['80', '100', '125', '500'], 1, '\\(n=1/(0.008+0.002)=100\\). لا تنسى السمك!']
+  ];
+  var host = document.getElementById('quiz'), sc = document.getElementById('qsScore'), best = document.getElementById('qsBest');
+  var S = window.HTStore, right = 0, done = 0;
+  function showBest() { var b = S.get('ht-quiz', null); best.textContent = b ? '· أفضل نتيجة: ' + b.best + '/15 · آخر محاولة: ' + b.last + '/15' : ''; }
+  function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function build() {
+    host.innerHTML = ''; right = 0; done = 0; sc.textContent = '0 / 0';
+    Q.forEach(function (q, qi) {
+      var d = document.createElement('div'); d.className = 'qq';
+      var order = shuffle(q[1].map(function (_, i) { return i; }));
+      d.innerHTML = '<div class="qt">' + (qi + 1) + '. ' + q[0] + '</div><div class="choices"></div><div class="fb"></div>';
+      var ch = d.querySelector('.choices'), fb = d.querySelector('.fb');
+      order.forEach(function (oi) {
+        var b = document.createElement('button'); b.type = 'button'; b.className = 'choice'; b.innerHTML = q[1][oi];
+        b.addEventListener('click', function () {
+          if (d.classList.contains('answered')) return;
+          d.classList.add('answered'); done++;
+          var ok = oi === q[2]; if (ok) right++;
+          b.classList.add(ok ? 'right' : 'wrong');
+          ch.querySelectorAll('button').forEach(function (x, k) { x.disabled = true; if (order[k] === q[2]) x.classList.add('right'); });
+          fb.className = 'fb ' + (ok ? 'good' : 'bad');
+          fb.innerHTML = (ok ? '✅ صح! ' : '❌ مو هيج. ') + q[3];
+          window.HTMath(fb);
+          sc.textContent = right + ' / ' + done;
+          if (done === Q.length) {
+            var prev = S.get('ht-quiz', { best: 0 });
+            S.set('ht-quiz', { best: Math.max(prev.best || 0, right), last: right, at: new Date().toISOString() });
+            showBest();
+            sc.textContent = right + ' / 15 ' + (right >= 13 ? '🏆 جاهز للامتحان!' : right >= 10 ? '👍 زين — راجع الغلطات' : '📚 ارجع للأقسام وأعد');
+          }
+        });
+        ch.appendChild(b);
+      });
+      host.appendChild(d);
+    });
+    window.HTMath(host);
+  }
+  document.getElementById('qsReset').addEventListener('click', function () { build(); host.scrollIntoView({ behavior: 'smooth' }); });
+  showBest(); build();
+};
+</script>
+
+</div></main>
 </body>
 </html>

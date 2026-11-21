@@ -189,7 +189,7 @@
 <div class="st"><div class="lab">Step 1 — write q as C / D(r_o)</div><div class="eq">$$q=\frac{C}{D(r_o)},\qquad C=2\pi L\,(T_i-T_\infty),\qquad D(r_o)=\frac{\ln(r_o/r_i)}{k}+\frac{1}{r_oh}$$</div><p class="why">نفصل الثابت C عن الجزء اللي يتغير مع \(r_o\) حتى يصير الاشتقاق سهل.</p></div>
 <div class="st"><div class="lab">Step 2 — differentiate (quotient / chain rule)</div><div class="eq">$$\frac{dq}{dr_o}=-\frac{C\,D'(r_o)}{D^2}=\frac{-2\pi L\,(T_i-T_\infty)\left(\dfrac{1}{kr_o}-\dfrac{1}{hr_o^{2}}\right)}{\left\{\dfrac{\ln(r_o/r_i)}{k}+\dfrac{1}{r_oh}\right\}^{2}}$$</div><p class="why">مشتقة \(\ln(r_o/r_i)/k\) هي \(1/(kr_o)\)، ومشتقة \(1/(r_oh)\) هي \(-1/(hr_o^2)\) (لاحظ السالب!).</p></div>
 <div class="st"><div class="lab">Step 3 — set equal to zero</div><div class="eq">$$\frac{1}{kr_o}-\frac{1}{hr_o^{2}}=0\quad\Longrightarrow\quad\frac{1}{kr_o}=\frac{1}{hr_o^{2}}\quad\Longrightarrow\quad r_o=\frac{k}{h}$$</div><p class="why">الكسر يصير صفر بس لما البسط صفر. نضرب الطرفين بـ \(khr_o^2\) فيطلع \(hr_o=k\).</p></div>
-<div class="st"><div class="lab">Step 4 — maximum or minimum?</div><div class="eq">$$r_o<\frac{k}{h}:\ D'<0\Rightarrow q\uparrow\qquad\qquad r_o>\frac{k}{h}:\ D'>0\Rightarrow q\downarrow$$</div><p class="why">قبل \(r_c\) الفقد يزيد، وبعده ينقص ⇒ النقطة هي <b>أعظم فقد (maximum)</b> مو أقل فقد. هذا اللي يخلي الاسم "حرج".</p></div>
+<div class="st"><div class="lab">Step 4 — maximum or minimum?</div><div class="eq">$$r_o&lt;\frac{k}{h}:\ D'&lt;0\Rightarrow q\uparrow\qquad\qquad r_o>\frac{k}{h}:\ D'>0\Rightarrow q\downarrow$$</div><p class="why">قبل \(r_c\) الفقد يزيد، وبعده ينقص ⇒ النقطة هي <b>أعظم فقد (maximum)</b> مو أقل فقد. هذا اللي يخلي الاسم "حرج".</p></div>
 </div>
 <div class="f" data-name="Critical radius of insulation (cylinder)" data-sym="r_c|نصف القطر الحرج للعازل|m ; k|موصلية <b>العازل</b> (مو الأنبوب)|W/m·°C ; h|معامل الحمل الخارجي|W/m²·°C">
 <div class="eq">$$r_o=r_c=\frac{k}{h}$$</div>
@@ -235,7 +235,7 @@
 <li>ارسم: \(T_A \to \frac{1}{h_i2\pi r_1L}\to\frac{\ln(r_2/r_1)}{2\pi k_{pipe}L}\to\frac{\ln(r_3/r_2)}{2\pi k_{ins}L}\to\frac{1}{h_o2\pi r_3L}\to T_B\).</li>
 <li>إذا ما معطى \(h_i\) (معطى حرارة السطح الداخلي)، احذف أول مقاومة وابدأ من \(T_{s,i}\).</li>
 <li>\(q=\Delta T/\sum R\)؛ وإذا طلب U: \(U_o=1/(A_o\sum R)\) حيث \(A_o\) = المساحة الخارجية <b>الأخيرة</b>.</li>
-<li>تحقق من \(r_c=k_{ins}/h_o\): إذا \(r_2<r_c\)، نبّه إن العازل الرقيق ممكن يزيد الفقد.</li>
+<li>تحقق من \(r_c=k_{ins}/h_o\): إذا \(r_2&lt;r_c\)، نبّه إن العازل الرقيق ممكن يزيد الفقد.</li>
 </ol>
 </div>
 </section>

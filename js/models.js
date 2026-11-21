@@ -759,9 +759,9 @@
       /* exact profile: k0[(T + B T²/2)] linear in x */
       var F = function (T) { return T + B * T * T / 2; }, F1 = F(a), F2 = F(bb), pts = [], lin = [];
       for (var i = 0; i <= 60; i++) {
-        var xi = i / 60, Fx = F1 + (F2 - F1) * xi, T;
-        T = Math.abs(B) < 1e-9 ? Fx : (-1 + Math.sqrt(Math.max(0, 1 + 2 * B * Fx))) / B;
-        pts.push([xi * dx.get(), T]); lin.push([xi * dx.get(), a + (bb - a) * xi]);
+        var xi = i / 60, Fx = F1 + (F2 - F1) * xi, Tx;
+        Tx = Math.abs(B) < 1e-9 ? Fx : (-1 + Math.sqrt(Math.max(0, 1 + 2 * B * Fx))) / B;
+        pts.push([xi * dx.get(), Tx]); lin.push([xi * dx.get(), a + (bb - a) * xi]);
       }
       p.line(lin, 'stroke:var(--muted);stroke-width:1.5;stroke-dasharray:6 5');
       p.line(pts, 'stroke:var(--accent);stroke-width:3');
