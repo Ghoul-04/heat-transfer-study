@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="css/style.css?v=4">
-<script defer src="js/physics.js?v=4"></script>
-<script defer src="js/models.js?v=4"></script>
-<script defer src="js/layout.js?v=4"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
 </head>
 <body data-page="generation">
 <main id="content"><div class="wrap">
@@ -27,9 +27,21 @@
   <div data-toc></div>
 </div>
 
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>المركز <b>أحر نقطة</b>، والتوزيع قطع مكافئ: \(\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2}\).</li>
+<li><b>2‑4‑6</b>: \(T_0=T_w+\frac{\dot qL^2}{2k}\) جدار، \(\frac{\dot qR^2}{4k}\) أسطوانة، \(\frac{\dot qR^2}{6k}\) كرة.</li>
+<li>\(T_w\) مو معطى؟ اللي يتولد يطلع: \(\dot qV=hA(T_w-T_\infty)\).</li>
+<li>الاشتقاق: عامة ← 3 فرضيات ← شطب ← تكامل مرتين ← BCs ← C₁, C₂.</li>
+</ul>
+</div>
+
 <div class="callout tip"><span class="ttl">🧠 قاعدة 2‑4‑6 (احفظها وخلص)</span>
 <div class="eq">$$\text{Wall: }T_0=\frac{\dot qL^2}{\mathbf{2}k}+T_w\qquad\text{Cylinder: }T_0=\frac{\dot qR^2}{\mathbf{4}k}+T_w\qquad\text{Sphere: }T_0=\frac{\dot qR^2}{\mathbf{6}k}+T_w$$</div>
 الرقم = 2 × عدد الأبعاد اللي تطلع منها الحرارة (جدار 1، أسطوانة 2، كرة 3). وللحمل من السطح: \(T_w-T_\infty=\dot qL/h\)، \(\dot qR/2h\)، \(\dot qR/3h\) — قاعدة <b>1‑2‑3</b>.</div>
+
+<div class="simple">ليش المركز أحر؟ تخيل <b>قاعة مزدحمة</b> وكل شخص يطلع حرارة: اللي واگف بالباب (السطح) يبرد بسرعة لأن الهواء قريب، بس اللي بالنص لازم حرارته تعبر كل الناس حتى تطلع. فالمركز أحر شي. والكرة تبرد أسرع من الجدار لأن الحرارة عندها 3 اتجاهات تطلع منها (لهذا 6 مو 2).</div>
 
 <section class="topic">
 <h2 id="wall" data-short="الجدار">🧱 جدار مستوي يولّد حرارة</h2>

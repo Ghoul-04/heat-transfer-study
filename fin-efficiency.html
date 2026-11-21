@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="css/style.css?v=4">
-<script defer src="js/physics.js?v=4"></script>
-<script defer src="js/models.js?v=4"></script>
-<script defer src="js/layout.js?v=4"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
 </head>
 <body data-page="efficiency">
 <main id="content"><div class="wrap">
@@ -25,6 +25,16 @@
   <span class="badge p2">⚡ أولوية ثانية — Q4 و Q5 كلها من هنا</span>
   <p>بالمحاضرة الفاتت حسبنا q من المعادلات. هنا طريقة ثانية أسرع (وضرورية للزعانف الدائرية): نحسب <b>أعلى حرارة ممكنة</b> ونضربها بـ <b>الكفاءة</b> اللي نقراها من منحنى.</p>
   <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>\(q_{actual}=\eta\,q_{max}\). η من المنحنى أو \(\tanh(mL_c)/mL_c\).</li>
+<li>محور المنحنى: \(L_c^{3/2}(h/kA_m)^{1/2}\)، \(A_m=tL_c\) (المثلثية: \(L_c=L,\ A_m=\tfrac t2L_c\)).</li>
+<li>دائرية: \(q_{max}=2\pi h(r_{2c}^2-r_1^2)\theta_0\)، \(r_{2c}=r_1+L_c\).</li>
+<li>مصفوفة: \(q=Nq_{fin}+hA_{between}\theta_0\)، و \(\varepsilon=q_{with}/q_{without}\).</li>
+</ul>
 </div>
 
 <section class="topic">
@@ -69,6 +79,7 @@
 <li><b>الطول المصحح:</b> \(L_c=L+t/2\).</li>
 <li><b>(Figure 2 بس)</b> \(r_{2c}=r_1+L_c\) ثم النسبة \(r_{2c}/r_1\) ⇒ هاي تحدد <b>أي منحنى</b> (1، 2، 3، 4، 5 — وإذا بينهن نقدّر بالعين).</li>
 <li><b>مساحة المقطع الجانبي:</b> \(A_m=t\,L_c\).</li>
+<li><b>⚠️ زعنفة مثلثية (Figure 1):</b> \(L_c=L\) (بدون تصحيح) و \(A_m=\tfrac{t}{2}L_c\).</li>
 <li><b>المحور الأفقي:</b> \(x=L_c^{3/2}\left(\dfrac{h}{kA_m}\right)^{1/2}\).</li>
 <li>اطلع عمودياً من x لحد المنحنى، ثم روح أفقياً لليسار واقرا \(\eta_f\).</li>
 <li>\(q_{max}\) (الدائرية: \(2\pi h(r_{2c}^2-r_1^2)\theta_0\)) ثم \(q_{actual}=\eta\,q_{max}\).</li>
@@ -79,6 +90,7 @@
 <p class="when">قبل ما تقرا أي منحنى كفاءة.</p>
 <p class="hint">"<b>Lc جذر h على k t</b>" — نفس شكل m الرقيقة بس بدون الـ 2.</p>
 </div>
+<div class="simple">المنحنى مثل <b>جدول جاهز</b>: الدكتور حسبلك المعادلات الصعبة (Bessel) ورسمها. أنت بس تحسب رقم واحد (x) وتعرف أي خط (النسبة \(r_{2c}/r_1\))، تصعد من x للخط، وتروح يسار تقرا η. خلص. والكفاءة دائماً أقل من 1 لأن آخر الزعنفة أبرد من قاعدتها.</div>
 <div class="model" data-model="fig1" data-title="📊 Figure 1 — كفاءة الزعانف المستقيمة (مرّر الماوس/اللمس لقراءة η)"></div>
 <div class="model" data-model="fig2" data-x="0.395" data-r="2.24" data-title="📊 Figure 2 — كفاءة الزعانف الدائرية (مستطيلة البروفايل)"></div>
 <div class="callout info"><span class="ttl">ℹ️ عن دقة المنحنيات</span>رسمنا المنحنيات من الحل الدقيق (دوال Bessel للدائرية، و tanh للمستطيلة)، فتطابق أشكال المحاضرة. بالامتحان القراءة بالعين مقبولة ±0.03 تقريباً — المهم تكتب خطواتك (Lc، النسبة، x) صح.</div>

@@ -11,6 +11,8 @@
 
   var NAV = [
     { id: 'home', href: 'index.html', n: '0', ar: 'الرئيسية وخريطة الامتحان' },
+    { id: 'cram', href: 'cram.html', n: '⚡', ar: 'قسم الحصرة 😮‍💨 (ابدأ هنا)' },
+    { id: 'past', href: 'past-exams.html', n: '📜', ar: 'أسئلة السنين محلولة' },
     { group: 'المحاضرات' },
     { id: 'intro', href: 'intro.html', n: '1', ar: 'مقدمة: طرق انتقال الحرارة', p: 'p5' },
     { id: 'conduction', href: 'conduction.html', n: '2', ar: 'التوصيل أحادي البعد', p: 'p4' },
@@ -275,6 +277,15 @@
     expandExamples();
     expandCircuits();
     renderMath(document.getElementById('content') || document.body);
+    /* generic tabs: <div data-tabs><div class="tabs"><button data-t="a">..</button></div><div class="tabpanel" data-p="a">..</div></div> */
+    document.querySelectorAll('[data-tabs]').forEach(function (box) {
+      var btns = box.querySelectorAll(':scope > .tabs > button'), pans = box.querySelectorAll(':scope > .tabpanel');
+      function show(k) { btns.forEach(function (b) { b.classList.toggle('on', b.dataset.t === k); }); pans.forEach(function (p) { p.classList.toggle('on', p.dataset.p === k); }); }
+      btns.forEach(function (b) { b.type = 'button'; b.addEventListener('click', function () { show(b.dataset.t); }); });
+      if (btns[0]) show(btns[0].dataset.t);
+    });
+    /* flashcards */
+    document.querySelectorAll('.flash').forEach(function (f) { f.addEventListener('click', function () { f.classList.toggle('flip'); }); });
     updateProgressUI();
     if (window.HTModels) {
       document.querySelectorAll('[data-model]').forEach(function (m) {

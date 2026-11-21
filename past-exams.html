@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Past Exams Solved</title>
+<meta name="description" content="أسئلة سنين الدكتور أحمد الربيعي محلولة خطوة بخطوة: نهائي 2026، فصلي 2025، الخزان الكروي، وأسئلة Give the equation.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
+</head>
+<body data-page="past">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Past exams · Heat Transfer I (CHE305) · Examiner: Ahmed Al Rubaie</div>
+  <h1>📜 أسئلة السنين محلولة</h1>
+  <span class="badge pstar">⭐ نفس أسلوب الدكتور بالضبط</span>
+  <p>هنا كل الأسئلة اللي وصلتني من امتحانات الدكتور، محلولة بنفس قالب الأمثلة. <b>كل الأرقام انحسبت من جديد بسكربت</b> — ووين ما الحل المنتشر بالتلي فيه غلط، كتبتلك ملاحظة واضحة.</p>
+  <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة</b>
+<ul>
+<li>3 أغلاط بالحلول المنتشرة: الخزان الكروي (<b class="num">80%</b> مو <span class="num">8%</span>)، الأنبوب بعازلين (<b class="num">11.23 W/m</b> مو <span class="num">11 kW</span>)، وعدد الزعانف (<b class="num">29</b> بـ L، أو <span class="num">26</span> إذا استخدمت <span class="num">Lc</span>).</li>
+<li>Nodal equation و Semi-infinite solid <b>مو بالملازم السبعة</b> بس انسألوا — مشروحين باختصار.</li>
+</ul>
+</div>
+
+<!-- =================== FINAL 2026 =================== -->
+<section class="topic">
+<h2 id="final2026" data-short="نهائي 2026">📝 الامتحان النهائي — 05/01/2026</h2>
+<div class="callout info"><b>Exam: Final · Time: 2 Hours · Attempt only Four Questions · Take Four decimal.</b> (وصلني Q1–Q3)</div>
+
+<h3 id="f26q1a">Q1-A · Derive an expression for the straight fin of rectangular profile on plan wall <span class="badge p1">5 marks</span></h3>
+<p>هذا اشتقاق كامل — موجود بشكل "ورقة امتحان" جاهز: <a href="cram.html#g2">قسم الحصرة ← الاشتقاقات ← تبويب الزعنفة</a>. وبشرح مفصل: <a href="fins.html#derive">المحاضرة 5</a>.</p>
+
+<h3 id="f26q1b">Q1-B · Write a nodal equation for the node (n) <span class="badge p2">4 marks</span> <span class="pill-out">خارج الملازم</span></h3>
+<div class="card">
+<p>الطريقة العددية (finite difference) مو موجودة بالملازم السبعة، بس سألها. الفكرة كلها <b>موازنة طاقة على العقدة</b>: مجموع الحرارة الداخلة للعقدة n من جيرانها = صفر (حالة مستقرة، بدون توليد).</p>
+<div class="paper">
+<div class="ptitle">✍️ هيج تكتبها</div>
+<p>Steady state, no generation, Δx = Δy. Energy balance on node n:</p>
+$$\sum_{i}k\,A_i\,\frac{T_i-T_n}{\Delta x_i}=0$$
+<p>Neighbours: 2 (up), 3 (left), 4 (down), 1 (right, across the insulated surface → no heat).</p>
+<p>The insulated surface passes through n, so the node owns a half‑cell: the faces towards 2 and 4 have area \(\Delta x/2\); the face towards 3 has area \(\Delta y\):</p>
+$$k\,\Delta y\,\frac{T_3-T_n}{\Delta x}+k\,\frac{\Delta x}{2}\,\frac{T_2-T_n}{\Delta y}+k\,\frac{\Delta x}{2}\,\frac{T_4-T_n}{\Delta y}+0=0$$
+$$\boxed{T_2+T_4+2T_3-4T_n=0}$$
+<p class="ar">مقارنة: لو العقدة داخلية بدون عزل: \(T_1+T_2+T_3+T_4-4T_n=0\).</p>
+</div>
+<p class="note">الرسمة بالورقة صغيرة ومو واضحة 100%. الجواب فوق هو الشكل القياسي بكتاب Holman (Table 3‑2، "insulated boundary"). <b>الأهم بالامتحان:</b> اكتب سطر موازنة الطاقة \(\sum kA\,\Delta T/\Delta x=0\) وطبّقه على كل جار — هذا ياخذ أغلب الدرجة حتى لو الشكل مختلف شوية.</p>
+</div>
+
+<article class="ex" id="f26q1c">
+<header><h3>Q1-C · Radiation between two black planes</h3><span class="src">Final 2026 · 3.5 marks</span></header>
+<div class="stmt en">What is the heat radiation between two black planes having the area of the surface of a 0.7 m diameter sphere when the planes are maintained at 10 °C and 52 °C?</div>
+<div class="sol">
+<div class="given" data-rows="d|0.7 m (sphere)|r = 0.35 m ; T_1|10 °C|283 K ; T_2|52 °C|325 K ; \varepsilon|black planes|1 ; \sigma|—|5.669×10⁻⁸ W/m²·K⁴"></div>
+<div class="find">Find: q (W)<span class="ar">المطلوب: الحرارة المتبادلة بالإشعاع.</span></div>
+<div class="strategy"><p>"black" ⇒ ε = 1. المساحة = مساحة سطح كرة قطرها 0.7 m (الكرة بس لتعطيك المساحة!). وأهم شي: <b>Kelvin</b>.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$A=4\pi r^2=4\pi(0.35)^2=1.5394\ \text{m}^2$$</div><p class="why">مساحة سطح كرة = \(4\pi r^2=\pi d^2\).</p></div>
+<div class="st"><div class="eq">$$T_1=10+273=283\ \text{K},\qquad T_2=52+273=325\ \text{K}$$</div><p class="why">قانون ستيفان‑بولتزمان يشتغل بالحرارة المطلقة بس.</p></div>
+<div class="st"><div class="eq">$$q=\varepsilon\sigma A\,(T_2^4-T_1^4)=1\times5.669\times10^{-8}\times1.5394\times(325^4-283^4)$$</div><p class="why">الحار (325) ناقص البارد (283) حتى تطلع q موجبة.</p></div>
+</div>
+<div class="ans">$$q\approx413.86\ \text{W}$$</div>
+<p class="check">\(325^4-283^4=4.7425\times10^9\) — فرق 42 درجة بحرارة الغرفة يعطي بس ~400 W على 1.5 m²، منطقي. (بالـ 273.15 تطلع 414.47 W.)</p>
+<p class="trap">تعوض 10 و 52 بالسيليزي مباشرة، أو تستخدم \(\pi r^2\) (مساحة دائرة) بدل \(4\pi r^2\).</p>
+</div>
+</article>
+
+<article class="ex" id="f26q2">
+<header><h3>Q2 · Stainless-steel sphere with heat generation</h3><span class="src">Final 2026 · 12.5 marks</span></header>
+<div class="stmt en">A stainless-steel sphere [k = 18 W/m·°C] having a diameter of 6.5 cm is exposed to a convection environment at 23 °C, h = 25 W/m²·°C. Heat is generated uniformly in the sphere at the rate of 1.38 MW/m³.<br>1- Derive an expression for the temperature distribution in one dimension with heat generation and steady state condition.<br>2- Calculate the steady-state temperature for the center of the sphere and the temperature at distance of 1.66 cm from the center.</div>
+<div class="sol">
+<div class="given" data-rows="k|18 W/m·°C|18 ; d|6.5 cm|R = 0.0325 m ; T_\infty|23 °C|23 °C ; h|25 W/m²·°C|25 ; \dot q|1.38 MW/m³|1.38×10⁶ W/m³ ; r|1.66 cm|0.0166 m"></div>
+<div class="find">Find: (1) T(r) derivation · (2) T₀ and T at r = 1.66 cm<span class="ar">المطلوب: اشتقاق التوزيع، وحرارة المركز وعند 1.66 cm.</span></div>
+<div class="strategy"><p>(1) الاشتقاق الكامل: <a href="cram.html#g2">قسم الحصرة ← تبويب الكرة</a>. (2) الوصفة الرباعية: \(q=\dot qV\) ← \(T_w\) من الحمل ← \(T_0=\dot qR^2/6k+T_w\) ← \(T(r)\) من التوزيع.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$q=\dot q\,V=1.38\times10^6\times\tfrac43\pi(0.0325)^3=198.4348\ \text{W}$$</div><p class="why">كل الحرارة المتولدة بالكرة.</p></div>
+<div class="st"><div class="eq">$$q=h\,4\pi R^2\,(T_w-T_\infty)\ \Rightarrow\ T_w=23+\frac{198.4348}{25\times4\pi(0.0325)^2}=23+598.0000=621.0000\ {}^\circ\text{C}$$</div><p class="why">بالحالة المستقرة اللي يتولد = اللي يطلع من السطح. (اختصار: \(\dot qR/3h=598\)).</p></div>
+<div class="st"><div class="eq">$$T_0=\frac{\dot q}{6k}R^2+T_w=\frac{1.38\times10^6}{6\times18}(0.0325)^2+621=13.4965+621$$</div><p class="why">كرة ⇒ 6k.</p></div>
+<div class="st"><div class="eq">$$\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2}\ \Rightarrow\ \frac{T-621}{634.4965-621}=1-\frac{(0.0166)^2}{(0.0325)^2}=0.7391$$</div><p class="why">التوزيع من الاشتقاق (قطع مكافئ).</p></div>
+<div class="st"><div class="eq">$$T-621=9.9755\ \Rightarrow\ T=630.9755\ {}^\circ\text{C}$$</div><p class="why">نعزل T.</p></div>
+</div>
+<div class="ans">$$T_w=621.0000\ {}^\circ\text{C},\qquad T_0=634.4965\ {}^\circ\text{C},\qquad T(r=1.66\ \text{cm})=630.9755\ {}^\circ\text{C}$$</div>
+<p class="check">\(T_w\lt T(1.66)\lt T_0\) ✔. والفرق بين المركز والسطح 13.5°C بس مقارنة بـ 598°C بين السطح والهواء — لأن الحمل الطبيعي (h = 25) هو المقاومة الكبيرة.</p>
+<p class="trap">تحط d = 0.065 بدل R = 0.0325، أو 4k بدل 6k، أو تعوض \(T_\infty\) بدل \(T_w\) بمعادلة \(T_0\).</p>
+</div>
+</article>
+
+<article class="ex" id="f26q3">
+<header><h3>Q3 · Aluminum pin fins on a 1.2 m × 1.2 m plate</h3><span class="src">Final 2026 · 12.5 marks</span></header>
+<div class="stmt en">A hot surface at 110 °C is to be cooled by attaching 3 cm long, 0.25 cm diameter aluminum pin fins k = 236 W/m·°C to it, with a center-to-center distance of 0.65 cm. The temperature of the surrounding medium is 33 °C, and the heat transfer coefficient on the surfaces is 36 W/m²·°C. Determine the rate of heat transfer from the surface for a 1.2 m by 1.2 m section of the plate. Also determine the overall effectiveness of the fins.</div>
+<div class="sol">
+<div class="given" data-rows="T_0|110 °C|θ₀ = 110 − 33 = 77 °C ; L|3 cm|0.03 m ; d|0.25 cm|0.0025 m (r = 0.00125 m) ; k|236 W/m·°C|236 ; p|0.65 cm (center-to-center)|0.0065 m ; h|36 W/m²·°C|36 ; \text{plate}|1.2 × 1.2 m|1.44 m²"></div>
+<div class="find">Find: q<sub>total</sub> and overall ε<span class="ar">المطلوب: الحرارة الكلية والفعالية الكلية.</span></div>
+<div class="strategy"><p>مصفوفة زعانف دبوسية ⇒ الخطوات الست. الطرف يفقد حرارة ⇒ Case 3 ⇒ \(L_c=L+d/4\) ثم Case 2. عدد الزعانف من المسافة بين المراكز: كل زعنفة تاخذ مربع \(p\times p\).</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$L_c=L+\frac{d}{4}=0.03+\frac{0.0025}{4}=0.030625\ \text{m}$$</div><p class="why">الطول المصحح للدبوس.</p></div>
+<div class="st"><div class="eq">$$m=\sqrt{\frac{2h}{kr}}=\sqrt{\frac{2\times36}{236\times0.00125}}=15.6227\ \text{m}^{-1},\qquad mL_c=0.4784$$</div><p class="why">دبوس ⇒ \(P/A=2/r\).</p></div>
+<div class="st"><div class="eq">$$A=\frac{\pi}{4}d^2=\frac{\pi}{4}(0.0025)^2=4.9087\times10^{-6}\ \text{m}^2$$</div><p class="why">مقطع الزعنفة.</p></div>
+<div class="st"><div class="eq">$$q_{fin}=kAm\,\theta_0\tanh(mL_c)=236\times4.9087\times10^{-6}\times15.6227\times77\times\tanh(0.4784)=0.6201\ \text{W}$$</div><p class="why">زعنفة وحدة.</p></div>
+<div class="st"><div class="eq">$$N=\frac{1.2\times1.2}{(0.0065)^2}=34082.8402\ \text{fins}$$</div><p class="why">كل زعنفة "تملك" مربع 0.65 × 0.65 cm.</p></div>
+<div class="st"><div class="eq">$$A_{between}=1.44-N\,\frac{\pi}{4}d^2=1.44-34082.8402\times4.9087\times10^{-6}=1.2727\ \text{m}^2$$</div><p class="why">نطرح المساحة اللي غطتها قواعد الزعانف.</p></div>
+<div class="st"><div class="eq">$$q_{between}=hA_{between}\theta_0=36\times1.2727\times77=3527.9140\ \text{W}$$</div><p class="why">حمل من الفراغات.</p></div>
+<div class="st"><div class="eq">$$q_{with}=N\,q_{fin}+q_{between}=34082.8402\times0.6201+3527.9140=24663.80\ \text{W}$$</div><p class="why">المجموع.</p></div>
+<div class="st"><div class="eq">$$q_{without}=hA\theta_0=36\times1.44\times77=3991.68\ \text{W},\qquad\varepsilon=\frac{24663.80}{3991.68}$$</div><p class="why">الفعالية الكلية = مع ÷ بدون.</p></div>
+</div>
+<div class="ans">$$q_{total}\approx24.66\ \text{kW},\qquad\varepsilon_{overall}\approx6.1788$$</div>
+<p class="check">كفاءة الزعنفة \(\tanh(0.4784)/0.4784=93\%\) — دبابيس ألمنيوم قصيرة، منطقي. والزعانف ضاعفت الحرارة ~6 مرات.</p>
+<p class="trap">تنسى \(q_{between}\)، أو تستخدم \(L_c=L+d/2\). وانتبه: \(m=\sqrt{2h/kr}\) بـ r مو d.</p>
+<p class="note">الحل المنتشر صحيح (24662.4 W، ε = 6.1784 — الفرق تقريب). ملاحظة: N طالع كسر؛ إذا تريد عدد صحيح: \(\lfloor1.2/0.0065\rfloor^2=184^2=33856\) ⇒ \(q=24526\) W، \(\varepsilon=6.1443\). الطريقتين مقبولة — <b>اكتب الطريقة اللي تختارها بوضوح</b>.</p>
+</div>
+</article>
+</section>
+
+<!-- =================== SEASONAL 2025 =================== -->
+<section class="topic">
+<h2 id="seasonal2025" data-short="فصلي 2025">📝 الامتحان الفصلي — 23/11/2025</h2>
+<div class="callout info"><b>Exam: Seasonal · Time: 1 hr · Attempt all Questions.</b></div>
+
+<article class="ex" id="s25q1">
+<header><h3>Q1 · Cast steel pipe, bare and lagged with two insulations</h3><span class="src">Seasonal 2025 · 4 + 1 marks</span></header>
+<div class="stmt en">Water flows through cast steel pipe (k = 58 W/m·K) with an outer diameter 240 mm and 32 mm thickness.<br>1- Calculate the heat loss by convection and conduction per meter length of [un]insulated pipe when the water temperature is 16 °C, the outside air temperature is −9 °C, the water side heat transfer coefficient is 32 kW/m²·K and the outside is 22 W/m²·K. Also calculate the heat rate when the pipe is lagged with two insulations having an outer diameter of 450 mm and 550 mm respectively if the thermal conductivity to the both insulations is 0.06 W/m·K.<br>2- In above system show that, the inner temperature is exposed to a convection environment T<sub>A</sub>, and the outer temperature exposed to a convection environment T<sub>B</sub>.</div>
+<div class="sol">
+<div class="given" data-rows="r_2|OD 240 mm|0.120 m ; r_1|r₂ − 32 mm|0.088 m ; r_3|OD 450 mm|0.225 m ; r_4|OD 550 mm|0.275 m ; k|58 W/m·K|58 ; k_{ins}|0.06 W/m·K|0.06 ; h_i|32 kW/m²·K|32000 W/m²·K ; h_o|22 W/m²·K|22 ; T_A, T_B|16 °C, −9 °C|ΔT = 25 °C ; L|per meter|1 m"></div>
+<div class="find">Find: q/L bare, q/L insulated, and the general formula<span class="ar">المطلوب: الفقد بدون وويا العازلين، وإثبات المعادلة.</span></div>
+<div class="strategy"><p>بدون عازل: حمل داخلي + جدار + حمل خارجي (3 مقاومات). ويا العازل: نضيف مقاومتين أسطوانيتين، و<b>نغيّر</b> الحمل الخارجي لأنه صار على \(r_4\) (السطح الجديد).</p>
+<div class="circuit" data-nodes="T_A|T_1|T_2|T_3|T_4|T_B" data-res="\frac{1}{h_i2\pi r_1}|\frac{\ln(r_2/r_1)}{2\pi k}|\frac{\ln(r_3/r_2)}{2\pi k_{ins}}|\frac{\ln(r_4/r_3)}{2\pi k_{ins}}|\frac{1}{h_o2\pi r_4}"></div></div>
+<div class="steps">
+<div class="st"><div class="lab">Bare pipe</div><div class="eq">$$R_1=\frac{1}{h_iA_i}=\frac{1}{32000\times2\pi\times0.088}=5.6518\times10^{-5},\quad R_2=\frac{\ln(120/88)}{2\pi\times58}=8.5108\times10^{-4}$$</div><p class="why">الماء (h كبير جداً) والفولاذ (k كبير) مقاوماتهم صغيرة جداً.</p></div>
+<div class="st"><div class="eq">$$R_3=\frac{1}{h_oA_o}=\frac{1}{22\times2\pi\times0.120}=0.0603,\qquad\sum R=0.0612\ {}^\circ\text{C/W}$$</div><p class="why">الهواء برّا هو المسيطر (98.5%).</p></div>
+<div class="st"><div class="eq">$$\frac{q}{L}=\frac{16-(-9)}{0.0612}=408.54\ \text{W/m}$$</div><p class="why">قانون أوم الحراري.</p></div>
+<div class="st"><div class="lab">Lagged with two insulations</div><div class="eq">$$R_{ins,1}=\frac{\ln(225/120)}{2\pi\times0.06}=1.6674,\quad R_{ins,2}=\frac{\ln(275/225)}{2\pi\times0.06}=0.5323,\quad R_{o,new}=\frac{1}{22\times2\pi\times0.275}=0.0263$$</div><p class="why">الحمل الخارجي صار على السطح الجديد \(r_4\) — <b>المقاومة القديمة 0.0603 تنشال</b>.</p></div>
+<div class="st"><div class="eq">$$\sum R=5.6518\times10^{-5}+8.5108\times10^{-4}+1.6674+0.5323+0.0263=2.2269\ {}^\circ\text{C/W}$$</div><p class="why">5 مقاومات توالي.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{L}=\frac{25}{2.2269}=11.2261\ \text{W/m}$$</div><p class="why">الفقد نزل 97%!</p></div>
+<div class="st"><div class="lab">Part 2 — show the formula</div><div class="eq">$$q=h_i2\pi r_1L(T_A-T_1)=\frac{2\pi k_1L(T_1-T_2)}{\ln(r_2/r_1)}=\frac{2\pi k_2L(T_2-T_3)}{\ln(r_3/r_2)}=\frac{2\pi k_3L(T_3-T_4)}{\ln(r_4/r_3)}=h_o2\pi r_4L(T_4-T_B)$$</div><p class="why">نفس q تعبر كل الطبقات. نكتب كل فرق = q × مقاومة ونجمعهن ⇒ \(T_1..T_4\) تختصر.</p></div>
+<div class="st"><div class="eq">$$q=\frac{2\pi L\,(T_A-T_B)}{\dfrac{1}{h_ir_1}+\dfrac{\ln(r_2/r_1)}{k_1}+\dfrac{\ln(r_3/r_2)}{k_2}+\dfrac{\ln(r_4/r_3)}{k_3}+\dfrac{1}{h_or_4}}$$</div><p class="why">"وهو المطلوب".</p></div>
+</div>
+<div class="ans">$$\text{bare: }q/L=408.54\ \text{W/m}\qquad\text{lagged: }q/L=11.2261\ \text{W/m}$$</div>
+<p class="check">\(r_c=k/h=0.06/22=2.7\) mm أصغر بكثير من 120 mm ⇒ العازل أكيد يقلل الفقد ✔.</p>
+<p class="trap">ثلاث فخاخ: ① \(r_1=r_2-\)thickness (مو القطر ناقص السمك). ② \(h_i\) بالـ kW ⇒ ×1000. ③ بعد العازل لا تبقي مقاومة الحمل الخارجي القديمة.</p>
+<div class="note">الحل المنتشر بالتلي فيه غلطين:
+<div class="fixrow"><span class="k bad">❌ المكتوب:</span><span>\(R_T=2.2871\) و \(q=10.93\) ≈ <span class="num">"11 kW"</span></span><span class="k good">✅ الصحيح:</span><span>\(R_T=2.2269\) و \(q=11.23\ \text{W/m}\) — جمعوا مقاومة الحمل القديمة (0.0603) ويا الجديدة، والوحدة <span class="num">W</span> مو <span class="num">kW</span>.</span><span class="k exam">✍️ بالامتحان:</span><span>اكتب 5 مقاومات بس، والحمل الخارجي على \(r_4\).</span></div></div>
+</div>
+</article>
+
+<article class="ex" id="s25q2">
+<header><h3>Q2 · Number of pin fins for a given fin performance</h3><span class="src">Seasonal 2025 · 5 marks</span></header>
+<div class="stmt en">A rectangular bar (16 × 185) mm surrounded by insulation is maintained at 110 °C, and is exposed to ambient air 30 °C. A linear array of pin fins is affixed to the end surface to enhance the heat transfer rate from the bar. The pin fins k = 70 W/m·°C are 7.5 mm in diameter and 17 mm long, the heat transfer coefficient over the bar end surface and pin fins is 14 W/m²·°C. Determine the number of the fins if the fin performance = 4.445.</div>
+<div class="sol">
+<div class="given" data-rows="A_{bar}|16 × 185 mm|0.016 × 0.185 = 0.00296 m² ; T_0|110 °C|θ₀ = 80 °C ; d|7.5 mm|0.0075 m (r = 0.00375 m) ; L|17 mm|0.017 m ; k|70 W/m·°C|70 ; h|14 W/m²·°C|14 ; \varepsilon|4.445|4.445"></div>
+<div class="find">Find: N<span class="ar">المطلوب: عدد الزعانف.</span></div>
+<div class="strategy"><p>"fin performance" = الفعالية ε. كل شي معروف إلا N ⇒ نكتب \(q_{with}\) بدلالة N، ونساويها بـ \(\varepsilon\,q_{without}\).</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$m=\sqrt{\frac{2h}{kr}}=\sqrt{\frac{2\times14}{70\times0.00375}}=10.3280\ \text{m}^{-1},\qquad A=\frac{\pi}{4}(0.0075)^2=4.4179\times10^{-5}\ \text{m}^2$$</div><p class="why">دبوس.</p></div>
+<div class="st"><div class="eq">$$q_{fin}=kAm\,\theta_0\tanh(mL)=70\times4.4179\times10^{-5}\times10.328\times80\times\tanh(0.1756)=0.4441\ \text{W}$$</div><p class="why">Case 2 بطول L (مثل الحل المنتشر).</p></div>
+<div class="st"><div class="eq">$$q_{without}=hA_{bar}\theta_0=14\times0.00296\times80=3.3152\ \text{W}$$</div><p class="why">نهاية القضيب بدون زعانف.</p></div>
+<div class="st"><div class="eq">$$q_{between}=h\,(A_{bar}-NA)\,\theta_0=3.3152-0.04948\,N$$</div><p class="why">نطرح قواعد الزعانف من سطح القضيب.</p></div>
+<div class="st"><div class="eq">$$q_{with}=N(0.4441)+3.3152-0.04948N=0.39462N+3.3152$$</div><p class="why">نجمع ونرتب.</p></div>
+<div class="st"><div class="eq">$$\varepsilon=\frac{q_{with}}{q_{without}}\ \Rightarrow\ 4.445=\frac{0.39462N+3.3152}{3.3152}\ \Rightarrow\ N=\frac{(4.445-1)(3.3152)}{0.39462}=28.94$$</div><p class="why">معادلة خطية بـ N.</p></div>
+</div>
+<div class="ans">$$N\approx29\ \text{fins}$$</div>
+<p class="check">تحقق عكسي: بـ N = 29 ⇒ \(q_{with}=0.39462(29)+3.3152=14.76\) W ⇒ \(\varepsilon=14.76/3.3152=4.45\) ✔. وطلع N قريب جداً من عدد صحيح ⇒ هذا اللي قصده الدكتور.</p>
+<p class="trap">تنسى تطرح \(NA\) من مساحة القضيب، أو تحسب ε = q<sub>fin</sub>/q<sub>without</sub> لزعنفة وحدة.</p>
+<div class="note">حسب قاعدة المحاضرة (الطرف يفقد حرارة ⇒ \(L_c=L+d/4\)) تطلع \(q_{fin}=0.4919\) و \(N=25.8\approx26\).
+<div class="fixrow"><span class="k exam">✍️ بالامتحان:</span><span>الرقم 4.445 مبني على L (يعطي 28.94 ≈ 29 بالضبط)، فاتبع الحل بـ L <b>واكتب "assume insulated tip (Case 2)"</b>. إذا السؤال گال "accounting for the tip" استخدم \(L_c\).</span></div></div>
+</div>
+</article>
+</section>
+
+<!-- =================== OLDER =================== -->
+<section class="topic">
+<h2 id="older" data-short="أوراق سنين">📝 أوراق سنين إضافية</h2>
+
+<article class="ex" id="tank">
+<header><h3>Spherical tank + urethane foam — thickness and % reduction</h3><span class="src">Q2 · 28 marks</span></header>
+<div class="stmt en">A spherical tank, 1.2 m in diameter, is maintained at a temperature of 140 °C and exposed to a convection environment. With h = 30 W/m²·°C and T∞ = 15 °C, what thickness of urethane foam (k = 0.018 W/m·°C) should be added to ensure that the outer temperature of the insulation does not exceed 40 °C. What percentage reduction in heat loss results from installing this insulation.</div>
+<div class="sol">
+<div class="given" data-rows="d|1.2 m|r₁ = 0.6 m ; T_1|140 °C|140 °C ; h|30 W/m²·°C|30 ; T_\infty|15 °C|15 °C ; k|0.018 W/m·°C|0.018 ; T_2|≤ 40 °C|40 °C (limit)"></div>
+<div class="find">Find: thickness (r₂ − r₁) and % reduction<span class="ar">المطلوب: سمك العازل، ونسبة تقليل الفقد.</span></div>
+<div class="strategy"><p>بدون عازل: حمل بس. ويا العازل: الحرارة اللي تعبر العازل (توصيل كروي) = الحرارة اللي تطلع بالحمل من سطحه الخارجي (40°C). المجهول \(r_2\) موجود بمكانين ⇒ <b>معادلة تربيعية</b>.</p></div>
+<div class="steps">
+<div class="st"><div class="lab">Before insulation</div><div class="eq">$$q_1=hA\,\Delta T=30\times4\pi(0.6)^2\times(140-15)=16964.60\ \text{W}$$</div><p class="why">حمل من سطح الخزان.</p></div>
+<div class="st"><div class="lab">Conduction through foam = convection from its surface</div><div class="eq">$$\frac{140-40}{\dfrac{1/0.6-1/r_2}{4\pi(0.018)}}=30\times4\pi r_2^2\times(40-15)$$</div><p class="why">نفس q تعبر المقاومتين.</p></div>
+<div class="st"><div class="eq">$$\frac{1.8}{1.6667-1/r_2}=750\,r_2^2\ \Rightarrow\ 1250\,r_2^2-750\,r_2-1.8=0$$</div><p class="why">نشطب \(4\pi\) من الطرفين ونضرب.</p></div>
+<div class="st"><div class="eq">$$r_2=\frac{750+\sqrt{750^2+4(1250)(1.8)}}{2(1250)}=0.6024\ \text{m}\ \Rightarrow\ \text{thickness}=r_2-r_1=2.39\ \text{mm}$$</div><p class="why">ناخذ الجذر الموجب.</p></div>
+<div class="st"><div class="eq">$$q_2=30\times4\pi(0.6024)^2\times(40-15)=3420.01\ \text{W}$$</div><p class="why">الفقد الجديد (من سطح العازل).</p></div>
+<div class="st"><div class="eq">$$\text{reduction}=\frac{q_1-q_2}{q_1}\times100\%=\frac{16964.60-3420.01}{16964.60}\times100\%$$</div><p class="why">نسبة التقليل.</p></div>
+</div>
+<div class="ans">$$\text{thickness}\approx2.39\ \text{mm},\qquad\text{reduction}\approx79.84\%\ (\approx80\%)$$</div>
+<p class="check">urethane عازل قوي جداً (k = 0.018)، فحتى 2.4 mm تكفي تنزّل السطح من 140 لـ 40°C. ونصف القطر الحرج للكرة \(2k/h=1.2\) mm أصغر من 0.6 m ⇒ العازل يقلل الفقد ✔.</p>
+<p class="trap">تستخدم مقاومة الأسطوانة (ln) بدل الكرة، أو تنسى إن السطح الخارجي تغيّر (\(4\pi r_2^2\) مو \(4\pi r_1^2\)).</p>
+<div class="note">
+<div class="fixrow"><span class="k bad">❌ بالحل المنتشر:</span><span><span class="num">"reduced heat = 8%"</span> و <span class="num">x = 0.002 m</span></span><span class="k good">✅ الصحيح:</span><span><b class="num">≈ 80%</b> (<span class="num">16.96 kW → 3.42 kW</span>)، والسمك <span class="num">2.39 mm</span> (التقريب لـ <span class="num">1/r = 1.66</span> خلاها <span class="num">2 mm</span>)</span></div></div>
+</div>
+</article>
+
+<h3 id="bcs">B- Give only the boundary conditions, temperature distribution and general equation</h3>
+<div class="paper">
+<div class="ptitle">1- Heat flow in a semi‑infinite solid at constant surface temperature <span class="pill-out">خارج الملازم</span></div>
+$$\text{General: }\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial\tau}\qquad\text{B.C.: }T(x,0)=T_i,\ \ T(0,\tau)=T_s$$
+$$\frac{T-T_s}{T_i-T_s}=\operatorname{erf}\frac{x}{2\sqrt{\alpha\tau}},\qquad q=\frac{kA(T_s-T_i)}{\sqrt{\pi\alpha\tau}}\exp\!\left(-\frac{x^2}{4\alpha\tau}\right),\qquad q_0=\frac{kA(T_s-T_i)}{\sqrt{\pi\alpha\tau}}$$
+</div>
+<div class="paper">
+<div class="ptitle">2- Spherical system in one dimension with heat generation and steady state</div>
+$$\text{General: }\frac{1}{r}\frac{d^2}{dr^2}(rT)+\frac{\dot q}{k}=0\qquad\text{B.C.1: }T=T_0\text{ at }r=0,\ \ \text{B.C.2: }T=T_w\text{ at }r=R$$
+$$\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2},\qquad T_0=\frac{\dot q}{6k}R^2+T_w$$
+</div>
+<div class="paper">
+<div class="ptitle">3- Very long fin</div>
+$$\text{General: }\frac{d^2\theta}{dx^2}-m^2\theta=0\qquad\text{B.C.1: }T=T_0\text{ at }x=0,\ \ \text{B.C.2: }\theta=0\text{ at }x=\infty$$
+$$\frac{\theta}{\theta_0}=\frac{T-T_\infty}{T_0-T_\infty}=e^{-mx},\qquad q=kAm\,(T_0-T_\infty)=\sqrt{hPkA}\,\theta_0$$
+</div>
+
+<h3 id="give">C- Give the equation of the following systems</h3>
+<div class="paper">
+<div class="ptitle">1- Overall heat transfer coefficient on the inside tube area</div>
+$$U_i=\frac{1}{\dfrac{1}{h_i}+\dfrac{A_i\ln(r_o/r_i)}{2\pi kL}+\dfrac{A_i}{A_o}\dfrac{1}{h_o}}$$
+<div class="ptitle">2- Maximum temperature, sphere, 1-D, heat generation, steady (with B.C.)</div>
+$$T_0=\frac{\dot qR^2}{6k}+T_w\qquad\text{B.C.1: }T=T_0\text{ at }r=0,\ \text{B.C.2: }T=T_w\text{ at }r=R\ \Rightarrow\ C_1=T_0,\ C_2=0$$
+<div class="ptitle">3- Heat rate, cylinder, 5 layers</div>
+$$q=\frac{T_{in}-T_{out}}{\dfrac{\ln(r_2/r_1)}{2\pi k_1L}+\dfrac{\ln(r_3/r_2)}{2\pi k_2L}+\dfrac{\ln(r_4/r_3)}{2\pi k_3L}+\dfrac{\ln(r_5/r_4)}{2\pi k_4L}+\dfrac{\ln(r_6/r_5)}{2\pi k_5L}}$$
+<div class="ptitle">4- Heat rate of the critical thickness insulation</div>
+$$q=\frac{T_i-T_\infty}{\dfrac{\ln(r_o/r_i)}{2\pi kL}+\dfrac{1}{h_oA_o}},\qquad r_o=r_c=\frac{k}{h}$$
+<div class="ptitle">5- Heat rate, sphere, 3 layers</div>
+$$q=\frac{T_{in}-T_{out}}{\dfrac{1/r_1-1/r_2}{4\pi k_1}+\dfrac{1/r_2-1/r_3}{4\pi k_2}+\dfrac{1/r_3-1/r_4}{4\pi k_3}}$$
+<div class="ptitle">6- Temperature distribution, plane wall, 1-D, heat generation, steady (with B.C.)</div>
+$$\frac{T-T_0}{T_w-T_0}=\frac{x^2}{L^2}\qquad\text{B.C.1: }T=T_0\text{ at }x=0,\ \text{B.C.2: }T=T_w\text{ at }x=L\ \Rightarrow\ C_1=0,\ C_2=T_0$$
+</div>
+<p class="note">بالحل المكتوب بخط اليد (البند 5) مكتوب \(\left(\frac{1}{r_2}-\frac{1}{r_7}\right)\) للطبقة الثانية — المقصود \(r_3\). وكل طبقة كروية إلها k مالتها (\(k_1, k_2, k_3\)).</p>
+</section>
+
+</div></main>
+</body>
+</html>

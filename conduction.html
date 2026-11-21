@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="css/style.css?v=4">
-<script defer src="js/physics.js?v=4"></script>
-<script defer src="js/models.js?v=4"></script>
-<script defer src="js/layout.js?v=4"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
 </head>
 <body data-page="conduction">
 <main id="content"><div class="wrap">
@@ -25,6 +25,16 @@
   <span class="badge p4">أولوية 4 — بس المقاومات هنا تنستخدم بكل الامتحان</span>
   <p>هنا تتولد فكرة "<b>المقاومة الحرارية</b>": جدار، أسطوانة، كرة — كل وحدة إلها مقاومة، ونرصفهن مثل دائرة كهربائية.</p>
   <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>كل طبقة = مقاومة: جدار \(\frac{\Delta x}{kA}\)، أسطوانة \(\frac{\ln(r_o/r_i)}{2\pi kL}\)، كرة \(\frac{1/r_1-1/r_2}{4\pi k}\).</li>
+<li>ورا بعض ← <b>توالي</b> (نجمع). فوق بعض ← <b>توازي</b> (نجمع المقلوب).</li>
+<li>\(q=\Delta T/\sum R\)، وبعدها ترجع تحسب حرارة كل واجهة: \(T_{n+1}=T_n-qR_n\).</li>
+<li>إذا المطلوب <b>السمك</b>: \(R_{total}\) ← اطرح المعروف ← r ← السمك = \(r_3-r_2\).</li>
+</ul>
 </div>
 
 <section class="topic">

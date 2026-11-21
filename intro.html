@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="css/style.css?v=4">
-<script defer src="js/physics.js?v=4"></script>
-<script defer src="js/models.js?v=4"></script>
-<script defer src="js/layout.js?v=4"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
 </head>
 <body data-page="intro">
 <main id="content"><div class="wrap">
@@ -25,6 +25,16 @@
   <span class="badge p5">أولوية 5 — بس هو الأساس لكلشي</span>
   <p>علم انتقال الحرارة ما يكتفي يشرح <b>شلون</b> تنتقل الطاقة الحرارية، بل يتنبأ <b>بأي معدل (rate)</b> تنتقل تحت ظروف معينة. السبب دائماً واحد: <b>فرق درجات الحرارة</b>.</p>
   <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>3 طرق: <b>توصيل</b> \(q=-kA\,\frac{dT}{dx}\)، <b>حمل</b> \(q=hA(T_w-T_\infty)\)، <b>إشعاع</b> \(q=\varepsilon\sigma A(T_1^4-T_2^4)\).</li>
+<li>الإشعاع <b>دائماً بالكلفن</b>، و \(\sigma=5.669\times10^{-8}\).</li>
+<li>إذا k مو معطى: خذ <b>متوسط الحرارة</b> \((T_1+T_2)/2\) واقرا k من الجدول.</li>
+<li>فرق الفهرنهايت = 1.8 × فرق السيليزي (بدون +32).</li>
+</ul>
 </div>
 
 <section class="topic">
@@ -54,6 +64,8 @@
 <p class="when">جدار مستوي بدرجتين معلومتين على وجهيه.</p>
 <p class="hint">"الحار ناقص البارد" بالبسط وتنسى السالب — أسهل.</p>
 </div>
+
+<div class="callout tip"><span class="ttl">📌 من ملاحظات الطلاب (مفيدة بالامتحان)</span>إذا السؤال ما أعطاك k: احسب <b>متوسط الحرارة</b> \(T_{avg}=\frac{T_1+T_2}{2}\) واقرا k من جدول خواص المادة عند هاي الحرارة. (هذا نفس فكرة \(k_m\) بواجب \(k=k_0(1+\beta T)\).)</div>
 
 <article class="ex" id="ex-intro-1">
 <header><h3>مثال 1: طبقة فايبرگلاس</h3><span class="src">Lecture p.2</span></header>

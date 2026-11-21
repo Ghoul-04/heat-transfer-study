@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="css/style.css?v=4">
-<script defer src="js/physics.js?v=4"></script>
-<script defer src="js/models.js?v=4"></script>
-<script defer src="js/layout.js?v=4"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
 </head>
 <body data-page="fins">
 <main id="content"><div class="wrap">
@@ -25,6 +25,16 @@
   <span class="badge p2">⚡ أولوية ثانية — تجي ويا الكفاءة بالامتحان</span>
   <p>شفنا بالأنبوب إن مقاومة الهواء برّا (\(1/hA\)) هي المسيطرة. الحل؟ ما نقدر نكبّر h بسهولة، فنكبّر <b>A</b>: نلصق "أصابع" معدنية على السطح. هاي هي الزعانف.</p>
   <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>\(m=\sqrt{hP/kA}\): رقيقة \(\sqrt{2h/kt}\)، دبوس \(\sqrt{2h/kr}\).</li>
+<li>Case 1 = \(\sqrt{hPkA}\,\theta_0\) · Case 2 = × \(\tanh mL\) · Case 3 = Case 2 بـ \(L_c\).</li>
+<li>\(L_c\): مستطيلة \(L+t/2\)، دبوس \(L+d/4\) (= \(L+r/2\)).</li>
+<li>A = مساحة <b>المقطع</b>، P = <b>المحيط</b>.</li>
+</ul>
 </div>
 
 <section class="topic">
@@ -115,6 +125,7 @@
 <div class="callout tip"><span class="ttl">🧠 خلاصة الحالات بسطر</span>
 \(\text{Case 1}=\sqrt{hPkA}\,\theta_0\) &nbsp;·&nbsp; \(\text{Case 2}=\text{Case 1}\times\tanh(mL)\) &nbsp;·&nbsp; \(\text{Case 3}=\text{Case 2 with }L\to L_c\)</div>
 
+<div class="simple">تخيل الزعنفة <b>صوندة ماي مثقوبة</b>: الماي (الحرارة) يدخل من القاعدة، ويخر من الثقوب على طولها (الحمل). <b>Case 1</b>: صوندة طويلة كلش — آخرها ما يوصله ماي. <b>Case 2</b>: آخرها مسدود (معزول). <b>Case 3</b>: آخرها مفتوح ويخر منه شوية — فنطوّلها شوية (\(L_c\)) ونعاملها مسدودة. و <b>m</b> = شكد الثقوب كثيرة: m كبير ← الماي يخلص بسرعة.</div>
 <div class="model" data-model="fin" data-title="🌡️ زعنفة حيّة: تدرج الحرارة + منحنى θ/θ₀ للحالات الثلاث"></div>
 </section>
 

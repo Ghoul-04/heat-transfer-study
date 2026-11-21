@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="css/style.css?v=4">
-<script defer src="js/physics.js?v=4"></script>
-<script defer src="js/models.js?v=4"></script>
-<script defer src="js/layout.js?v=4"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
 </head>
 <body data-page="overall">
 <main id="content"><div class="wrap">
@@ -25,6 +25,16 @@
   <span class="badge p1">🔥 أولوية قصوى بالامتحان</span>
   <p>هاي أهم محاضرة بالمادة. هنا نربط <b>الحمل الحراري (convection)</b> مع <b>التوصيل (conduction)</b> بسلسلة وحدة: مائع حار ← جدار ← مائع بارد. إذا فهمت "قانون أوم الحراري" راح تحل نص أسئلة الامتحان.</p>
   <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>إذا السؤال بيه <b>h</b> ← حمل + توصيل: أضف \(\frac{1}{hA}\) لكل مائع بالدائرة.</li>
+<li>\(U=\frac{1}{A\sum R}\)، والمهم \(U_iA_i=U_oA_o\).</li>
+<li>\(r_c=k/h\): إذا الأنبوب أصغر منه، العازل الرقيق <b>يزيد</b> الفقد.</li>
+<li>بعد ما تضيف عازل، الحمل الخارجي ينحسب على <b>السطح الجديد</b> (وتشيل القديم).</li>
+</ul>
 </div>
 
 <!-- ========================================================== -->
@@ -122,6 +132,7 @@
 <p class="hint">السر كله بسطر واحد: \(\boxed{U_iA_i=U_oA_o=\dfrac{1}{\sum R}}\) — الـ q نفسه، بس توزع على مساحة مختلفة.</p>
 </div>
 
+<div class="simple">نفس الحرارة q تطلع من الأنبوب، بس تگدر "توزعها" على مساحتين: الداخلية (أصغر) أو الخارجية (أكبر). مثل نفس الراتب تقسمه على عدد أيام مختلف: تقسم على عدد أقل ← الرقم اليومي أكبر. فـ \(U_i\) دائماً أكبر من \(U_o\)، بس \(U_iA_i=U_oA_o\) نفس الشي.</div>
 <div class="model" data-model="pipe" data-title="🛢️ مقطع الأنبوب الحي: hᵢ ← جدار ← عازل ← hₒ"></div>
 <div class="callout info"><span class="ttl">💡 شنو تتعلم من الموديل؟</span>بمثال أنبوب الماء، المقاومة الخارجية \(1/h_oA_o\) تاخذ ~99.7% من المجموع! يعني \(U_o\approx h_o\). لو تريد تزيد انتقال الحرارة، حسّن الجهة الأضعف (برّا) — وهذا بالضبط سبب وجود <b>الزعانف</b> (المحاضرة 5).</div>
 </section>

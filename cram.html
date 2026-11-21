@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cram Mode</title>
+<meta name="description" content="قسم الحصرة: أهم الأشياء مرتبة حسب أسئلة سنين الدكتور أحمد الربيعي — حتى تضمن نص الدرجة على الأقل بأقل وقت.">
+<script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="css/style.css?v=6">
+<script defer src="js/physics.js?v=6"></script>
+<script defer src="js/models.js?v=6"></script>
+<script defer src="js/layout.js?v=6"></script>
+</head>
+<body data-page="cram">
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Cram mode · built from the lecturer's past exams (Final 05/01/2026 · Seasonal 23/11/2025 · older sheets)</div>
+  <h1>😮‍💨 قسم الحصرة</h1>
+  <span class="badge pstar">⚡ إذا ما عندك وقت — هذا بس</span>
+  <p>منحصر؟ طبيعي. هنا رتبتلك المادة <b>حسب شنو يسأل الدكتور فعلاً</b> من امتحاناته السابقة، من الأسهل والمضمون للأصعب. اتبع الترتيب، علّم "حفظته" على كل بند، والعدّاد يگلك شكد ضامن.</p>
+  <div data-toc></div>
+</div>
+
+<div class="tldr">
+<b>⚡ الخلاصة بـ 30 ثانية</b>
+<ul>
+<li>الدكتور <b>يحب الاشتقاقات و "Give the equation"</b> — هاي درجات مجانية إذا حافظها. ابدأ بيها.</li>
+<li>بكل امتحان أكو سؤال <b>زعانف (pin fins + effectiveness)</b> وسؤال <b>توليد حرارة بكرة</b>.</li>
+<li>وسؤال <b>أنبوب/كرة + عوازل</b> = مقاومات توالي: \(q=\Delta T/\sum R\).</li>
+<li>الامتحان يگول <b>"Take Four decimal"</b> — خلي 4 مراتب عشرية بكل الأرقام.</li>
+</ul>
+</div>
+
+<!-- ============ GAUGE ============ -->
+<section class="topic">
+<h2 id="gauge" data-short="عدّاد الضمان">🎯 عدّاد الضمان — شكد ضامن من 10؟</h2>
+<div class="card gauge-card">
+  <div>
+    <svg viewBox="0 0 240 150" id="gaugeSvg" role="img" aria-label="Secured marks gauge"></svg>
+    <p id="gaugeMsg" style="text-align:center;font-weight:800;margin:0"></p>
+  </div>
+  <div class="gauge-list" id="gaugeList"></div>
+</div>
+<p style="font-size:.85rem;color:var(--muted)">⚖️ الأوزان تقدير تقريبي مبني على توزيع الدرجات بالامتحانات الثلاث السابقة — مو ضمان رسمي، بس يعطيك فكرة وين تصرف وقتك.</p>
+</section>
+
+<!-- ============ PATTERN ============ -->
+<section class="topic">
+<h2 id="pattern" data-short="شنو يسأل؟">📊 شنو يسأل الدكتور؟ (تحليل 3 امتحانات)</h2>
+<div class="tbl-wrap"><table class="freq">
+<thead><tr><th>الموضوع</th><th>نهائي 2026</th><th>فصلي 2025</th><th>أوراق سنين</th><th>الحكم</th></tr></thead>
+<tbody>
+<tr><td>اشتقاق / BCs توليد حرارة (كرة، جدار)</td><td class="y">✔ Q2</td><td class="n">—</td><td class="y">✔✔✔</td><td>🔥🔥🔥 مضمون</td></tr>
+<tr><td>سؤال كرة/سلك يولّد حرارة (T₀, T(r))</td><td class="y">✔ Q2</td><td class="n">—</td><td class="y">✔ (Q3 الأستاذ)</td><td>🔥🔥🔥</td></tr>
+<tr><td>زعانف دبوسية + effectiveness / عدد الزعانف</td><td class="y">✔ Q3</td><td class="y">✔ Q2</td><td class="y">✔ (Q4, Q5)</td><td>🔥🔥🔥 كل سنة</td></tr>
+<tr><td>اشتقاق الزعنفة / very long fin</td><td class="y">✔ Q1-A</td><td class="n">—</td><td class="y">✔</td><td>🔥🔥</td></tr>
+<tr><td>أنبوب/كرة + عوازل (مقاومات توالي، سمك)</td><td class="n">—</td><td class="y">✔ Q1</td><td class="y">✔ (الخزان الكروي)</td><td>🔥🔥</td></tr>
+<tr><td>"Give the equation": Uᵢ، 5 طبقات، 3 طبقات كرة، critical</td><td class="n">—</td><td class="y">✔ (Q1-2)</td><td class="y">✔✔</td><td>🔥🔥 حفظ</td></tr>
+<tr><td>الإشعاع (Kelvin)</td><td class="y">✔ Q1-C</td><td class="n">—</td><td class="n">—</td><td>✅ سهل وسريع</td></tr>
+<tr><td>Nodal equation (طريقة عددية)</td><td class="y">✔ Q1-B</td><td class="n">—</td><td class="n">—</td><td><span class="pill-out">خارج الملازم</span></td></tr>
+<tr><td>Semi-infinite solid (عابر)</td><td class="n">—</td><td class="n">—</td><td class="y">✔</td><td><span class="pill-out">خارج الملازم</span></td></tr>
+</tbody></table></div>
+<p>📜 الحلول الكاملة لكل هاي الأسئلة: <a href="past-exams.html">أسئلة السنين محلولة</a>.</p>
+</section>
+
+<!-- ============ GOLDEN ORDER ============ -->
+<section class="topic">
+<h2 id="gold" data-short="الترتيب الذهبي">🥇 الترتيب الذهبي (ادرس بهذا الترتيب بالضبط)</h2>
+
+<!-- 1 -->
+<article class="gold" id="g1">
+<header><span class="rank">1</span><h3>بطاقات "Give the equation" — 12 معادلة جاهزة</h3><span class="badge p1">≈ 1.5 / 10</span></header>
+<div class="gb">
+<p class="why-box">الدكتور سأل "Give the equation of the following systems" و "Give only the boundary conditions…" بأوراق السنين. حفظ بدون حساب = أسرع درجات بالامتحان.</p>
+<p>👆 اضغط على البطاقة حتى تنقلب. حاول تتذكر الجواب قبل ما تقلبها.</p>
+<div class="flash-grid">
+<button class="flash"><div class="in"><div class="fr"><b>1. المعامل الكلي على المساحة الداخلية</b><small class="en">Overall U on the inside tube area</small></div><div class="bk">$$U_i=\frac{1}{\dfrac{1}{h_i}+\dfrac{A_i\ln(r_o/r_i)}{2\pi kL}+\dfrac{A_i}{A_o}\dfrac{1}{h_o}}$$</div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>2. المعامل الكلي على المساحة الخارجية</b><small class="en">Overall U on the outside tube area</small></div><div class="bk">$$U_o=\frac{1}{\dfrac{A_o}{A_i}\dfrac{1}{h_i}+\dfrac{A_o\ln(r_o/r_i)}{2\pi kL}+\dfrac{1}{h_o}}$$</div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>3. أعلى حرارة بكرة تولد حرارة (مع BCs)</b><small class="en">Max temperature, sphere, heat generation, steady 1-D</small></div><div class="bk">$$T_0=\frac{\dot q\,R^2}{6k}+T_w$$<div class="bc">B.C.1: T = T₀ at r = 0 · B.C.2: T = T_w at r = R · C₁ = T₀, C₂ = 0</div></div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>4. أسطوانة 5 طبقات</b><small class="en">Heat rate, cylinder, 5 layers</small></div><div class="bk">$$q=\frac{2\pi L\,(T_{in}-T_{out})}{\sum_{i=1}^{5}\dfrac{\ln(r_{i+1}/r_i)}{k_i}}$$<div class="bc">= ln(r₂/r₁)/k₁ + ln(r₃/r₂)/k₂ + … + ln(r₆/r₅)/k₅</div></div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>5. الحرارة عند سمك العزل الحرج</b><small class="en">Heat rate of the critical thickness insulation</small></div><div class="bk">$$q=\frac{2\pi L\,(T_i-T_\infty)}{\dfrac{\ln(r_o/r_i)}{k}+\dfrac{1}{r_oh}},\quad r_o=r_c=\frac{k}{h}$$</div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>6. كرة 3 طبقات</b><small class="en">Heat rate, sphere, 3 layers</small></div><div class="bk">$$q=\frac{4\pi\,(T_{in}-T_{out})}{\dfrac{\frac{1}{r_1}-\frac{1}{r_2}}{k_1}+\dfrac{\frac{1}{r_2}-\frac{1}{r_3}}{k_2}+\dfrac{\frac{1}{r_3}-\frac{1}{r_4}}{k_3}}$$</div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>7. توزيع الحرارة بجدار يولد حرارة (مع BCs)</b><small class="en">Plane wall, heat generation, temperature distribution</small></div><div class="bk">$$\frac{T-T_0}{T_w-T_0}=\frac{x^2}{L^2},\qquad T_0=\frac{\dot qL^2}{2k}+T_w$$<div class="bc">B.C.1: T = T₀ at x = 0 · B.C.2: T = T_w at x = L · C₁ = 0, C₂ = T₀</div></div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>8. زعنفة طويلة جداً: BCs + التوزيع + المعادلة العامة</b><small class="en">Very long fin</small></div><div class="bk">$$\frac{d^2\theta}{dx^2}-m^2\theta=0,\quad\frac{\theta}{\theta_0}=e^{-mx},\quad q=kAm\theta_0$$<div class="bc">B.C.1: T = T₀ at x = 0 · B.C.2: θ = 0 at x = ∞</div></div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>9. كرة تولد حرارة: المعادلة العامة + التوزيع</b><small class="en">Sphere, 1-D, heat generation, steady</small></div><div class="bk">$$\frac{1}{r}\frac{d^2}{dr^2}(rT)+\frac{\dot q}{k}=0,\quad\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2}$$</div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>10. أنبوب: حمل جوّا + 3 طبقات + حمل برّا</b><small class="en">TA inside convection … TB outside convection</small></div><div class="bk">$$q=\frac{2\pi L\,(T_A-T_B)}{\dfrac{1}{h_ir_1}+\dfrac{\ln\frac{r_2}{r_1}}{k_1}+\dfrac{\ln\frac{r_3}{r_2}}{k_2}+\dfrac{\ln\frac{r_4}{r_3}}{k_3}+\dfrac{1}{h_or_4}}$$</div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>11. أسطوانة تولد حرارة</b><small class="en">Cylinder, heat generation (max temperature)</small></div><div class="bk">$$T_0=\frac{\dot qR^2}{4k}+T_w,\quad\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2}$$<div class="bc">C₁ = 0 (ln 0 → −∞), C₂ = T₀</div></div></div></button>
+<button class="flash"><div class="in"><div class="fr"><b>12. Semi-infinite solid (درجة سطح ثابتة)</b><small class="en">outside the 7 lecture files — but asked before</small></div><div class="bk">$$\frac{\partial^2T}{\partial x^2}=\frac{1}{\alpha}\frac{\partial T}{\partial\tau},\ \ \frac{T-T_s}{T_i-T_s}=\operatorname{erf}\frac{x}{2\sqrt{\alpha\tau}},\ \ q_0=\frac{kA(T_s-T_i)}{\sqrt{\pi\alpha\tau}}$$<div class="bc">B.C.: T(x,0) = Tᵢ · T(0,τ) = T_s</div></div></div></button>
+</div>
+</div></article>
+
+<!-- 2 -->
+<article class="gold" id="g2">
+<header><span class="rank">2</span><h3>الاشتقاقات الأربعة — هيج تكتبها بالدفتر</h3><span class="badge p1">≈ 3 / 10</span></header>
+<div class="gb">
+<p class="why-box">نهائي 2026: Q1-A "Derive … straight fin" (5 درجات) و Q2-1 "Derive … sphere with heat generation". كلها نفس الهيكل: <b>معادلة عامة ← فرضيات ← شطب ← تكامل مرتين ← BCs ← C₁, C₂ ← النتيجة</b>.</p>
+<div class="simple">كل اشتقاقات توليد الحرارة نفس "الطبخة" بس تتغير المعادلة الأولى: جدار ← \(\frac{d^2T}{dx^2}\)، أسطوانة ← نضرب بـ r، كرة ← المتغير يصير \(rT\). والرقم بالنهاية 2، 4، 6. إذا فهمت الجدار، الباقي نسخ‑لصق مع تعديل.</div>
+<div data-tabs>
+<div class="tabs"><button data-t="fin">🪭 الزعنفة</button><button data-t="wall">🧱 الجدار</button><button data-t="cyl">🛢️ الأسطوانة</button><button data-t="sph">⚽ الكرة</button></div>
+
+<div class="tabpanel" data-p="fin"><div class="paper">
+<div class="ptitle">✍️ Derive an expression for the straight fin of rectangular profile on a plane wall</div>
+<p><b>Energy in left face = energy out right face + energy lost by convection</b></p>
+$$q_x=-kA\frac{dT}{dx},\qquad q_{x+dx}=-kA\left[\frac{dT}{dx}+\frac{d^2T}{dx^2}dx\right],\qquad q_{conv}=h\,P\,dx\,(T-T_\infty)$$
+$$-kA\frac{dT}{dx}=-kA\left[\frac{dT}{dx}+\frac{d^2T}{dx^2}dx\right]+hP\,dx\,(T-T_\infty)$$
+$$\frac{d^2T}{dx^2}-\frac{hP}{kA}(T-T_\infty)=0$$
+<p>Let \(\theta=T-T_\infty\) and \(m=\sqrt{hP/kA}\):</p>
+$$\frac{d^2\theta}{dx^2}-m^2\theta=0\qquad\Rightarrow\qquad\theta=C_1e^{-mx}+C_2e^{mx}$$
+<p>B.C.1: \(T=T_0\) at \(x=0\ \Rightarrow\ \theta_0=T_0-T_\infty=C_1+C_2\)</p>
+<p>B.C.2 (three cases):</p>
+<p>Case 1 — very long fin: \(\theta=0\) at \(x=\infty\ \Rightarrow C_2=0,\ C_1=\theta_0\)</p>
+$$\frac{\theta}{\theta_0}=e^{-mx},\qquad q=-kA\left.\frac{d\theta}{dx}\right|_{x=0}=kAm\,\theta_0=\sqrt{hPkA}\,\theta_0$$
+<p>Case 2 — insulated end: \(d\theta/dx=0\) at \(x=L\)</p>
+$$\frac{\theta}{\theta_0}=\frac{\cosh m(L-x)}{\cosh mL},\qquad q=\sqrt{hPkA}\,\theta_0\tanh mL$$
+<p>Case 3 — convection from the end: \(-kA\,d\theta/dx=hA\theta\) at \(x=L\)</p>
+$$\frac{\theta}{\theta_0}=\frac{\cosh m(L-x)+(h/mk)\sinh m(L-x)}{\cosh mL+(h/mk)\sinh mL}$$
+<p>Rectangular fin: \(A=zt,\ P=2(z+t)\approx2z\ \Rightarrow\ m=\sqrt{2h/kt}\)</p>
+<p class="ar">💡 إذا ضاق الوقت: اكتب لحد Case 1 + جدول الحالات الثلاث — هذا ياخذ أغلب الدرجة.</p>
+</div></div>
+
+<div class="tabpanel" data-p="wall"><div class="paper">
+<div class="ptitle">✍️ Temperature distribution — plane wall with heat generation (steady, 1-D)</div>
+$$\frac{\partial^2T}{\partial x^2}+\frac{\partial^2T}{\partial y^2}+\frac{\partial^2T}{\partial z^2}+\frac{\dot q}{k}=\frac{1}{\alpha}\frac{\partial T}{\partial\tau}$$
+<p>Assumptions: 1- steady state, one-dimensional. 2- uniform heat generation per unit volume. 3- k does not vary with temperature.</p>
+$$\frac{d^2T}{dx^2}+\frac{\dot q}{k}=0\ \Rightarrow\ \frac{dT}{dx}=-\frac{\dot q}{k}x+C_1\ \Rightarrow\ T=-\frac{\dot q}{2k}x^2+C_1x+C_2$$
+<p>B.C.1: \(T=T_0\) at \(x=0\) · B.C.2: \(T=T_w\) at \(x=L\) → \(C_1=0,\ C_2=T_0\)</p>
+$$T-T_0=-\frac{\dot q}{2k}x^2\quad(1)\qquad T_w-T_0=-\frac{\dot q}{2k}L^2\quad(2)$$
+$$(1)\div(2):\quad\frac{T-T_0}{T_w-T_0}=\frac{x^2}{L^2}\qquad\frac{T-T_w}{T_0-T_w}=1-\frac{x^2}{L^2}\qquad\boxed{T_0=\frac{\dot q}{2k}L^2+T_w}$$
+</div></div>
+
+<div class="tabpanel" data-p="cyl"><div class="paper">
+<div class="ptitle">✍️ Temperature distribution — cylinder with heat generation</div>
+$$\frac{\partial^2T}{\partial r^2}+\frac{1}{r}\frac{\partial T}{\partial r}+\frac{1}{r^2}\frac{\partial^2T}{\partial\phi^2}+\frac{\partial^2T}{\partial z^2}+\frac{\dot q}{k}=\frac{1}{\alpha}\frac{\partial T}{\partial\tau}$$
+<p>Same 3 assumptions → cross out φ, z and τ terms:</p>
+$$\frac{d^2T}{dr^2}+\frac{1}{r}\frac{dT}{dr}+\frac{\dot q}{k}=0\ \xrightarrow{\times r}\ \frac{d}{dr}\left(r\frac{dT}{dr}\right)=-\frac{\dot qr}{k}$$
+$$\frac{dT}{dr}=-\frac{\dot qr}{2k}+\frac{C_1}{r}\ \Rightarrow\ T=-\frac{\dot qr^2}{4k}+C_1\ln r+C_2$$
+<p>B.C.1: \(T=T_0\) at \(r=0\) · B.C.2: \(T=T_w\) at \(r=R\) → \(C_1=0\) (T finite at r = 0), \(C_2=T_0\)</p>
+$$\frac{T-T_0}{T_w-T_0}=\left(\frac{r}{R}\right)^2\qquad\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2}\qquad\boxed{T_0=\frac{\dot q}{4k}R^2+T_w}$$
+</div></div>
+
+<div class="tabpanel" data-p="sph"><div class="paper">
+<div class="ptitle">✍️ Temperature distribution — sphere with heat generation (نهائي 2026 Q2-1)</div>
+$$\frac{1}{r}\frac{\partial^2}{\partial r^2}(rT)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial T}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2T}{\partial\phi^2}+\frac{\dot q}{k}=\frac{1}{\alpha}\frac{\partial T}{\partial\tau}$$
+<p>Same 3 assumptions → cross out θ, φ and τ terms:</p>
+$$\frac{1}{r}\frac{d^2}{dr^2}(rT)+\frac{\dot q}{k}=0\ \Rightarrow\ \frac{d^2(rT)}{dr^2}=-\frac{\dot qr}{k}$$
+$$\frac{d(rT)}{dr}=-\frac{\dot qr^2}{2k}+C_1\ \Rightarrow\ rT=-\frac{\dot qr^3}{6k}+C_1r+C_2\ \Rightarrow\ T=-\frac{\dot qr^2}{6k}+C_1+\frac{C_2}{r}$$
+<p>B.C.1: \(T=T_0\) at \(r=0\) · B.C.2: \(T=T_w\) at \(r=R\) → \(C_2=0\) (T finite at r = 0), \(C_1=T_0\)</p>
+$$T-T_0=-\frac{\dot q}{6k}r^2\quad(1)\qquad T_w-T_0=-\frac{\dot q}{6k}R^2\quad(2)$$
+$$\frac{T-T_w}{T_0-T_w}=1-\frac{r^2}{R^2}\qquad\boxed{T_0=\frac{\dot q}{6k}R^2+T_w}$$
+</div></div>
+</div>
+</div></article>
+
+<!-- 3 -->
+<article class="gold" id="g3">
+<header><span class="rank">3</span><h3>سؤال كرة/سلك يولّد حرارة — 4 خطوات ثابتة</h3><span class="badge p1">≈ 1.5 / 10</span></header>
+<div class="gb">
+<p class="why-box">نهائي 2026 Q2 (12.5 درجة) + سؤال الأستاذ Q3. الأرقام تتغير بس الخطوات نفسها حرفياً.</p>
+<div class="paper">
+<div class="ptitle">🍳 الوصفة (مثال: نهائي 2026 — k = 18, d = 6.5 cm, h = 25, T∞ = 23 °C, q̇ = 1.38 MW/m³)</div>
+<p>① Total heat: \(q=\dot q\,V=\dot q\,\tfrac43\pi R^3=1.38\times10^6\times\tfrac43\pi(0.0325)^3=198.4348\ \text{W}\)</p>
+<p>② Surface temperature (all generated heat leaves by convection):</p>
+$$q=h\,4\pi R^2\,(T_w-T_\infty)\ \Rightarrow\ T_w=23+\frac{198.4348}{25\times4\pi(0.0325)^2}=621.0000\ {}^\circ\text{C}$$
+<p>③ Center: \(T_0=\dfrac{\dot q}{6k}R^2+T_w=\dfrac{1.38\times10^6}{6\times18}(0.0325)^2+621=634.4965\ {}^\circ\text{C}\)</p>
+<p>④ At any r: \(T=T_w+(T_0-T_w)\left(1-\dfrac{r^2}{R^2}\right)=621+13.4965\left(1-\dfrac{0.0166^2}{0.0325^2}\right)=630.9755\ {}^\circ\text{C}\)</p>
+<p class="ar">⚡ اختصار ②: كرة \(T_w=T_\infty+\dot qR/3h\) · سلك \(T_w=T_\infty+\dot qR/2h\) · جدار \(T_w=T_\infty+\dot qL/h\)</p>
+</div>
+<p>⚠️ الكرة <b>6k</b>، الأسطوانة <b>4k</b>، الجدار <b>2k</b>. R = <b>نصف</b> القطر. وإذا عندك تيار: \(q=I^2R_e,\ R_e=\rho L/A\). <a href="past-exams.html#f26q2">الحل الكامل</a></p>
+</div></article>
+
+<!-- 4 -->
+<article class="gold" id="g4">
+<header><span class="rank">4</span><h3>مصفوفة زعانف دبوسية + الفعالية / عدد الزعانف</h3><span class="badge p1">≈ 1.5 / 10</span></header>
+<div class="gb">
+<p class="why-box">جا <b>بالامتحانين</b>: نهائي 2026 Q3 (احسب q و ε) وفصلي 2025 Q2 (أعطاك ε وطلب عدد الزعانف). نفس الخطوات الست.</p>
+<div class="paper">
+<div class="ptitle">🍳 الخطوات الست (من ملاحظاتك + المحاضرة)</div>
+<p>① Pin fin: \(A=\tfrac{\pi}{4}d^2,\ P=\pi d,\ m=\sqrt{\dfrac{2h}{kr}},\ L_c=L+\dfrac{d}{4}\)</p>
+<p>② One fin: \(q_{fin}=kAm\,\theta_0\tanh(mL_c)\)</p>
+<p>③ Number of fins: on a plate \(W\times H\) with centre‑to‑centre pitch p: \(N=\dfrac{W\,H}{p^2}\) · on a tube: \(N=\dfrac{L}{s+t}\)</p>
+<p>④ Between fins: \(q_{between}=h\,(A_{total}-N A)\,\theta_0\)</p>
+<p>⑤ \(q_{with}=N\,q_{fin}+q_{between}\) ⑥ \(q_{without}=h\,A_{total}\,\theta_0\) → \(\varepsilon=q_{with}/q_{without}\)</p>
+</div>
+<div class="simple">إذا أعطاك ε وطلب <b>N</b>: لا تخاف — كل شي معروف إلا N. اكتب \(q_{with}=N(q_{fin}-hA\theta_0)+hA_{total}\theta_0\)، ساويها بـ \(\varepsilon\,q_{without}\)، وطلّع N (معادلة خطية بسيطة). بالفصلي طلعت \(N=28.94\approx29\).</div>
+<p><a href="past-exams.html#f26q3">نهائي 2026 Q3 محلول</a> · <a href="past-exams.html#s25q2">فصلي 2025 Q2 محلول</a></p>
+</div></article>
+
+<!-- 5 -->
+<article class="gold" id="g5">
+<header><span class="rank">5</span><h3>أنبوب/كرة + عوازل = مقاومات توالي</h3><span class="badge p1">≈ 1.5 / 10</span></header>
+<div class="gb">
+<p class="why-box">فصلي 2025 Q1 (أنبوب + عازلين) وسؤال الخزان الكروي (28 درجة!). <b>ملاحظتك صح:</b> إذا السؤال بيه <b>h</b> ← هذا شغل المحاضرة 3 (حمل + توصيل).</p>
+<div class="tbl-wrap"><table>
+<thead><tr><th>الطبقة</th><th>R</th></tr></thead>
+<tbody>
+<tr><td>حمل (أي سطح)</td><td>\(\dfrac{1}{hA}\) — أسطوانة \(A=2\pi rL\)، كرة \(A=4\pi r^2\)</td></tr>
+<tr><td>طبقة أسطوانية</td><td>\(\dfrac{\ln(r_{out}/r_{in})}{2\pi kL}\)</td></tr>
+<tr><td>طبقة كروية</td><td>\(\dfrac{1/r_{in}-1/r_{out}}{4\pi k}\)</td></tr>
+</tbody></table></div>
+<div class="paper">
+<div class="ptitle">🍳 إذا المطلوب السمك (thickness)</div>
+<p>① \(R_{total}=\Delta T/q\) ② subtract the known resistances → \(R_{insulation}\)</p>
+<p>③ Cylinder: \(\ln(r_3/r_2)=2\pi kL\,R_{ins}\Rightarrow r_3=r_2\,e^{2\pi kLR_{ins}}\) ④ thickness \(=r_3-r_2\)</p>
+<p>Sphere with "outer temperature must not exceed T": conduction = convection → <b>quadratic</b> in r₂</p>
+$$\frac{T_1-T_2}{\frac{1/r_1-1/r_2}{4\pi k}}=h\,4\pi r_2^2\,(T_2-T_\infty)$$
+</div>
+<p><a href="past-exams.html#s25q1">فصلي 2025 Q1 محلول</a> · <a href="past-exams.html#tank">الخزان الكروي محلول</a></p>
+</div></article>
+
+<!-- 6 -->
+<article class="gold" id="g6">
+<header><span class="rank">6</span><h3>الإشعاع — سطر واحد</h3><span class="badge p2">≈ 0.5 / 10</span></header>
+<div class="gb">
+<div class="paper">
+$$q=\varepsilon\,\sigma A\,(T_1^4-T_2^4),\qquad\sigma=5.669\times10^{-8}\ \text{W/m}^2\text{K}^4,\qquad T\,[\text{K}]=T\,[^\circ\text{C}]+273$$
+<p class="ar">"black" ← ε = 1. "area of the surface of a 0.7 m sphere" ← \(A=4\pi r^2=\pi d^2=1.5394\ \text{m}^2\). نهائي 2026: \(q=413.86\) W.</p>
+</div>
+</div></article>
+
+<!-- 7 -->
+<article class="gold" id="g7">
+<header><span class="rank">7</span><h3>إضافات خارج الملازم (بس جت بالامتحانات)</h3><span class="badge p5">≈ 0.5 / 10</span></header>
+<div class="gb">
+<p class="why-box">Nodal equation جا بنهائي 2026 (Q1-B، 4 درجات) و Semi-infinite جا بأوراق السنين. <b>خليهم آخر شي</b> — بس اعرف الفكرة.</p>
+<div class="paper">
+<div class="ptitle">Nodal equation (energy balance on node n, Δx = Δy)</div>
+<p>Sum of heat flowing into node n = 0 : \(\sum k\,A_i\,\dfrac{T_i-T_n}{\Delta x}=0\)</p>
+<p>Interior node: \(T_1+T_2+T_3+T_4-4T_n=0\)</p>
+<p>Node on an insulated boundary (no heat through the insulated side; the two neighbours along the boundary get half area):</p>
+$$k\Delta y\frac{T_3-T_n}{\Delta x}+k\frac{\Delta x}{2}\frac{T_2-T_n}{\Delta y}+k\frac{\Delta x}{2}\frac{T_4-T_n}{\Delta y}=0\ \Rightarrow\ \boxed{2T_3+T_2+T_4-4T_n=0}$$
+</div>
+<p style="font-size:.9rem;color:var(--muted)">التفصيل وتوضيح الرسمة: <a href="past-exams.html#f26q1b">نهائي 2026 Q1-B</a>.</p>
+</div></article>
+</section>
+
+<!-- ============ KEYWORDS ============ -->
+<section class="topic">
+<h2 id="keywords" data-short="كلمة ← قانون">🔑 كلمة بالسؤال ← شنو تسوي (30 ثانية)</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>إذا شفت…</th><th>سوّي</th></tr></thead>
+<tbody>
+<tr><td class="en">very long fin / rod</td><td>Case 1: \(q=\sqrt{hPkA}\,\theta_0\)</td></tr>
+<tr><td class="en">insulated end / neglect the end</td><td>Case 2 بـ L: \(\times\tanh mL\)</td></tr>
+<tr><td class="en">pin fin / rod / cylindrical spine</td><td>\(m=\sqrt{2h/kr}\)، \(A=\pi d^2/4\)، \(L_c=L+d/4\)</td></tr>
+<tr><td class="en">thin rectangular fin</td><td>\(m=\sqrt{2h/kt}\)، \(L_c=L+t/2\)</td></tr>
+<tr><td class="en">circumferential / annular fins</td><td>Figure 2 ← η ← \(q=\eta\,q_{max}\)</td></tr>
+<tr><td class="en">triangular fin (chart)</td><td>\(L_c=L\)، \(A_m=\tfrac{t}{2}L_c\)</td></tr>
+<tr><td class="en">effectiveness / fin performance / increase</td><td>\(\varepsilon=q_{with}/q_{without}\)</td></tr>
+<tr><td class="en">number of fins (given ε)</td><td>معادلة خطية بـ N</td></tr>
+<tr><td class="en">centre‑to‑centre distance p on W×H plate</td><td>\(N=WH/p^2\)</td></tr>
+<tr><td class="en">generated / MW/m³ / current, resistivity</td><td>توليد حرارة: 2‑4‑6، \(q=I^2R_e\)</td></tr>
+<tr><td>السؤال بيه <b>h</b> + طبقات</td><td>المحاضرة 3: \(\sum R\) مع \(1/hA\)</td></tr>
+<tr><td class="en">what thickness … to ensure / not exceed</td><td>رجّع من \(R_{total}\) ← r ← السمك</td></tr>
+<tr><td class="en">critical radius / thickness</td><td>\(r_c=k/h\) (أسطوانة)، \(2k/h\) (كرة)</td></tr>
+<tr><td class="en">black surfaces / emissivity</td><td>إشعاع بالـ K</td></tr>
+<tr><td class="en">per unit length / per meter</td><td>L = 1 m</td></tr>
+<tr><td class="en">k not given / k varies</td><td>k عند متوسط الحرارة \((T_1+T_2)/2\) من الجدول</td></tr>
+<tr><td class="en">Btu, ft, in</td><td>in ÷ 12 = ft، و k[SI] × 0.5781</td></tr>
+</tbody></table></div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section class="topic">
+<h2 id="plan" data-short="خطة 3 ساعات">⏱️ خطة الحصرة (3 ساعات بالضبط)</h2>
+<ul class="timeline">
+<li><span class="t">0:00 – 0:30</span> — البطاقات (#1). كل بطاقة: اكتبها مرة بالورقة بدون ما تشوف.</li>
+<li><span class="t">0:30 – 1:15</span> — الاشتقاقات (#2). اكتب الكرة والزعنفة كاملة مرة وحدة بيدك.</li>
+<li><span class="t">1:15 – 1:45</span> — سؤال الكرة (#3): حل نهائي 2026 Q2 بالورقة.</li>
+<li><span class="t">1:45 – 2:25</span> — الزعانف (#4): نهائي 2026 Q3 + فصلي 2025 Q2.</li>
+<li><span class="t">2:25 – 2:50</span> — العوازل (#5): فصلي 2025 Q1 + الخزان الكروي.</li>
+<li><span class="t">2:50 – 3:00</span> — الإشعاع + اقرا "لا تسويها" تحت. وبعدين <b>نام</b> 😴 — النوم يثبت الحفظ.</li>
+</ul>
+</section>
+
+<!-- ============ EXAM TIPS ============ -->
+<section class="topic">
+<h2 id="tips" data-short="بالقاعة">✍️ بالقاعة — شلون تاخذ أعلى درجة</h2>
+<div class="card">
+<ol style="margin:0">
+<li><b>"Attempt only Four Questions"</b>: اختار أول شي الأسئلة اللي بيها اشتقاق/Give the equation — مضمونة.</li>
+<li><b>"Take Four decimal"</b>: خلي 4 مراتب عشرية (مثلاً 634.4965) — الدكتور كاتبها بالورقة.</li>
+<li>اكتب <b>المعادلة بالرموز أولاً</b>، بعدين عوّض. حتى لو غلطت بالحاسبة تاخذ درجة الطريقة.</li>
+<li>ارسم الدائرة الحرارية أو الشكل بالأبعاد — يوضح للمصحح إنك فاهم.</li>
+<li>الوحدات بكل خطوة، والجواب النهائي داخل مربع ☐.</li>
+<li>إذا علقت بسؤال: اكتب المعطيات والقانون العام وانتقل — نص درجة أحسن من صفر.</li>
+</ol>
+</div>
+</section>
+
+<!-- ============ DON'TS ============ -->
+<section class="topic">
+<h2 id="donts" data-short="لا تسويها">🚫 لا تسويها (أكثر 8 أغلاط تضيع الدرجة)</h2>
+<div class="card">
+<ol style="margin:0">
+<li>تستخدم <b>القطر</b> بدل نصف القطر (6.5 cm ← R = 0.0325 m).</li>
+<li>تنسى تحويل cm/mm للمتر، أو in للـ ft.</li>
+<li>الإشعاع بالسيليزي — <b>لازم Kelvin</b>.</li>
+<li>تخلط 2k / 4k / 6k (جدار / أسطوانة / كرة).</li>
+<li>تحط \(T_\infty\) مكان \(T_w\) بمعادلة \(T_0\).</li>
+<li>تنسى \(q_{between}\) بمصفوفة الزعانف، أو تنسى تطرح مساحة قواعد الزعانف.</li>
+<li>تجمع مقاومة الحمل الخارجي <b>القديمة</b> ويا الجديدة بعد ما تضيف عازل (صار هذا بحل الفصلي!).</li>
+<li>تكتب الوحدة غلط (W مو kW) — نفس الحل المنتشر كتب "11 kW" والصحيح ≈ 11 W/m.</li>
+</ol>
+</div>
+</section>
+
+<script>
+window.HTPage = function () {
+  var ITEMS = [
+    ['g1', 'البطاقات: 12 معادلة "Give the equation"', 1.5],
+    ['g2a', 'اشتقاق الزعنفة + الحالات الثلاث', 1.5],
+    ['g2b', 'اشتقاقات توليد الحرارة (جدار/أسطوانة/كرة)', 1.5],
+    ['g3', 'سؤال كرة/سلك يولد حرارة (Tw ثم T₀ ثم T(r))', 1.5],
+    ['g4', 'مصفوفة زعانف + ε / عدد الزعانف', 1.5],
+    ['g5', 'أنبوب/كرة + عوازل + السمك', 1.5],
+    ['g6', 'الإشعاع (Kelvin)', 0.5],
+    ['g7', 'الإضافات: nodal + semi-infinite', 0.5]
+  ];
+  var S = window.HTStore, st = S.get('ht-cram', {});
+  var list = document.getElementById('gaugeList'), svg = document.getElementById('gaugeSvg'), msg = document.getElementById('gaugeMsg');
+  ITEMS.forEach(function (it) {
+    var l = document.createElement('label');
+    l.innerHTML = '<input type="checkbox"> <span>' + it[1] + '</span><span class="w">+' + it[2] + '</span>';
+    var cb = l.querySelector('input'); cb.checked = !!st[it[0]]; l.classList.toggle('on', cb.checked);
+    cb.addEventListener('change', function () { st[it[0]] = cb.checked; S.set('ht-cram', st); l.classList.toggle('on', cb.checked); draw(); });
+    list.appendChild(l);
+  });
+  function arc(a0, a1, r) {
+    var x0 = 120 + r * Math.cos(a0), y0 = 125 + r * Math.sin(a0), x1 = 120 + r * Math.cos(a1), y1 = 125 + r * Math.sin(a1);
+    return 'M' + x0 + ' ' + y0 + ' A' + r + ' ' + r + ' 0 ' + (a1 - a0 > Math.PI ? 1 : 0) + ' 1 ' + x1 + ' ' + y1;
+  }
+  function draw() {
+    var v = ITEMS.reduce(function (s, it) { return s + (st[it[0]] ? it[2] : 0); }, 0);
+    var A0 = Math.PI, A = Math.PI + Math.PI * v / 10, A5 = Math.PI * 1.5;
+    var col = v >= 8 ? '#23804f' : v >= 5 ? '#4fb36b' : v >= 3 ? '#f0a44b' : '#d9481f';
+    svg.innerHTML =
+      '<path d="' + arc(A0, 2 * Math.PI - 0.0001, 95) + '" fill="none" stroke="var(--surface-3)" stroke-width="20" stroke-linecap="round"/>' +
+      (v > 0 ? '<path d="' + arc(A0, A, 95) + '" fill="none" stroke="' + col + '" stroke-width="20" stroke-linecap="round" style="transition:all .4s"/>' : '') +
+      '<line x1="' + (120 + 72 * Math.cos(A5)) + '" y1="' + (125 + 72 * Math.sin(A5)) + '" x2="' + (120 + 118 * Math.cos(A5)) + '" y2="' + (125 + 118 * Math.sin(A5)) + '" stroke="var(--text)" stroke-width="2" stroke-dasharray="4 3"/>' +
+      '<text x="120" y="10" text-anchor="middle" style="font:700 10px Inter;fill:var(--muted)">5 = pass</text>' +
+      '<text x="120" y="112" text-anchor="middle" style="font:800 34px Inter;fill:' + col + '">' + v.toFixed(1) + '</text>' +
+      '<text x="120" y="134" text-anchor="middle" style="font:700 13px Inter;fill:var(--muted)">/ 10</text>';
+    msg.textContent = v >= 8 ? '🏆 وحش! أنت جاهز' : v >= 5 ? '✅ ضامن النجاح — كمّل حتى ترفع الدرجة' : v >= 3 ? '💪 قربت — كمّل للـ 5' : '🚀 يلا ابدأ بالبطاقات (#1)';
+  }
+  draw();
+};
+</script>
+
+</div></main>
+</body>
+</html>
