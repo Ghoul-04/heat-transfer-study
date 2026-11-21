@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>مقدمة: طرق انتقال الحرارة</title>
-<meta name="description" content="الزعانف: اشتقاق معادلة الزعنفة، الحالات الثلاث، الزعنفة الرقيقة والدبوسية والطول المصحح، مع أمثلة المحاضرة والواجب.">
+<title>Introduction — Modes of Heat Transfer</title>
+<meta name="description" content="مقدمة انتقال الحرارة: التوصيل وقانون فورييه، الحمل وقانون نيوتن، الإشعاع وستيفان‑بولتزمان، تحويل درجات الحرارة.">
 <script>try{var t=localStorage.getItem('ht-theme');t=t?JSON.parse(t):(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','light')}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap">
@@ -17,6 +17,155 @@
 <script defer src="js/layout.js"></script>
 </head>
 <body data-page="intro">
-<main id="content"><div class="wrap"><div class="page-hero"><h1>مقدمة: طرق انتقال الحرارة</h1><p>⏳ هذا القسم ينضاف خلال دقائق — ابدأ بالأقسام ذات الأولوية.</p></div></div></main>
+<main id="content"><div class="wrap">
+
+<div class="page-hero">
+  <div class="kicker">Lecture 1 · pages 1–4 · Introduction</div>
+  <h1>مقدمة: طرق انتقال الحرارة</h1>
+  <span class="badge p5">أولوية 5 — بس هو الأساس لكلشي</span>
+  <p>علم انتقال الحرارة ما يكتفي يشرح <b>شلون</b> تنتقل الطاقة الحرارية، بل يتنبأ <b>بأي معدل (rate)</b> تنتقل تحت ظروف معينة. السبب دائماً واحد: <b>فرق درجات الحرارة</b>.</p>
+  <div data-toc></div>
+</div>
+
+<section class="topic">
+<h2 id="modes" data-short="الطرق الثلاث">🔥 الطرق الثلاث (Modes of heat transfer)</h2>
+<div class="tbl-wrap"><table>
+<thead><tr><th>الطريقة</th><th>شلون تصير؟</th><th>القانون</th><th>مثال</th></tr></thead>
+<tbody>
+<tr><td><b>1- Conduction</b> توصيل</td><td>خلال جسم صلب (أو مائع ساكن) — من الجزيئات الحارة للباردة</td><td>Fourier</td><td>ماسك ملعقة بشاي حار</td></tr>
+<tr><td><b>2- Convection</b> حمل</td><td>بين سطح ومائع متحرك</td><td>Newton</td><td>صفيحة حارة قدام مروحة</td></tr>
+<tr><td><b>3- Radiation</b> إشعاع</td><td>موجات كهرومغناطيسية — حتى بالفراغ</td><td>Stefan‑Boltzmann</td><td>حرارة الشمس</td></tr>
+</tbody></table></div>
+</section>
+
+<section class="topic">
+<h2 id="conduction" data-short="التوصيل (فورييه)">🧱 التوصيل وقانون فورييه</h2>
+<p>إذا أكو تدرج حراري (temperature gradient) داخل جسم، الطاقة تنتقل من المنطقة الحارة للباردة. معدل الانتقال لكل وحدة مساحة يتناسب مع التدرج:</p>
+<div class="eq">$$\frac{q}{A}\ \propto\ \frac{\partial T}{\partial x}$$</div>
+<div class="f" data-name="Fourier's law of heat conduction" data-sym="q|معدل انتقال الحرارة|W (= J/s) ; k|الموصلية الحرارية للمادة|W/m·°C ; A|المساحة العمودية على اتجاه الحرارة|m² ; \partial T/\partial x|التدرج الحراري باتجاه الحرارة|°C/m">
+<div class="eq">$$q=-kA\frac{\partial T}{\partial x}$$</div>
+<p class="what">الحرارة تمشي بعكس اتجاه زيادة الحرارة (من الحار للبارد) — لهذا أكو إشارة <b>سالب</b>: التدرج سالب فالـ q تطلع موجبة.</p>
+<p class="when">أي توصيل خلال مادة صلبة، وهو أساس كل مقاومات التوصيل بالمحاضرات الجاية.</p>
+<p class="hint">"<b>k A</b> يدفعون، والسالب يدوّر الاتجاه". كل ما k أكبر (معادن) الحرارة تعبر أسرع.</p>
+</div>
+<div class="f" data-name="1-D steady state (integrated form)" data-sym="\Delta x|سمك الطبقة|m ; T_1, T_2|حرارة الوجهين|°C">
+<div class="eq">$$q=-\frac{kA}{\Delta x}\,(T_2-T_1)=\frac{kA}{\Delta x}\,(T_1-T_2)$$</div>
+<p class="what">بحالة مستقرة وبعد واحد، التدرج ثابت فنكامل مباشرة: الفرق ÷ السمك.</p>
+<p class="when">جدار مستوي بدرجتين معلومتين على وجهيه.</p>
+<p class="hint">"الحار ناقص البارد" بالبسط وتنسى السالب — أسهل.</p>
+</div>
+
+<article class="ex" id="ex-intro-1">
+<header><h3>مثال 1: طبقة فايبرگلاس</h3><span class="src">Lecture p.2</span></header>
+<div class="stmt en">A temperature difference of 85 °C is impressed across a fiberglass layer of 13 cm thickness. The thermal conductivity (K) of the fiberglass is 0.035 W/m·°C. Compute the heat transferred rate through the fiberglass material per unit area.</div>
+<div class="sol">
+<div class="given" data-rows="\Delta T|85 °C|ΔT = −85 °C (T₂ − T₁) ; \Delta x|13 cm|0.13 m ; k|0.035 W/m·°C|0.035"></div>
+<div class="find">Find: q/A<span class="ar">المطلوب: الحرارة لكل وحدة مساحة.</span></div>
+<div class="strategy"><p>توصيل بسيط خلال طبقة وحدة ⇒ فورييه مباشرة. "per unit area" ⇒ نقسم على A.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$\frac{q}{A}=-k\,\frac{\Delta T}{\Delta x}$$</div><p class="why">فورييه مقسوم على A.</p></div>
+<div class="st"><div class="eq">$$\Delta T=-85\ {}^\circ\text{C},\quad k=0.035\ \text{W/m·°C},\quad\Delta x=0.13\ \text{m}$$</div><p class="why">\(\Delta T=T_2-T_1\) سالب لأن الحرارة تنزل باتجاه x. والـ cm ← m.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{A}=-0.035\times\frac{-85}{0.13}$$</div><p class="why">السالبين يتلغون ⇒ q موجبة (باتجاه x).</p></div>
+</div>
+<div class="ans">$$\frac{q}{A}=22.88\ \text{W/m}^2$$</div>
+<p class="check">فايبرگلاس عازل (k صغيرة جداً) فالحرارة قليلة — 23 W لكل m² رغم فرق 85 درجة. منطقي ✔.</p>
+<p class="trap">تخلي السمك 13 بدل 0.13 m (يطلع الجواب أصغر 100 مرة).</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="convection" data-short="الحمل (نيوتن)">💨 الحمل الحراري وقانون نيوتن للتبريد</h2>
+<p>صفيحة معدن حارة تبرد أسرع قدام مروحة من الهواء الساكن — هذا الحمل. نوعين:</p>
+<ul>
+<li><b>Natural (free) convection</b> — حمل طبيعي: المائع يتحرك بسبب فرق الكثافة (الهواء الحار يصعد).</li>
+<li><b>Forced convection</b> — حمل قسري: مروحة، مضخة، ريح.</li>
+</ul>
+<div class="f" data-name="Newton's law of cooling" data-sym="q|معدل انتقال الحرارة|W ; h|معامل انتقال الحرارة بالحمل|W/m²·°C ; A|مساحة السطح|m² ; T_w|حرارة السطح (wall)|°C ; T_\infty|حرارة المائع بعيداً عن السطح|°C">
+<div class="eq">$$q=hA\,(T_w-T_\infty)$$</div>
+<p class="what">الحرارة من السطح للمائع تتناسب مع المساحة ومع فرق الحرارة. كل تعقيد الجريان (سرعة، لزوجة، نوع المائع) مخزون بالرقم h.</p>
+<p class="when">أي سطح يلامس مائع وh معطى.</p>
+<p class="hint">"<b>h</b>ot plate بالـ <b>h</b>awa": h × A × (الجدار − المائع).</p>
+</div>
+
+<article class="ex" id="ex-intro-2">
+<header><h3>مثال 2: صفيحة حارة بتيار هواء</h3><span class="src">Lecture p.3</span></header>
+<div class="stmt en">Air at 20 °C blows over a hot plate 50 by 75 cm maintained at 250 °C. The convection heat-transfer coefficient is 25 W/m²·°C. Calculate the heat transfer.</div>
+<div class="sol">
+<div class="given" data-rows="h|25 W/m²·°C|25 ; T_w|250 °C|250 °C ; T_\infty|20 °C|20 °C ; \text{plate}|50 × 75 cm|0.5 × 0.75 m"></div>
+<div class="find">Find: q<span class="ar">المطلوب: الحرارة المنتقلة.</span></div>
+<div class="strategy"><p>هواء على صفيحة ⇒ حمل ⇒ نيوتن. نحسب المساحة أول.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$A=0.5\times0.75=0.375\ \text{m}^2$$</div><p class="why">نحول الأبعاد لمتر قبل الضرب.</p></div>
+<div class="st"><div class="eq">$$q=hA\,(T_w-T_\infty)=25\times0.375\times(250-20)$$</div><p class="why">قانون نيوتن.</p></div>
+</div>
+<div class="ans">$$q\approx2156\ \text{W}$$</div>
+<p class="check">2.2 kW من صفيحة بحجم صينية بـ 250°C ويا مروحة — مثل مدفأة كهربائية، منطقي ✔.</p>
+<p class="trap">تضرب 50×75 = 3750 وتنسى التحويل (cm² ≠ m²: لازم ÷10⁴).</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="radiation" data-short="الإشعاع">☀️ الإشعاع وقانون ستيفان‑بولتزمان</h2>
+<p>الحرارة ممكن تنتقل حتى بالفراغ الكامل بالموجات الكهرومغناطيسية. الجسم الأسود المثالي يشع طاقة تتناسب مع <b>القوة الرابعة لدرجة الحرارة المطلقة</b> ومع مساحته.</p>
+<div class="f" data-name="Stefan–Boltzmann law (blackbody emission)" data-sym="\sigma|ثابت ستيفان‑بولتزمان = 5.669×10⁻⁸|W/m²·K⁴ ; T|درجة الحرارة <b>المطلقة</b>|K ; A|المساحة|m²">
+<div class="eq">$$q=\sigma A\,T^4$$</div>
+<p class="what">الإشعاع حساس جداً للحرارة: تضاعف T (بالكلفن) ⇒ الإشعاع يصير 16 ضعف!</p>
+<p class="when">جسم أسود يشع لوحده.</p>
+<p class="hint">σ = <b>5.669</b> × 10⁻⁸ — "5‑6‑6‑9 والأس سالب ثمانية".</p>
+</div>
+<div class="f" data-name="Net radiation exchange between two surfaces" data-sym="\varepsilon|الانبعاثية emissivity (1 للجسم الأسود)|— ; T_1, T_2|حرارة السطحين المطلقة|K">
+<div class="eq">$$q=\varepsilon\,\sigma A\,(T_1^4-T_2^4)$$</div>
+<p class="what">الصافي = اللي يشعه الحار − اللي يرجعله من البارد. ε بين 0 و 1 تقيس شكد السطح قريب من الأسود.</p>
+<p class="when">سطحين يشوفون بعض (كل الإشعاع من واحد يوصل للثاني).</p>
+<p class="hint">"<b>الأس 4 بالكلفن دائماً</b>" — لا تطرح بالسيليزي وتربّع!</p>
+</div>
+
+<article class="ex" id="ex-intro-3">
+<header><h3>مثال 3: سطحين أسودين</h3><span class="src">Lecture p.4</span></header>
+<div class="stmt en">Two perfectly black surfaces are constructed so that all the radiant energy leaving a surface at 800 °C reaches the other surface. The temperature of the other surface is maintained at 250 °C. Calculate the heat transfer between the surfaces per unit area.</div>
+<div class="sol">
+<div class="given" data-rows="T_1|800 °C|800 + 273 = 1073 K ; T_2|250 °C|250 + 273 = 523 K ; \varepsilon|perfectly black|1 ; \sigma|—|5.669×10⁻⁸ W/m²·K⁴"></div>
+<div class="find">Find: q/A<span class="ar">المطلوب: الحرارة المتبادلة لكل وحدة مساحة.</span></div>
+<div class="strategy"><p>إشعاع بين سطحين ⇒ \(q=\varepsilon\sigma A(T_1^4-T_2^4)\). أول خطوة <b>إجبارية</b>: نحول للكلفن.</p></div>
+<div class="steps">
+<div class="st"><div class="eq">$$T_1=800+273=1073\ \text{K},\qquad T_2=250+273=523\ \text{K}$$</div><p class="why">قانون الإشعاع يشتغل بس بالحرارة المطلقة.</p></div>
+<div class="st"><div class="eq">$$\frac{q}{A}=\varepsilon\sigma\,(T_1^4-T_2^4)=1\times5.669\times10^{-8}\,\{(1073)^4-(523)^4\}$$</div><p class="why">ε = 1 لأن السطوح "perfectly black".</p></div>
+</div>
+<div class="ans">$$\frac{q}{A}=70.9\ \text{kW/m}^2$$</div>
+<p class="check">\(1073^4\approx1.33\times10^{12}\) أكبر بـ 18 مرة من \(523^4\) — يعني الحار هو المسيطر، والجواب ضخم لأن 800°C حرارة عالية جداً (فرن). ✔</p>
+<p class="trap">تعوض 800 و 250 مباشرة بالسيليزي ⇒ جواب غلط تماماً. أو تحسب \((T_1-T_2)^4\) بدل \(T_1^4-T_2^4\).</p>
+<p class="note">بالمحاضرة مكتوب "T₂ = 250 + 273 = 525 k" — الصحيح 523 K، والحساب نفسه استخدم 523 فالجواب صحيح.</p>
+</div>
+</article>
+</section>
+
+<section class="topic">
+<h2 id="temps" data-short="تحويل الحرارة">🌡️ تحويل درجات الحرارة</h2>
+<div class="f" data-name="Temperature conversions" data-sym="^\circ F|فهرنهايت|— ; ^\circ R|رانكن (المطلق للفهرنهايت)|— ; K|كلفن (المطلق للسيليزي)|—">
+<div class="eq">$$\text{°F}=1.8\,\text{°C}+32\qquad \text{°R}=\text{°F}+459.69\qquad \text{K}=\text{°C}+273.16\qquad \text{°R}=1.8\,\text{K}$$</div>
+<p class="what">الكلفن والرانكن يبدون من الصفر المطلق؛ وحجم الدرجة الفهرنهايتية = 1/1.8 من السيليزية.</p>
+<p class="when">الإشعاع (لازم مطلق)، والأسئلة الإنكليزية مثل Q2.</p>
+<p class="hint">⚠️ <b>للفروقات</b>: \(\Delta T[^\circ F]=1.8\,\Delta T[^\circ C]\) — الـ 32 تختفي! (لهذا بـ Q2 الـ 52°F تساوي 28.9°C فرق.)</p>
+</div>
+<div class="card">
+<h3 style="margin-top:0">🧪 حاسبة تحويل سريعة</h3>
+<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;direction:ltr">
+<input type="number" id="tc" value="100" step="any" style="width:120px" aria-label="Celsius"> <span class="num">°C</span>
+<span class="num" id="tout" style="font-weight:700"></span>
+</div>
+</div>
+</section>
+
+<script>
+window.HTPage = function () {
+  var i = document.getElementById('tc'), o = document.getElementById('tout');
+  function u() { var c = parseFloat(i.value) || 0, f = 1.8 * c + 32; o.textContent = '= ' + f.toFixed(2) + ' °F = ' + (c + 273.16).toFixed(2) + ' K = ' + (f + 459.69).toFixed(2) + ' °R'; }
+  i.addEventListener('input', u); u();
+};
+</script>
+
+</div></main>
 </body>
 </html>
